@@ -1,0 +1,566 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutContainer.cshtml";
+}
+
+<section class="hero">
+    <div class="hero__slider owl-carousel">
+        <div class="hero__items set-bg wow fadeInLeft"
+             data-wow-delay="0.5s"
+             data-setbg="/Assets/img/hero/hero-1.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text wow fadeInUp" data-wow-delay="0.9s">
+                            <h6 class="wow fadeInUp" data-wow-delay="0.5s">
+                                Bộ sưu tập mùa thu
+                            </h6>
+                            <h2 class="wow fadeInUp" data-wow-delay="1.3s">
+                                Bộ sưu tập Thu – Đông 2030
+                            </h2>
+                            <p class="wow fadeInUp" data-wow-delay="1.6s">
+                                Một nhãn hiệu chuyên tạo ra những sản phẩm thiết yếu sang
+                                trọng. Được xây dựng có đạo đức với cam kết vững chắc về
+                                chất lượng vượt trội.
+                            </p>
+                            <a href="shop.html"
+                               class="primary-btn wow fadeInUp"
+                               data-wow-delay="1.8s">
+                                Mua ngay <span class="arrow_right"></span>
+                            </a>
+                            <div class="hero__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__items set-bg" data-setbg="/Assets/img/hero/hero-2.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text wow fadeInUp" data-wow-delay="0.9s">
+                            <h6 class="wow fadeInUp" data-wow-delay="0.5s">
+                                Bộ sưu tập mùa thu
+                            </h6>
+                            <h2 class="wow fadeInUp" data-wow-delay="1.3s">
+                                Bộ sưu tập Thu – Đông 2030
+                            </h2>
+                            <p class="wow fadeInUp" data-wow-delay="1.6s">
+                                Một nhãn hiệu chuyên tạo ra những sản phẩm thiết yếu sang
+                                trọng. Được xây dựng có đạo đức với cam kết vững chắc về
+                                chất lượng vượt trội.
+                            </p>
+                            <a href="shop.html"
+                               class="primary-btn wow fadeInUp"
+                               data-wow-delay="1.8s">
+                                Mua ngay <span class="arrow_right"></span>
+                            </a>
+                            <div class="hero__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!-- Banner Section Begin -->
+<section class="banner spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 offset-lg-4">
+                <div class="banner__item">
+                    <div class="banner__item__pic">
+                        <img class="wow slideInLeft"
+                             data-wow-delay="0.5s"
+                             src="/Assets/img/banner/banner-1.jpg"
+                             alt="" />
+                    </div>
+                    <div class="banner__item__text wow fadeInRight"
+                         data-wow-delay="0.5s">
+                        <h2>Bộ sưu tập quần áo 2030</h2>
+                        <a href="shop.html">Mua ngay</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="banner__item banner__item--middle">
+                    <div class="banner__item__pic wow fadeOutRight"
+                         data-wow-delay="0.5s">
+                        <img src="/Assets/img/banner/banner-2.jpg" alt="" />
+                    </div>
+                    <div class="banner__item__text wow fadeOutLeft"
+                         data-wow-delay="0.5s">
+                        <h2>Áo hottrend</h2>
+                        <a href="shop.html">Mua ngay</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="banner__item banner__item--last">
+                    <div class="banner__item__pic wow zoomIn" data-wow-delay="1.5s">
+                        <img src="/Assets/img/banner/banner-3.jpg" alt="" />
+                    </div>
+                    <div class="banner__item__text wow zoomInUp"
+                         data-wow-delay="1.5s">
+                        <h2>Quần siêu rẻ</h2>
+                        <a href="shop.html">Mua ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Section End -->
+<!-- Product Section Begin -->
+<section class="product spad">
+    <div class="container">
+        <div class="row wow fadeInUp" data-wow-delay="0.6s">
+            <div class="col-lg-12">
+                <ul class="filter__controls">
+                    <li class="active" data-filter="*">Sản phẩm bán chạy nhất</li>
+                    <li data-filter=".new-arrivals">Hàng mới về</li>
+                    <li data-filter=".hot-sale">Khuyến mãi hot</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row product__filter">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                <div class="product__item wow fadeInUpBig" data-wow-delay="0.6s">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="/Assets/img/product/product-2.jpg">
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/Assets/img/icon/compare.png" alt="" />
+                                    <span>Compare</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
+                        <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>$67.24</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                <div class="product__item sale wow fadeInUpBig"
+                     data-wow-delay="0.6s">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="/Assets/img/product/product-3.jpg">
+                        <span class="label">Sale</span>
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/Assets/img/icon/compare.png" alt="" />
+                                    <span>Compare</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>$43.48</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                <div class="product__item wow fadeInUpBig" data-wow-delay="0.6s">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="/Assets/img/product/product-4.jpg">
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/Assets/img/icon/compare.png" alt="" />
+                                    <span>Compare</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
+                        <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>$60.9</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                <div class="product__item wow fadeInUpBig" data-wow-delay="0.5s">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="/Assets/img/product/product-5.jpg">
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/Assets/img/icon/compare.png" alt="" />
+                                    <span>Compare</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
+                        <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>$31.37</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                <div class="product__item sale wow fadeInUpBig"
+                     data-wow-delay="0.5s">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="/Assets/img/product/product-6.jpg">
+                        <span class="label">Sale</span>
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/Assets/img/icon/compare.png" alt="" />
+                                    <span>Compare</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>$98.49</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                <div class="product__item wow fadeInUpBig" data-wow-delay="0.5s">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="/Assets/img/product/product-7.jpg">
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/Assets/img/icon/compare.png" alt="" />
+                                    <span>Compare</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
+                        <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>$49.66</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                <div class="product__item wow fadeInUpBig" data-wow-delay="0.5s">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="/Assets/img/product/product-8.jpg">
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/Assets/img/icon/compare.png" alt="" />
+                                    <span>Compare</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
+                        <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>$26.28</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                <div class="product__item wow fadeInUpBig" data-wow-delay="0.5s">
+                    <div class="product__item__pic set-bg"
+                         data-setbg="/Assets/img/product/product-8.jpg">
+                        <ul class="product__hover">
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="/Assets/img/icon/compare.png" alt="" />
+                                    <span>Compare</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
+                            </li>
+                            <li>
+                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
+                        <div class="rating">
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <h5>$26.28</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Product Section End -->
+<!-- Categories Section Begin -->
+<section class="categories spad wow fadeInLeft" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="categories__text">
+                    <h2>
+                        Quần áo Hot<br />
+                        <span>Bộ sưu tập quần</span> <br />
+                        Áo hottrend
+                    </h2>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="categories__hot__deal">
+                    <img src="/Assets/img/product-sale.png" alt="" />
+                    <div class="hot__deal__sticker">
+                        <span>Giảm giá</span>
+                        <h5>199k</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 offset-lg-1">
+                <div class="categories__deal__countdown">
+                    <span>Ưu đãi của tuần</span>
+                    <h2>Túi đeo chéo nhiều ngăn màu đen</h2>
+                    <div class="categories__deal__countdown__timer" id="countdown">
+                        <div class="cd-item">
+                            <span>3</span>
+                            <p>Ngày</p>
+                        </div>
+                        <div class="cd-item">
+                            <span>1</span>
+                            <p>Giờ</p>
+                        </div>
+                        <div class="cd-item">
+                            <span>50</span>
+                            <p>Phút</p>
+                        </div>
+                        <div class="cd-item">
+                            <span>18</span>
+                            <p>Giây</p>
+                        </div>
+                    </div>
+                    <a href="shop.html" class="primary-btn">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Section End -->
+<!-- Instagram Section Begin -->
+<section class="instagram spad wow fadeInRight" data-wow-delay="0.5s">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="instagram__pic">
+                    <div class="instagram__pic__item set-bg"
+                         data-setbg="/Assets/img/instagram/instagram-1.jpg"></div>
+                    <div class="instagram__pic__item set-bg"
+                         data-setbg="/Assets/img/instagram/instagram-2.jpg"></div>
+                    <div class="instagram__pic__item set-bg"
+                         data-setbg="/Assets/img/instagram/instagram-3.jpg"></div>
+                    <div class="instagram__pic__item set-bg"
+                         data-setbg="/Assets/img/instagram/instagram-4.jpg"></div>
+                    <div class="instagram__pic__item set-bg"
+                         data-setbg="/Assets/img/instagram/instagram-5.jpg"></div>
+                    <div class="instagram__pic__item set-bg"
+                         data-setbg="/Assets/img/instagram/instagram-6.jpg"></div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="instagram__text">
+                    <h2>Instagram</h2>
+                    <p>Theo dõi Instagram của chúng tôi</p>
+                    <h3>#Skyline_Shop</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Instagram Section End -->
+<!-- Latest Blog Section Begin -->
+<section class="latest spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title wow slideInLeft" data-wow-delay="0.5s">
+                    <span>Tin tức mới nhất</span>
+                    <h2>Xu hướng thời trang mới</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row wow fadeInUpBig" data-wow-delay="0.5s">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg"
+                         data-setbg="/Assets/img/blog/blog-1.jpg"></div>
+                    <div class="blog__item__text">
+                        <span>
+                            <img src="/Assets/img/icon/calendar.png" alt="" /> 16 tháng 2
+                            2020
+                        </span>
+                        <h5>Áo nào hợp với mùa hè nhất</h5>
+                        <a href="blog-details.html">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg"
+                         data-setbg="/Assets/img/blog/blog-2.jpg"></div>
+                    <div class="blog__item__text">
+                        <span>
+                            <img src="/Assets/img/icon/calendar.png" alt="" /> Ngày 21 tháng 2
+                            2020
+                        </span>
+                        <h5>Xả kho cùng Skyline team</h5>
+                        <a href="blog-details.html">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg"
+                         data-setbg="/Assets/img/blog/blog-3.jpg"></div>
+                    <div class="blog__item__text">
+                        <span>
+                            <img src="/Assets/img/icon/calendar.png" alt="" /> Ngày 28 tháng 2
+                            2020
+                        </span>
+                        <h5>Mua rẻ hơn với Skyline Shop</h5>
+                        <a href="blog-details.html">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Latest Blog Section End -->

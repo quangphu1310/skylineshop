@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="skyshopModelStoreContainer" CdmEntityContainer="skyshopEntities">
+    <EntitySetMapping Name="Brand">
+      <EntityTypeMapping TypeName="skyshopModel.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+          <ScalarProperty Name="brand_name" ColumnName="brand_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="skyshopModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="id_cate" ColumnName="id_cate" />
+          <ScalarProperty Name="cate_name" ColumnName="cate_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailSizePd">
+      <EntityTypeMapping TypeName="skyshopModel.DetailSizePd">
+        <MappingFragment StoreEntitySet="DetailSizePd">
+          <ScalarProperty Name="idDetailSPd" ColumnName="idDetailSPd" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="Size_name" ColumnName="Size_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Evaluation">
+      <EntityTypeMapping TypeName="skyshopModel.Evaluation">
+        <MappingFragment StoreEntitySet="Evaluation">
+          <ScalarProperty Name="id_cust" ColumnName="id_cust" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="comment_date" ColumnName="comment_date" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="skyshopModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="id_cust" ColumnName="id_cust" />
+          <ScalarProperty Name="date_create" ColumnName="date_create" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_Detail">
+      <EntityTypeMapping TypeName="skyshopModel.Order_Detail">
+        <MappingFragment StoreEntitySet="Order_Detail">
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="id_order" ColumnName="id_order" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="total" ColumnName="total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="skyshopModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+          <ScalarProperty Name="id_cate" ColumnName="id_cate" />
+          <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Image">
+      <EntityTypeMapping TypeName="skyshopModel.Product_Image">
+        <MappingFragment StoreEntitySet="Product_Image">
+          <ScalarProperty Name="id_image" ColumnName="id_image" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="skyshopModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+          <ScalarProperty Name="role_name" ColumnName="role_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Size">
+      <EntityTypeMapping TypeName="skyshopModel.Size">
+        <MappingFragment StoreEntitySet="Size">
+          <ScalarProperty Name="Size_name" ColumnName="Size_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="skyshopModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

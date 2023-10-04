@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="skyshopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="id_brand" />
+    </Key>
+    <Property Name="id_brand" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="brand_name" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="id_cate" />
+    </Key>
+    <Property Name="id_cate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cate_name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DetailSizePd">
+    <Key>
+      <PropertyRef Name="idDetailSPd" />
+    </Key>
+    <Property Name="idDetailSPd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_product" Type="int" />
+    <Property Name="Size_name" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="Evaluation">
+    <Key>
+      <PropertyRef Name="id_cust" />
+      <PropertyRef Name="id_product" />
+    </Key>
+    <Property Name="id_cust" Type="int" Nullable="false" />
+    <Property Name="id_product" Type="int" Nullable="false" />
+    <Property Name="content" Type="nvarchar(max)" />
+    <Property Name="comment_date" Type="date" />
+    <Property Name="image" Type="text" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="id_order" />
+    </Key>
+    <Property Name="id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_cust" Type="int" />
+    <Property Name="date_create" Type="date" />
+    <Property Name="address" Type="nvarchar(max)" />
+    <Property Name="phone" Type="varchar" MaxLength="10" />
+    <Property Name="email" Type="varchar" MaxLength="30" />
+    <Property Name="note" Type="text" />
+    <Property Name="payment_status" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Order_Detail">
+    <Key>
+      <PropertyRef Name="id_product" />
+      <PropertyRef Name="id_order" />
+    </Key>
+    <Property Name="id_product" Type="int" Nullable="false" />
+    <Property Name="id_order" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="size" Type="char" MaxLength="3" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="id_product" />
+    </Key>
+    <Property Name="id_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_name" Type="nvarchar(max)" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="desc" Type="nvarchar(max)" />
+    <Property Name="id_cate" Type="int" />
+    <Property Name="id_brand" Type="int" />
+  </EntityType>
+  <EntityType Name="Product_Image">
+    <Key>
+      <PropertyRef Name="id_image" />
+    </Key>
+    <Property Name="id_image" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="image" Type="text" />
+    <Property Name="id_product" Type="int" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id_role" />
+    </Key>
+    <Property Name="id_role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_name" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Size">
+    <Key>
+      <PropertyRef Name="Size_name" />
+    </Key>
+    <Property Name="Size_name" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="40" />
+    <Property Name="phone" Type="varchar" MaxLength="10" />
+    <Property Name="password" Type="char" MaxLength="30" />
+    <Property Name="id_role" Type="int" />
+  </EntityType>
+  <Association Name="FK__DetailSiz__id_pr__4BAC3F29">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="DetailSizePd" Type="Self.DetailSizePd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id_product" />
+      </Principal>
+      <Dependent Role="DetailSizePd">
+        <PropertyRef Name="id_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetailSiz__Size___4CA06362">
+    <End Role="Size" Type="Self.Size" Multiplicity="0..1" />
+    <End Role="DetailSizePd" Type="Self.DetailSizePd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Size">
+        <PropertyRef Name="Size_name" />
+      </Principal>
+      <Dependent Role="DetailSizePd">
+        <PropertyRef Name="Size_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Evaluatio__id_cu__52593CB8">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Evaluation">
+        <PropertyRef Name="id_cust" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Evaluatio__id_pr__534D60F1">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Evaluation" Type="Self.Evaluation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id_product" />
+      </Principal>
+      <Dependent Role="Evaluation">
+        <PropertyRef Name="id_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__id_cust__5629CD9C">
+    <End Role="User" Type="Self.User" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="id_cust" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_Det__id_or__5AEE82B9">
+    <End Role="Order" Type="Self.Order" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="id_order" />
+      </Principal>
+      <Dependent Role="Order_Detail">
+        <PropertyRef Name="id_order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order_Det__id_pr__59FA5E80">
+    <End Role="Product" Type="Self.Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Order_Detail" Type="Self.Order_Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id_product" />
+      </Principal>
+      <Dependent Role="Order_Detail">
+        <PropertyRef Name="id_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__id_bran__46E78A0C">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="id_brand" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="id_brand" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__id_cate__45F365D3">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id_cate" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="id_cate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product_I__id_pr__4F7CD00D">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Product_Image" Type="Self.Product_Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="id_product" />
+      </Principal>
+      <Dependent Role="Product_Image">
+        <PropertyRef Name="id_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__id_role__3E52440B">
+    <End Role="Role" Type="Self.Role" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="id_role" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="id_role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="skyshopModelStoreContainer">
+    <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailSizePd" EntityType="Self.DetailSizePd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Evaluation" EntityType="Self.Evaluation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_Detail" EntityType="Self.Order_Detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Image" EntityType="Self.Product_Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__DetailSiz__id_pr__4BAC3F29" Association="Self.FK__DetailSiz__id_pr__4BAC3F29">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="DetailSizePd" EntitySet="DetailSizePd" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetailSiz__Size___4CA06362" Association="Self.FK__DetailSiz__Size___4CA06362">
+      <End Role="Size" EntitySet="Size" />
+      <End Role="DetailSizePd" EntitySet="DetailSizePd" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Evaluatio__id_cu__52593CB8" Association="Self.FK__Evaluatio__id_cu__52593CB8">
+      <End Role="User" EntitySet="User" />
+      <End Role="Evaluation" EntitySet="Evaluation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Evaluatio__id_pr__534D60F1" Association="Self.FK__Evaluatio__id_pr__534D60F1">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Evaluation" EntitySet="Evaluation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__id_cust__5629CD9C" Association="Self.FK__Order__id_cust__5629CD9C">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_Det__id_or__5AEE82B9" Association="Self.FK__Order_Det__id_or__5AEE82B9">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order_Det__id_pr__59FA5E80" Association="Self.FK__Order_Det__id_pr__59FA5E80">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Order_Detail" EntitySet="Order_Detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__id_bran__46E78A0C" Association="Self.FK__Product__id_bran__46E78A0C">
+      <End Role="Brand" EntitySet="Brand" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__id_cate__45F365D3" Association="Self.FK__Product__id_cate__45F365D3">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product_I__id_pr__4F7CD00D" Association="Self.FK__Product_I__id_pr__4F7CD00D">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Image" EntitySet="Product_Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__id_role__3E52440B" Association="Self.FK__User__id_role__3E52440B">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
