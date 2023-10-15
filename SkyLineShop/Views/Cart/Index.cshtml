@@ -50,7 +50,7 @@
                                         <tr>
                                             <td class="product__cart__item">
                                                 <div class="product__cart__item__pic">
-                                                    <img src="/Assets/img/product/@item.Image" style="width: 90px;" alt="" />
+                                                    <img src="/Assets/img/product/@item.Image" style="width: 90px" alt="" />
                                                 </div>
                                                 <div class="product__cart__item__text">
                                                     <h6>@item.Product.product_name</h6>
@@ -69,10 +69,30 @@
 
                                                 </div>
                                             </td>
-                                            <td class="cart__price">@item.Size</td>
+                                            <td class="cart__price">
+                                                @if (item.Product.id_cate == 1 || item.Product.id_cate == 2)
+                                                {
+                                                    <select name="sizeSelect">
+                                                        <option value="M" @(item.Size == "M" ? "selected" : "")>M</option>
+                                                        <option value="L" @(item.Size == "L" ? "selected" : "")>L</option>
+                                                        <option value="XL" @(item.Size == "XL" ? "selected" : "")>XL</option>
+                                                        <option value="XXL" @(item.Size == "XXL" ? "selected" : "")>XXL</option>
+                                                    </select>
+                                                }
+                                                else if (item.Product.id_cate == 3)
+                                                {
+                                                    <select name="sizeSelect">
+                                                        <option value="39" @(item.Size == "39" ? "selected" : "")>39</option>
+                                                        <option value="40" @(item.Size == "40" ? "selected" : "")>40</option>
+                                                        <option value="41" @(item.Size == "41" ? "selected" : "")>41</option>
+                                                        <option value="42" @(item.Size == "42" ? "selected" : "")>42</option>
+                                                    </select>
+                                                }
+
+                                            </td>
                                             <td class="cart__price">@String.Format("{0:0,0}", (item.Product.price * item.Quantity))</td>
 
-                                            <td class="cart__close">
+                                            <td class="cart__close remove_product" data-id="@item.Product.id_product">
                                                 <a href="~/cart/RemoveItem?id_product=@item.Product.id_product"><i class="fa fa-close"></i></a>
                                             </td>
 
@@ -103,7 +123,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-4">
-                        <div class="continue__btn update__btn" onclick="submitForm2('form_quantity')">
+                        <div class="continue__btn update__btn update_cart" onclick="submitForm2('form_quantity')">
                             <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
                         </div>
                     </div>
@@ -152,11 +172,98 @@
         </div>
     </div>
 </section>
-<script>
-    function submitForm2(name) {
-        var select = document.getElementById(name);
-        var form = select.closest("form");
-        form.submit();
-    }
-</script>
+
+@section scripts{
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <script>
+        function submitForm2(name) {
+            var select = document.getElementById(name);
+            var form = select.closest("form");
+            form.submit();
+        }
+
+        // Cập nhật giỏ hàng
+
+        //$(document).ready(function () {
+        //    $(".update_cart").click(function (e) {
+        //        e.preventDefault();
+
+        //        var data = {
+        //            idProduct: [],
+        //            quantitie: [],
+        //            sizee: []
+        //        };
+
+        //        // Lặp qua các phần tử input trong form
+        //        $("form input[name='id_product']").each(function () {
+        //            data.idProduct.push($(this).val());
+        //        });
+
+        //        $("form input[name='quantity_pro']").each(function () {
+        //            data.quantitie.push($(this).val());
+        //        });
+
+        //        $("form select[name='sizeSelect']").each(function () {
+        //            data.sizee.push($(this).val());
+        //        });
+
+        //        $.ajax({
+        //            url: '/Cart/UpdateCart',
+        //            type: 'POST',
+        //            data: data, // Chỉ định dữ liệu dưới dạng đối tượng JSON
+        //            traditional: true, // Chuyển dữ liệu mảng theo kiểu truyền thống
+        //            success: function (response) {
+        //                if (response.success) {
+        //                    // Cập nhật giao diện người dùng (ví dụ: hiển thị thông báo)
+        //                    alert(response.message);
+        //                    var itemCount = response.countCart;
+        //                    $('#CartCount').text(itemCount);
+        //                } else {
+        //                    alert("Có lỗi xảy ra: " + response.message);
+        //                }
+        //            },
+        //            error: function (xhr, status, error) {
+        //                alert("Lỗi Ajax: " + error);
+        //            }
+        //        });
+        //    });
+        //});
+
+        //$(document).ready(function () {
+        //    $(".remove_product").click(function (e) {
+        //        e.preventDefault();
+
+        //        var data = {
+        //            id_product: $(this).data("id")
+        //        };
+
+        //        $.ajax({
+        //            url: '/Cart/RemoveItem',
+        //            type: 'POST',
+        //            data: data, // Chỉ định dữ liệu dưới dạng đối tượng JSON
+        //            traditional: true, // Chuyển dữ liệu mảng theo kiểu truyền thống
+        //            success: function (response) {
+        //                if (response.success) {
+        //                    alert(data.id_product);
+        //                    // Cập nhật giao diện người dùng (ví dụ: hiển thị thông báo)
+        //                    alert(response.message);
+        //                    //var itemCount = response.countCart;
+        //                    //$('#CartCount').text(itemCount);
+        //                } else {
+        //                    alert("Có lỗi xảy ra: " + response.message);
+        //                }
+        //            },
+        //            error: function (xhr, status, error) {
+        //                alert("Lỗi Ajax: " + error);
+        //            }
+        //        });
+        //    });
+        //});
+
+    </script>
+}
+
 <!-- Shopping Cart Section End -->

@@ -101,22 +101,22 @@
                                 if ((ViewBag.Product.id_cate) == 1 || (ViewBag.Product.id_cate) == 2)
                                 {
                                     <div class="product__details__option__size">
-                                         <span>Size:</span>
+                                        <span>Size:</span>
                                         <label for="xxl">
                                             XXL
-                                            <input type="radio" id="xxl" />
+                                            <input type="radio" id="xxl" value="XXL" name="size-radio" />
                                         </label>
-                                        <label class="active" for="xl">
+                                        <label class="active" for="xl" name="size-radio">
                                             XL
-                                            <input type="radio" id="xl" />
+                                            <input type="radio" id="xl" checked value="XL" name="size-radio" />
                                         </label>
                                         <label for="l">
                                             L
-                                            <input type="radio" id="l" />
+                                            <input type="radio" id="l" value="L" name="size-radio" />
                                         </label>
-                                        <label for="sm">
+                                        <label for="m">
                                             M
-                                            <input type="radio" id="sm" />
+                                            <input type="radio" id="m" value="M" name="size-radio" />
                                         </label>
                                     </div>
                                 }
@@ -124,23 +124,24 @@
                                 {
                                     <div class="product__details__option__size">
                                         <span>Size:</span>
-                                        <label for="xxl">
-                                42
-                                            <input type="radio" id="xxl" />
+                                        <label for="size_42">
+                                            42
+                                            <input type="radio" id="size_42" value="42" name="size-radio" />
                                         </label>
-                                        <label class="active" for="xl">
-                                42
-                                            <input type="radio" id="xl" />
+                                        <label class="active" for="size_41">
+                                            41
+                                            <input type="radio" id="size_41" checked value="41" name="size-radio" />
                                         </label>
-                                        <label for="l">
-                                40
-                                            <input type="radio" id="l" />
+                                        <label for="size_40">
+                                            40
+                                            <input type="radio" id="size_40" value="40" name="size-radio" />
                                         </label>
-                                        <label for="sm">
-                                39
-                                            <input type="radio" id="sm" />
+                                        <label for="size_39">
+                                            39
+                                            <input type="radio" id="size_39" value="39" name="size-radio" />
                                         </label>
                                     </div>
+
                                 }
                                 else
                                 {
@@ -149,17 +150,19 @@
                             }
 
 
-                            
+
                         </div>
                         <div class="product__details__cart__option">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1" />
+                                    <input type="text" value="1" id="quantity_detial"/>
                                 </div>
                             </div>
-                            <a href="#" class="primary-btn">add to cart</a>
+                            <a href="#" type="button" class="add-to-cart-button cart-detail btn-primary"
+                                       data-product-id="@ViewBag.Product.id_product"
+                                        data-image="@ViewBag.Img[0].image">add to cart</a>
                         </div>
-                       
+
                         <div class="product__details__last__option">
                             <h5><span>Guaranteed Safe Checkout</span></h5>
                             <img src="/Assets/img/shop-details/details-payment.png" alt="" />
@@ -462,7 +465,7 @@
                     </div>
                     <div class="product__item__text">
                         <h6>Multi-pocket Chest Bag</h6>
-                        <a href="#" class="add-cart"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</a>
+                        <a href="" class="add-cart"><i class="fa-solid fa-cart-plus"></i>Thêm vào giỏ hàng</a>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -538,3 +541,70 @@
 
 
 <!-- Related Section End -->
+@section scripts{
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <script>
+        
+
+        //dùng ajax cho giỏ hàng
+        $(document).ready(function () {
+            $(".add-to-cart-button").click(function (e) {
+                e.preventDefault();
+
+                var productID = $(this).data("product-id");
+                var quantity = $("#quantity_detial").val();
+                var size = $("input[name='size-radio']:checked").val();
+                var image = $(this).data("image");
+
+                $.ajax({
+                    url: '/Cart/AddItem', // Điều hướng tới action xử lý thêm sản phẩm vào giỏ hàng
+                    method: 'POST',
+                    data: {
+                        productid: productID,
+                        quantity: quantity,
+                        size: size,
+                        image: image
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            // Thực hiện các hành động sau khi thêm sản phẩm thành công
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-right',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
+
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Thêm vào giỏ hàng thành công'
+                            })
+                            var itemCount = response.countCart;
+                            $('#CartCount').text(itemCount);
+                        } else {
+                            // Xử lý khi có lỗi
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!'
+                            })
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        // Xử lý khi có lỗi Ajax
+                        alert("Lỗi Ajax: " + error);
+                    }
+                });
+            });
+        });
+
+    </script>
+}

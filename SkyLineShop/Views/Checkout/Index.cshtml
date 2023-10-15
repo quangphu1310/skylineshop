@@ -112,7 +112,7 @@
                                     }
                                     @foreach (var item in Model)
                                     {
-                                    <li>01. @item.Product.product_name <span>@String.Format("{0:0,0}", item.Product.price* item.Quantity)</span></li>
+                                    <li><b>@i.</b> @item.Product.product_name <span>@String.Format("{0:0,0}", item.Product.price* item.Quantity)</span></li>
                                     i++;
                                     sum += (item.Product.price * item.Quantity);
                                     }

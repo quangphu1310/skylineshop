@@ -1,0 +1,87 @@
+﻿@model IEnumerable<SkyLineShop.Models.Order_Detail>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Chi tiết đơn hàng</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Mã đơn hàng: @ViewBag.od.id_order</h2>
+
+
+                <p>
+                    Trạng thái đơn hàng:
+                    @if (ViewBag.od.payment_status == "Đã xác nhận")
+                    {
+                        <span style="color : forestgreen"><b>@ViewBag.od.payment_status.ToUpper()</b></span>
+                    }
+                    else if (ViewBag.od.payment_status == "Đã hủy")
+                    {
+                        <span style="color : red"><b>@ViewBag.od.payment_status.ToUpper()</b></span>
+
+
+                    }
+                    else if (ViewBag.od.payment_status == "Đang chờ xác nhận")
+                    {
+                        <span style="color: darkgoldenrod "><b>@ViewBag.od.payment_status.ToUpper()</b></span>
+                    }
+                    else
+                    {
+                        <span style="color :dodgerblue"> <b>@ViewBag.od.payment_status.ToUpper()</b></span>
+
+                    }
+                </p>
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            Tên sản phẩm
+                        </th>
+                        <th>
+                            Số lượng
+                        </th>
+                        <th>
+                            Size
+                        </th>
+                        <th>
+                            Tổng tiền
+                        </th>
+
+                      
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Product.product_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.quantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.size)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.total)
+                            </td>
+
+                            
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

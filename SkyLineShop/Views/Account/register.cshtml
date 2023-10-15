@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "register";
+    Layout = "~/Views/Shared/_LayoutContainer.cshtml";
+}
+<div class="login-form-wrapper container-wrapper">
+    <div class="form-signin rounded-sm shadow" action="/Account/LoginAction">
+        <!-- Nav tabs -->
+        <h3 class="text-center mb-4">ĐĂNG KÍ</h3>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            
+            <!-- Tab2 -->
+            <div id="register">
+                <form action="~/account/registerAction" method="post">
+                    <p class="text-danger">
+                        @TempData["errorCheck"]
+                    </p>
+                    <label class="sr-only">Name</label>
+                    <input name="username" type="text" class="form-control mb-4" placeholder="Username" required />
+                    <label class="sr-only">Email address</label>
+                    <input name="email" type="email" class="form-control mb-4" placeholder="Email" required autofocus />
+                    <label class="sr-only">Mobile</label>
+                    <input name="phone" type="tel" class="form-control mb-4" placeholder="Phone number" required />
+                    <label class="sr-only">Password</label>
+                    <input name="password" type="password" class="form-control mb-4" placeholder="Password" required />
+                    <label class="sr-only">Comfirm Password</label>
+                    <input name="cpassword" type="password" class="form-control mb-4" placeholder="Comfirm Password" required />
+                    <p class="text-danger">
+                        @TempData["errorPass"]
+                    </p>
+                    <button class="btn btn-lg btn-login btn-block mb-3">
+                        Đăng ký
+                    </button>
+                    <div class="d-flex justify-content-center">
+                        <span>Bạn đã có tài khoản? <a href="~/account/login" class="ms-1">Hãy đăng nhập</a></span>
+                    </div>
+                    <p class="mt-4 mb-4 text-muted small">
+                        Đăng ký ngay để nhận được những ưu đãi hấp dẫn từ chúng tôi
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

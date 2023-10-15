@@ -1,0 +1,145 @@
+﻿@model IEnumerable<SkyLineShop.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Danh sách đơn hàng</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-md-3">
+                    @using (Html.BeginForm("Index", "Orders"))
+                    {
+                        @Html.DropDownList("SelectedCategory", (SelectList)ViewBag.CategoryList, "Tất cả", new { @class = "form-control", id = "paymentStatus", onchange = "submitForm2()" })
+                    }
+
+                </div>
+
+                <table class="table">
+                    <tr>
+                        <th>
+                            Mã đơn hàng
+                        </th>
+                        <th>
+                            Ngày tạo đơn
+                        </th>
+                        <th>
+                            Địa chỉ
+                        </th>
+                        <th>
+                            SĐT
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Note
+                        </th>
+                        <th>
+                            Trạng thái đơn hàng
+                        </th>
+                        <th>
+                            Tên khách hàng
+                        </th>
+                        <th>
+                            Chủ tài khoản
+                        </th>
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.id_order)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.date_create)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.note)
+                            </td>
+                            <td>
+                                @if (item.payment_status == "Đã xác nhận")
+                                {
+                                    <p style="color : forestgreen"><b>@item.payment_status</b></p>
+                                }
+                                else if (item.payment_status == "Đã hủy")
+                                {
+                                    <p style="color : red"><b>@item.payment_status</b></p>
+
+
+                                }
+                                else if (item.payment_status == "Đang chờ xác nhận")
+                                {
+                                    <p style="color: darkgoldenrod"><b>@item.payment_status</b></p>
+                                }
+                                else
+                                {
+                                    <p style="color :dodgerblue"> <b>@item.payment_status</b></p>
+
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.User.username)
+                            </td>
+                            <td>
+
+                                @*@Html.ActionLink("Edit", "Edit", new { id = item.id_order }) |*@
+                                @Html.ActionLink("Details", "details", new { id = item.id_order })
+                                @*@Html.ActionLink("Delete", "Delete", new { id = item.id_order })*@
+                            </td>
+                            <td>
+                                @if (item.payment_status == "Đang chờ xác nhận")
+                                {
+                                    <div class="d-grid gap-2 col-3 mx-auto">
+                                        <a href="~/admin/orders/cancel?id=@item.id_order" type="button" class="btn btn-danger">Hủy</a>
+                                        <a href="~/admin/orders/confirm?id=@item.id_order" type="button" class="btn btn-success">Xác nhận</a>
+                                    </div>
+                                }
+
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    ////submitForm
+    //function submitForm() {
+    //    var select = document.getElementById("paymentStatus");
+    //    var form = select.closest("form");
+    //    form.submit();
+
+    function submitForm2() {
+        $('form').submit();
+    }
+
+
+</script>

@@ -27,6 +27,7 @@ namespace SkyLineShop.Controllers
             ViewBag.Brand = db.Brand.ToList();
             var query = from p in db.Product
                         join m in db.Product_Image on p.id_product equals m.id_product
+                        join b in db.Brand on p.id_brand equals b.id_brand
                         where (categoryID == null || p.id_cate == categoryID)
                         && (brandID == null || p.id_brand == brandID)
                         && (p.product_name.ToLower().Contains(search.ToLower()) || search == null)

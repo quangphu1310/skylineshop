@@ -17,25 +17,64 @@ namespace SkyLineShop.Controllers
         {
             return View();
         }
+        public ActionResult register()
+        {
+            return View();
+        }
         public ActionResult LoginAction(string username, string password)
         {
 
             int user = db.User.Count(u => u.username.ToLower() == username.ToLower() && u.password == password && u.id_role == 2);
             int admin = db.User.Count(u => u.username.ToLower() == username.ToLower() && u.password == password && u.id_role == 1);
-            if (user == 1 ) 
+            if (user == 1)
             {
                 User u = db.User.Where(us => us.username.ToLower() == username.ToLower() && us.password == password && us.id_role == 2).FirstOrDefault();
                 Session["user"] = username;
                 TempData["iduser"] = u;
                 return Redirect("/Shop");
             }
-            if(admin == 1)
+            if (admin == 1)
             {
                 Session["admin"] = username;
                 return Redirect("/Admin/Home");
             }
             TempData["Error"] = "Tài khoản không chính xác!";
             return RedirectToAction("Login");
+        }
+        public ActionResult registerAction(string username, string email, string phone, string password, string cpassword)
+        {
+            if (ModelState.IsValid)
+            {
+                var check = db.User.FirstOrDefault(u => u.username == username || u.email == email || u.phone == phone);
+                if (check == null)
+                {
+                    if (password == cpassword)
+                    {
+                        User u = new User();
+                        u.id_role = 2;
+                        u.username = username;
+                        u.email = email;
+                        u.phone = phone;
+                        u.password = password;
+
+                        db.User.Add(u);
+                        db.SaveChanges();
+
+                        Session["user"] = username;
+                        return Redirect("/shop");
+                    }
+                    else
+                    {
+                        TempData["errorPass"] = "Xác thực mật khẩu không chính xác!";
+                    }
+                }
+                else
+                {
+                    TempData["errorCheck"] = "Thông tin người dùng đã tồn tại!";
+                }
+
+            }
+            return RedirectToAction("register");
         }
         public ActionResult Logout()
         {

@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="~/Assets/css/owl.carousel.min.css" type="text/css" />
     <link rel="stylesheet" href="~/Assets/css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="~/Assets/css/style.css" type="text/css" />
+
 </head>
 
 <body>
@@ -40,39 +41,6 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__option">
-            <div class="offcanvas__links">
-                <a href="#">Đăng nhập</a>
-                <a href="#">FAQs</a>
-            </div>
-            <div class="offcanvas__top__hover">
-                <span>Usd <i class="arrow_carrot-down"></i></span>
-                <ul>
-                    <li>USD</li>
-                    <li>VND</li>
-                </ul>
-                ~
-            </div>
-        </div>
-        <div class="offcanvas__nav__option">
-            <a href="#" class="search-switch">
-                <img src="/Assets/img/icon/search.png" alt="" />
-            </a>
-            <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-           
-            <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /> <span></span></a>
-            <div class="price">$0.00</div>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__text">
-            <p>
-                Miễn phí vận chuyển, hoàn trả trong 30 ngày hoặc đảm bảo hoàn tiền.
-            </p>
-        </div>
-    </div>
     <!-- Offcanvas Menu End -->
     <!-- Header Section Begin -->
     <header class="header">
@@ -108,23 +76,16 @@
 
                                 }
                                 <div>
-                                    <a href="~/@path">@user <i class="arrow_carrot-down"></i></a>
-
-
-                                    <ul class="list-group">
-                                        <li class="list-group-item"><a href="#"></a>Profile</li>
-                                        <li class="list-group-item"><a href="#"></a>Setting</li>
-                                        <li class="list-group-item"><a href="~/Account/Logout">Logout</a></li>
-                                    </ul>
+                                    <a href="~/@path">@user </a>
                                 </div>
                             </div>
-                            <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>USD</li>
-                                    <li>VND</li>
-                                </ul>
-                            </div>
+                            @if (path == "Shop")
+                            {
+                                <div class="header__top__hover">
+                                    <span><a href="~/Account/Logout" class="text-decoration-none text-white">Logout</a> </span>
+                                </div>
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -169,7 +130,12 @@
                             var cart = HttpContext.Current.Session["CartSession"];
                             var list = (List<SkyLineShop.Models.CartItem>)cart;
                         }
-                        <a href="~/Cart"><img src="/Assets/img/icon/cart.png" style="width: 20px;" alt="" /> <span style="color: #e53637; font-weight: 700; ">@(list!= null ? list.Count() : 0)</span></a>
+                        <a href="~/Cart">
+                            <img src="/Assets/img/icon/cart.png" class="position-relative"
+                                 style="width: 20px;" alt="" />
+                            <span class="quantity-item-product" id="CartCount"> 0@*@(list!= null ? list.Count() : 0)*@</span>
+                        </a>
+
                         @*<div class="price">$0.00</div>*@
                     </div>
                 </div>
@@ -292,6 +258,31 @@
     <script src="~/Assets/lib/wow/wow.min.js"></script>
     <script src="~/Assets/lib/easing/easing.min.js"></script>
     <script src="~/Assets/js/main.js"></script>
-
+    @RenderSection("scripts", required: false)
 </body>
 </html>
+@*<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<script>
+    // Đoạn mã JavaScript ở trong file layout hoặc các trang mà bạn muốn hiển thị CartCount
+    $(document).ready(function () {
+        // Truy vấn số lượng sản phẩm trong giỏ hàng từ phía máy chủ
+        $.ajax({
+            url: '/Cart/GetCartItemCount', // Điều hướng tới action lấy số lượng sản phẩm trong giỏ hàng
+            method: 'GET',
+            success: function (response) {
+                if (response.success) {
+                    var itemCount = response.countCart;
+                    $('#CartCount').text(itemCount); // Cập nhật giá trị CartCount trên trang
+                }
+            },
+            error: function (xhr, status, error) {
+                // Xử lý khi có lỗi Ajax
+                alert("Lỗi Ajax: " + error);
+            }
+        });
+    });
+
+</script>*@

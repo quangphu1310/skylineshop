@@ -13,8 +13,10 @@ namespace SkyLineShop.Controllers
         // GET: Cart
         public string CartSession = "CartSession";
         skyshopEntities db = new skyshopEntities();
+        public int count = 0;
         public ActionResult Index()
         {
+
             var cart = Session[CartSession];
             var list = (List<CartItem>)cart;
             if (cart != null)
@@ -32,7 +34,7 @@ namespace SkyLineShop.Controllers
             {
                 //cộng thêm số lượng
                 var list = (List<CartItem>)cart;
-                if (list.Exists(x => x.Product.id_product == productid))
+                if (list.Exists(x => x.Product.id_product == productid && x.Size == size))
                 {
                     foreach (var item in list)
                     {
@@ -54,6 +56,7 @@ namespace SkyLineShop.Controllers
                 }
                 //Gán vào session
                 Session[CartSession] = list;
+                count = list.Count;
             }
             else
             {
@@ -69,11 +72,15 @@ namespace SkyLineShop.Controllers
                 list.Add(item);
                 //Gán vào session
                 Session[CartSession] = list;
+                count = list.Count;
             }
-            return RedirectToAction("Index", "Shop");
+
+
+            var result = new { success = true, message = "Sản phẩm đã được thêm vào giỏ hàng.", countCart = count };
+            return Json(result);
         }
 
-        public ActionResult UpdateCart(FormCollection form)
+        public ActionResult UpdateCart(/*string[] idProduct, string[] quantitie, string[] sizee*/ FormCollection form)
         {
             var cart = Session[CartSession] as List<CartItem>;
 
@@ -81,6 +88,12 @@ namespace SkyLineShop.Controllers
             {
                 string[] idProducts = form.GetValues("id_product");
                 string[] quantities = form.GetValues("quantity_pro");
+                string[] sizes = null;
+                if (form.GetValue("sizeSelect") != null)
+                {
+                    sizes = form.GetValues("sizeSelect");
+                }
+
 
                 if (idProducts != null && quantities != null && idProducts.Length == quantities.Length)
                 {
@@ -88,11 +101,19 @@ namespace SkyLineShop.Controllers
                     {
                         int id = int.Parse(idProducts[i]);
                         int quantity = int.Parse(quantities[i]);
-
+                        string size = "";
+                        if (sizes != null && sizes.Length > i && sizes[i] != null)
+                        {
+                            size = sizes[i];
+                        }
+                        else
+                        {
+                            size = "";
+                        }
                         var item = cart.Find(e => e.Product.id_product == id);
-
                         if (item != null)
                         {
+                            item.Size = size;
                             if (quantity > 0)
                             {
                                 item.Quantity = quantity;
@@ -104,9 +125,9 @@ namespace SkyLineShop.Controllers
                         }
                     }
                 }
-
+                count = cart.Count;
             }
-
+            //return Json(new { success = true, message = "Giỏ hàng đã được cập nhật" , countCart = count });
             return RedirectToAction("Index");
         }
 
@@ -125,6 +146,7 @@ namespace SkyLineShop.Controllers
                 }
 
             }
+            //return Json(new { success = true, message = "Xóa" });
             return RedirectToAction("Index");
         }
         public ActionResult RemoveAll()
@@ -132,6 +154,14 @@ namespace SkyLineShop.Controllers
             Session[CartSession] = null;
             return RedirectToAction("Index");
         }
+        //public ActionResult GetCartItemCount()
+        //{
+        //    var cart = Session[CartSession];
+        //    var list = (List<CartItem>)cart;
+
+        //    count = list.Count;
+        //    return Json(new { success = true, countCart = count });
+        //}
 
     }
 }

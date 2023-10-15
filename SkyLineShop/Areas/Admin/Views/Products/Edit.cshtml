@@ -37,7 +37,7 @@
                     @Html.LabelFor(model => model.price, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @*@Html.EditorFor(model => model.price, new { htmlAttributes = new { @class = "form-control" } })*@
-                        <input type="text" value="@String.Format("{0:0,0}", Model.price)" name="price" class="form-control"/>
+                        <input type="text" value="@Model.price" name="price" class="form-control"/>
                         @Html.ValidationMessageFor(model => model.price, "", new { @class = "text-danger" })
                     </div>
                 </div>
