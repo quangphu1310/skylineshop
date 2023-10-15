@@ -12,8 +12,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="product__details__breadcrumb">
-                        <a href="./index.html">Trang Chủ</a>
-                        <a href="./shop.html">Shop</a>
+                        <a href="~/Home">Trang Chủ</a>
+                        <a href="~/Shop">Shop</a>
                         <span>Product Details</span>
                     </div>
                 </div>
@@ -97,43 +97,59 @@
                             @ViewBag.Product.desc
                         </p>
                         <div class="product__details__option">
-                            <div class="product__details__option__size">
-                                <span>Size:</span>
-                                <label for="xxl">
-                                    xxl
-                                    <input type="radio" id="xxl" />
-                                </label>
-                                <label class="active" for="xl">
-                                    xl
-                                    <input type="radio" id="xl" />
-                                </label>
-                                <label for="l">
-                                    l
-                                    <input type="radio" id="l" />
-                                </label>
-                                <label for="sm">
-                                    s
-                                    <input type="radio" id="sm" />
-                                </label>
-                            </div>
-                            <div class="product__details__option__color">
-                                <span>Color:</span>
-                                <label class="c-1" for="sp-1">
-                                    <input type="radio" id="sp-1" />
-                                </label>
-                                <label class="c-2" for="sp-2">
-                                    <input type="radio" id="sp-2" />
-                                </label>
-                                <label class="c-3" for="sp-3">
-                                    <input type="radio" id="sp-3" />
-                                </label>
-                                <label class="c-4" for="sp-4">
-                                    <input type="radio" id="sp-4" />
-                                </label>
-                                <label class="c-9" for="sp-9">
-                                    <input type="radio" id="sp-9" />
-                                </label>
-                            </div>
+                            @{
+                                if ((ViewBag.Product.id_cate) == 1 || (ViewBag.Product.id_cate) == 2)
+                                {
+                                    <div class="product__details__option__size">
+                                         <span>Size:</span>
+                                        <label for="xxl">
+                                            XXL
+                                            <input type="radio" id="xxl" />
+                                        </label>
+                                        <label class="active" for="xl">
+                                            XL
+                                            <input type="radio" id="xl" />
+                                        </label>
+                                        <label for="l">
+                                            L
+                                            <input type="radio" id="l" />
+                                        </label>
+                                        <label for="sm">
+                                            M
+                                            <input type="radio" id="sm" />
+                                        </label>
+                                    </div>
+                                }
+                                else if ((ViewBag.Product.id_cate) == 3)
+                                {
+                                    <div class="product__details__option__size">
+                                        <span>Size:</span>
+                                        <label for="xxl">
+                                42
+                                            <input type="radio" id="xxl" />
+                                        </label>
+                                        <label class="active" for="xl">
+                                42
+                                            <input type="radio" id="xl" />
+                                        </label>
+                                        <label for="l">
+                                40
+                                            <input type="radio" id="l" />
+                                        </label>
+                                        <label for="sm">
+                                39
+                                            <input type="radio" id="sm" />
+                                        </label>
+                                    </div>
+                                }
+                                else
+                                {
+
+                                }
+                            }
+
+
+                            
                         </div>
                         <div class="product__details__cart__option">
                             <div class="quantity">
@@ -143,10 +159,7 @@
                             </div>
                             <a href="#" class="primary-btn">add to cart</a>
                         </div>
-                        <div class="product__details__btns__option">
-                            <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
-                            <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a>
-                        </div>
+                       
                         <div class="product__details__last__option">
                             <h5><span>Guaranteed Safe Checkout</span></h5>
                             <img src="/Assets/img/shop-details/details-payment.png" alt="" />

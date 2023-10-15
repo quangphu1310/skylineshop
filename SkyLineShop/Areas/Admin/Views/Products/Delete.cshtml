@@ -1,0 +1,90 @@
+﻿@model SkyLineShop.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Quản lý sản phẩm</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h3>BẠN CÓ CHẮC CHẮN XÓA SẢN PHẨM NÀY KHÔNG?</h3>
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.product_name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.product_name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.price)
+                        </dt>
+
+                        <dd>
+                            @String.Format("{0:0,0}", Model.price) VNĐ
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.desc)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.desc)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Product_Image)
+                        </dt>
+
+                        <dd>
+                            @foreach (var i in Model.Product_Image)
+                            {
+                                <img src="@Url.Content("~/Assets/img/product/" + @i.image)" style="height:200px; width:200px; margin:10px;" />
+
+                            }
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Brand.brand_name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Brand.brand_name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Category.cate_name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Category.cate_name)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn btn-default" /> |
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

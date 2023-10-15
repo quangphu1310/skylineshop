@@ -44,12 +44,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -96,6 +102,46 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\assets\css\bootstrap-social.css" />
+    <Content Include="Areas\Admin\assets\css\bootstrap-theme.min.css" />
+    <Content Include="Areas\Admin\assets\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\assets\css\dataTables\dataTables.bootstrap.css" />
+    <Content Include="Areas\Admin\assets\css\dataTables\dataTables.responsive.css" />
+    <Content Include="Areas\Admin\assets\css\font-awesome.min.css" />
+    <Content Include="Areas\Admin\assets\css\metisMenu.min.css" />
+    <Content Include="Areas\Admin\assets\css\morris.css" />
+    <Content Include="Areas\Admin\assets\css\startmin.css" />
+    <Content Include="Areas\Admin\assets\css\timeline.css" />
+    <Content Include="Areas\Admin\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\Admin\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Areas\Admin\assets\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\assets\js\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Areas\Admin\assets\js\dataTables\jquery.dataTables.min.js" />
+    <Content Include="Areas\Admin\assets\js\flot-data.js" />
+    <Content Include="Areas\Admin\assets\js\flot\excanvas.min.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.colorhelpers.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.canvas.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.categories.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.crosshair.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.errorbars.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.fillbetween.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.image.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.navigate.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.pie.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.resize.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.selection.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.stack.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.symbol.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.threshold.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.time.js" />
+    <Content Include="Areas\Admin\assets\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Areas\Admin\assets\js\jquery.min.js" />
+    <Content Include="Areas\Admin\assets\js\metisMenu.min.js" />
+    <Content Include="Areas\Admin\assets\js\morris-data.js" />
+    <Content Include="Areas\Admin\assets\js\morris.min.js" />
+    <Content Include="Areas\Admin\assets\js\raphael.min.js" />
+    <Content Include="Areas\Admin\assets\js\startmin.js" />
     <Content Include="Assets\css\bootstrap.min.css" />
     <Content Include="Assets\css\elegant-icons.css" />
     <Content Include="Assets\css\font-awesome.min.css" />
@@ -2022,6 +2068,7 @@
     <Content Include="Assets\vendor\jquery\jquery.slim.js" />
     <Content Include="Assets\vendor\jquery\jquery.slim.min.js" />
     <Content Include="Assets\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Global.asax" />
     <Content Include="Models\skymodel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -2037,6 +2084,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2045,6 +2098,7 @@
     <Compile Include="Models\Brand.cs">
       <DependentUpon>skymodel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>skymodel.tt</DependentUpon>
     </Compile>
@@ -2102,11 +2156,32 @@
     <Content Include="Models\skymodel.edmx.diagram">
       <DependentUpon>skymodel.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\Admin\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\Admin\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\Admin\assets\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Areas\Admin\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Areas\Admin\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Areas\Admin\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Admin\Views\Shared\AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Products\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutContainer.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Shop\ProductDetail.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\Checkout\PaymentSuccess.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2116,6 +2191,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

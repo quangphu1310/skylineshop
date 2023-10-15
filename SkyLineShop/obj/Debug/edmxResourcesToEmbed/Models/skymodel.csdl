@@ -53,6 +53,7 @@
     <Property Name="payment_status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="User" Relationship="Self.FK__Order__id_cust__5629CD9C" FromRole="Order" ToRole="User" />
     <NavigationProperty Name="Order_Detail" Relationship="Self.FK__Order_Det__id_or__5AEE82B9" FromRole="Order" ToRole="Order_Detail" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Order_Detail">
     <Key>

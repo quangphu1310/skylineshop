@@ -16,13 +16,14 @@ namespace SkyLineShop
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "SkyLineShop.Controllers" }
             );
-            routes.MapRoute(
-            name: "Category",
-            url: "Shop/Category/{categoryName}",
-            defaults: new { controller = "Shop", action = "Category" }
-            );
+            //routes.MapRoute(
+            //name: "Category",
+            //url: "Shop/Category/{categoryName}",
+            //defaults: new { controller = "Shop", action = "Category" }
+            //);
             //routes.MapRoute(
             //name: "ProductDetail",
             //url: "Shop/ProductDetails/{productName}",

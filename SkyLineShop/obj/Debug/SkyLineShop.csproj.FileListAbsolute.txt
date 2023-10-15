@@ -74,3 +74,7 @@ E:\SkylinedotNet\SkyLineShop\SkyLineShop\bin\EntityFramework.dll
 E:\SkylinedotNet\SkyLineShop\SkyLineShop\bin\EntityFramework.SqlServer.dll
 E:\SkylinedotNet\SkyLineShop\SkyLineShop\bin\EntityFramework.xml
 E:\SkylinedotNet\SkyLineShop\SkyLineShop\bin\EntityFramework.SqlServer.xml
+E:\SkylinedotNet\SkyLineShop\SkyLineShop\bin\PagedList.dll
+E:\SkylinedotNet\SkyLineShop\SkyLineShop\bin\PagedList.Mvc.dll
+E:\SkylinedotNet\SkyLineShop\SkyLineShop\bin\PagedList.xml
+E:\SkylinedotNet\SkyLineShop\SkyLineShop\bin\PagedList.Mvc.xml

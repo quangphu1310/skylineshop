@@ -45,7 +45,7 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="login.html">Đăng nhập</a>
+                <a href="#">Đăng nhập</a>
                 <a href="#">FAQs</a>
             </div>
             <div class="offcanvas__top__hover">
@@ -62,7 +62,8 @@
                 <img src="/Assets/img/icon/search.png" alt="" />
             </a>
             <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-            <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /> <span>0</span></a>
+           
+            <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /> <span></span></a>
             <div class="price">$0.00</div>
         </div>
         <div id="mobile-menu-wrap"></div>
@@ -88,9 +89,34 @@
                     </div>
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
-                            <div class="header__top__links">
-                                <a href="login.html">Đăng nhập</a>
-                                <a href="#">FAQs</a>
+                            <div class="header__top__links header__top__hover">
+
+                                @{
+                                    string user = "";
+                                    string path = "";
+                                    if (HttpContext.Current.Session["user"] != null)
+                                    {
+                                        path = "Shop";
+                                        user = HttpContext.Current.Session["user"].ToString();
+                                    }
+                                    else
+                                    {
+
+                                        path = "Account/Login";
+                                        user = "Đăng Nhập";
+                                    }
+
+                                }
+                                <div>
+                                    <a href="~/@path">@user <i class="arrow_carrot-down"></i></a>
+
+
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><a href="#"></a>Profile</li>
+                                        <li class="list-group-item"><a href="#"></a>Setting</li>
+                                        <li class="list-group-item"><a href="~/Account/Logout">Logout</a></li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="header__top__hover">
                                 <span>Usd <i class="arrow_carrot-down"></i></span>
@@ -108,7 +134,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="header__logo">
-                        <a href="./index.html">
+                        <a href="~/Home">
                             <img src="/Assets/img/logo_skyline.png" alt="" />
                         </a>
                     </div>
@@ -139,8 +165,12 @@
                             <img src="/Assets/img/icon/search.png" alt="" />
                         </a>
                         <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                        <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        @{
+                            var cart = HttpContext.Current.Session["CartSession"];
+                            var list = (List<SkyLineShop.Models.CartItem>)cart;
+                        }
+                        <a href="~/Cart"><img src="/Assets/img/icon/cart.png" style="width: 20px;" alt="" /> <span style="color: #e53637; font-weight: 700; ">@(list!= null ? list.Count() : 0)</span></a>
+                        @*<div class="price">$0.00</div>*@
                     </div>
                 </div>
             </div>

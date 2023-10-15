@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_LayoutContainer.cshtml";
 }
@@ -84,13 +83,13 @@
                     <div class="banner__item__pic">
                         <img class="wow slideInLeft"
                              data-wow-delay="0.5s"
-                             src="/Assets/img/banner/banner-1.jpg"
+                             src="/Assets/img/product/dosiin-ssstutter-quan-au-nu-ssstutter-ong-suong-birdie-pants-497662497662.jpg"
                              alt="" />
                     </div>
                     <div class="banner__item__text wow fadeInRight"
                          data-wow-delay="0.5s">
                         <h2>Bộ sưu tập quần áo 2030</h2>
-                        <a href="shop.html">Mua ngay</a>
+                        <a href="~/Shop">Mua ngay</a>
                     </div>
                 </div>
             </div>
@@ -98,24 +97,24 @@
                 <div class="banner__item banner__item--middle">
                     <div class="banner__item__pic wow fadeOutRight"
                          data-wow-delay="0.5s">
-                        <img src="/Assets/img/banner/banner-2.jpg" alt="" />
+                        <img src="/Assets/img/product/dosiin-vong-tay-paracord-sjb-steed-403391403391.jpg" alt="" />
                     </div>
                     <div class="banner__item__text wow fadeOutLeft"
                          data-wow-delay="0.5s">
-                        <h2>Áo hottrend</h2>
-                        <a href="shop.html">Mua ngay</a>
+                        <h2>Phụ kiện đa dạng</h2>
+                        <a href="~/Shop">Mua ngay</a>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7">
                 <div class="banner__item banner__item--last">
                     <div class="banner__item__pic wow zoomIn" data-wow-delay="1.5s">
-                        <img src="/Assets/img/banner/banner-3.jpg" alt="" />
+                        <img src="/Assets/img/product/dosiin-converse-giay-sneakers-converse-chuck-taylor-all-star-s-recycled-rpet-canvas-c-391790391790.jpg" alt="" />
                     </div>
                     <div class="banner__item__text wow zoomInUp"
                          data-wow-delay="1.5s">
-                        <h2>Quần siêu rẻ</h2>
-                        <a href="shop.html">Mua ngay</a>
+                        <h2>Giày hottrend</h2>
+                        <a href="~/Shop">Mua ngay</a>
                     </div>
                 </div>
             </div>
@@ -130,296 +129,91 @@
             <div class="col-lg-12">
                 <ul class="filter__controls">
                     <li class="active" data-filter="*">Sản phẩm bán chạy nhất</li>
-                    <li data-filter=".new-arrivals">Hàng mới về</li>
+                    <li  data-filter=".new-arrivals">Hàng mới về</li>
                     <li data-filter=".hot-sale">Khuyến mãi hot</li>
                 </ul>
             </div>
         </div>
         <div class="row product__filter">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                <div class="product__item wow fadeInUpBig" data-wow-delay="0.6s">
-                    <div class="product__item__pic set-bg"
-                         data-setbg="/Assets/img/product/product-2.jpg">
-                        <ul class="product__hover">
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/Assets/img/icon/compare.png" alt="" />
-                                    <span>Compare</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
+            @foreach (var product1 in ViewBag.Product)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
+                    <div class="product__item wow fadeInUpBig" data-wow-delay="0.6s">
+                        <div class="product__item__pic set-bg"
+                             data-setbg="/Assets/img/product/@product1.ProductImage">
+                            <ul class="product__hover">
+                                <li>
+                                    <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/Assets/img/icon/compare.png" alt="" />
+                                        <span>Compare</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
+                                </li>
+                                <li>
+                                    <a href="~/Cart/AddItem?productid=@product1.ProductID&quantity=1&size=M&image=@product1.ProductImage"><img src="/Assets/img/icon/cart.png" alt="" /></a>
+                                </li>
+                            </ul>
                         </div>
-                        <h5>$67.24</h5>
+                        <div class="product__item__text">
+                            <a class="product-title" href="shop-details.html"><h6>@product1.ProductName</h6></a>
+                            <div class="rating">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <h5>@String.Format("{0:0,0}", product1.ProductPrice)</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                <div class="product__item sale wow fadeInUpBig"
-                     data-wow-delay="0.6s">
-                    <div class="product__item__pic set-bg"
-                         data-setbg="/Assets/img/product/product-3.jpg">
-                        <span class="label">Sale</span>
-                        <ul class="product__hover">
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/Assets/img/icon/compare.png" alt="" />
-                                    <span>Compare</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
+            }
+
+            
+            @foreach (var product2 in ViewBag.Product2)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+                    <div class="product__item wow fadeInUpBig" data-wow-delay="0.5s">
+                        <div class="product__item__pic set-bg"
+                             data-setbg="/Assets/img/product/@product2.ProductImage">
+                            <ul class="product__hover">
+                                <li>
+                                    <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="/Assets/img/icon/compare.png" alt="" />
+                                        <span>Compare</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
+                                </li>
+                                <li>
+                                    <a href="~/Cart/AddItem?productid=@product2.ProductID&quantity=1&size=M&image=@product2.ProductImage"><img src="/Assets/img/icon/cart.png" alt="" /></a>
+                                </li>
+                            </ul>
                         </div>
-                        <h5>$43.48</h5>
+                        <div class="product__item__text">
+                            <a class="product-title" href="shop-details.html"><h6>@product2.ProductName</h6></a>
+                            <div class="rating">
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                            <h5>@String.Format("{0:0,0}", product2.ProductPrice)</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                <div class="product__item wow fadeInUpBig" data-wow-delay="0.6s">
-                    <div class="product__item__pic set-bg"
-                         data-setbg="/Assets/img/product/product-4.jpg">
-                        <ul class="product__hover">
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/Assets/img/icon/compare.png" alt="" />
-                                    <span>Compare</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$60.9</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                <div class="product__item wow fadeInUpBig" data-wow-delay="0.5s">
-                    <div class="product__item__pic set-bg"
-                         data-setbg="/Assets/img/product/product-5.jpg">
-                        <ul class="product__hover">
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/Assets/img/icon/compare.png" alt="" />
-                                    <span>Compare</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$31.37</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                <div class="product__item sale wow fadeInUpBig"
-                     data-wow-delay="0.5s">
-                    <div class="product__item__pic set-bg"
-                         data-setbg="/Assets/img/product/product-6.jpg">
-                        <span class="label">Sale</span>
-                        <ul class="product__hover">
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/Assets/img/icon/compare.png" alt="" />
-                                    <span>Compare</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$98.49</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                <div class="product__item wow fadeInUpBig" data-wow-delay="0.5s">
-                    <div class="product__item__pic set-bg"
-                         data-setbg="/Assets/img/product/product-7.jpg">
-                        <ul class="product__hover">
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/Assets/img/icon/compare.png" alt="" />
-                                    <span>Compare</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$49.66</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                <div class="product__item wow fadeInUpBig" data-wow-delay="0.5s">
-                    <div class="product__item__pic set-bg"
-                         data-setbg="/Assets/img/product/product-8.jpg">
-                        <ul class="product__hover">
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/Assets/img/icon/compare.png" alt="" />
-                                    <span>Compare</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$26.28</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                <div class="product__item wow fadeInUpBig" data-wow-delay="0.5s">
-                    <div class="product__item__pic set-bg"
-                         data-setbg="/Assets/img/product/product-8.jpg">
-                        <ul class="product__hover">
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="/Assets/img/icon/compare.png" alt="" />
-                                    <span>Compare</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
-                            </li>
-                            <li>
-                                <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <a class="product-title" href="shop-details.html"><h6>Piqué Biker Jacket</h6></a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$26.28</h5>
-                    </div>
-                </div>
-            </div>
+            }
+            
         </div>
     </div>
 </section>
@@ -439,17 +233,17 @@
             </div>
             <div class="col-lg-4">
                 <div class="categories__hot__deal">
-                    <img src="/Assets/img/product-sale.png" alt="" />
+                    <img src="/Assets/img/Product/@ViewBag.Product3.ProductImage" alt="" />
                     <div class="hot__deal__sticker">
                         <span>Giảm giá</span>
-                        <h5>199k</h5>
+                        <h5>@String.Format("{0:0,0}", ViewBag.Product3.ProductPrice)</h5>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 offset-lg-1">
                 <div class="categories__deal__countdown">
                     <span>Ưu đãi của tuần</span>
-                    <h2>Túi đeo chéo nhiều ngăn màu đen</h2>
+                    <h2>@ViewBag.Product3.ProductName</h2>
                     <div class="categories__deal__countdown__timer" id="countdown">
                         <div class="cd-item">
                             <span>3</span>
@@ -527,7 +321,7 @@
                             <img src="/Assets/img/icon/calendar.png" alt="" /> 16 tháng 2
                             2020
                         </span>
-                        <h5>Áo nào hợp với mùa hè nhất</h5>
+                        <h5>Hihi SkyShop</h5>
                         <a href="blog-details.html">Đọc thêm</a>
                     </div>
                 </div>

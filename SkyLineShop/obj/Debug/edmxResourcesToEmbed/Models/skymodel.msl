@@ -40,6 +40,7 @@
     <EntitySetMapping Name="Order">
       <EntityTypeMapping TypeName="skyshopModel.Order">
         <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id_order" ColumnName="id_order" />
           <ScalarProperty Name="id_cust" ColumnName="id_cust" />
           <ScalarProperty Name="date_create" ColumnName="date_create" />

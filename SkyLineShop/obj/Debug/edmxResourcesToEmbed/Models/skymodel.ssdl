@@ -39,6 +39,7 @@
     </Key>
     <Property Name="id_order" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_cust" Type="int" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" />
     <Property Name="date_create" Type="date" />
     <Property Name="address" Type="nvarchar(max)" />
     <Property Name="phone" Type="varchar" MaxLength="10" />
@@ -100,7 +101,7 @@
     <Property Name="password" Type="char" MaxLength="30" />
     <Property Name="id_role" Type="int" />
   </EntityType>
-  <Association Name="FK__DetailSiz__id_pr__4BAC3F29">
+  <Association Name="FK__DetailSiz__id_pr__4E88ABD4">
     <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
     <End Role="DetailSizePd" Type="Self.DetailSizePd" Multiplicity="*" />
     <ReferentialConstraint>
@@ -112,7 +113,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetailSiz__Size___4CA06362">
+  <Association Name="FK__DetailSiz__Size___4F7CD00D">
     <End Role="Size" Type="Self.Size" Multiplicity="0..1" />
     <End Role="DetailSizePd" Type="Self.DetailSizePd" Multiplicity="*" />
     <ReferentialConstraint>
@@ -220,7 +221,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Product_I__id_pr__4F7CD00D">
+  <Association Name="FK__Product_I__id_pr__49C3F6B7">
     <End Role="Product" Type="Self.Product" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
@@ -260,11 +261,11 @@
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Size" EntityType="Self.Size" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__DetailSiz__id_pr__4BAC3F29" Association="Self.FK__DetailSiz__id_pr__4BAC3F29">
+    <AssociationSet Name="FK__DetailSiz__id_pr__4E88ABD4" Association="Self.FK__DetailSiz__id_pr__4E88ABD4">
       <End Role="Product" EntitySet="Product" />
       <End Role="DetailSizePd" EntitySet="DetailSizePd" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetailSiz__Size___4CA06362" Association="Self.FK__DetailSiz__Size___4CA06362">
+    <AssociationSet Name="FK__DetailSiz__Size___4F7CD00D" Association="Self.FK__DetailSiz__Size___4F7CD00D">
       <End Role="Size" EntitySet="Size" />
       <End Role="DetailSizePd" EntitySet="DetailSizePd" />
     </AssociationSet>
@@ -296,7 +297,7 @@
       <End Role="Category" EntitySet="Category" />
       <End Role="Product" EntitySet="Product" />
     </AssociationSet>
-    <AssociationSet Name="FK__Product_I__id_pr__4F7CD00D" Association="Self.FK__Product_I__id_pr__4F7CD00D">
+    <AssociationSet Name="FK__Product_I__id_pr__49C3F6B7" Association="Self.FK__Product_I__id_pr__49C3F6B7">
       <End Role="Product" EntitySet="Product" />
       <End Role="Product_Image" EntitySet="Product_Image" />
     </AssociationSet>

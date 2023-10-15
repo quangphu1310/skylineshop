@@ -1,7 +1,10 @@
 ﻿@*@model IEnumerable<SkyLineShop.Models.Category>
-@model IEnumerable<SkyLineShop.Models.Product>*@
+    @model IEnumerable<SkyLineShop.Models.Product>*@
 
-@model IEnumerable<SkyLineShop.Models.ProductPro>
+@*@model IEnumerable<SkyLineShop.Models.ProductPro>*@
+@model IPagedList<SkyLineShop.Models.ProductPro>
+@using PagedList;
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "Shop";
     Layout = "~/Views/Shared/_LayoutContainer.cshtml";
@@ -31,7 +34,7 @@
                 <div class="shop__sidebar">
                     <div class="shop__sidebar__search">
                         <form>
-                            <input name="productName" type="text" placeholder="Tìm kiếm..." />
+                            <input name="search" type="text" placeholder="Tìm kiếm..." />
                             <button type="submit">
                                 <span class="icon_search"></span>
                             </button>
@@ -49,7 +52,7 @@
                                     <div class="card-body">
                                         <div class="shop__sidebar__categories">
                                             <ul class="nice-scroll">
-                                               
+
                                                 @foreach (var cate in ViewBag.Category)
                                                 {
                                                     <li><a href="/Shop?categoryID=@cate.id_cate">@cate.cate_name</a></li>
@@ -73,78 +76,14 @@
                                                 {
                                                     <li><a href="/Shop?brandID=@brand.id_brand">@brand.brand_name</a></li>
                                                 }
-                                                
+
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseThree">Lọc theo giá</a>
-                                </div>
-                                <div id="collapseThree"
-                                     class="collapse show"
-                                     data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <div class="shop__sidebar__price">
-                                            <ul>
-                                                <li><a href="#">$0.00 - $50.00</a></li>
-                                                <li><a href="#">$50.00 - $100.00</a></li>
-                                                <li><a href="#">$100.00 - $150.00</a></li>
-                                                <li><a href="#">$150.00 - $200.00</a></li>
-                                                <li><a href="#">$200.00 - $250.00</a></li>
-                                                <li><a href="#">250.00+</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card wow fadeInUp" data-wow-delay="0.5s">
-                                <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseFour">Size</a>
-                                </div>
-                                <div id="collapseFour"
-                                     class="collapse show"
-                                     data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        <div class="shop__sidebar__size">
-                                            <label for="xs">
-                                                xs
-                                                <input type="radio" id="xs" />
-                                            </label>
-                                            <label for="sm">
-                                                s
-                                                <input type="radio" id="sm" />
-                                            </label>
-                                            <label for="md">
-                                                m
-                                                <input type="radio" id="md" />
-                                            </label>
-                                            <label for="xl">
-                                                xl
-                                                <input type="radio" id="xl" />
-                                            </label>
-                                            <label for="2xl">
-                                                2xl
-                                                <input type="radio" id="2xl" />
-                                            </label>
-                                            <label for="xxl">
-                                                xxl
-                                                <input type="radio" id="xxl" />
-                                            </label>
-                                            <label for="3xl">
-                                                3xl
-                                                <input type="radio" id="3xl" />
-                                            </label>
-                                            <label for="4xl">
-                                                4xl
-                                                <input type="radio" id="4xl" />
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
@@ -154,17 +93,22 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__left">
-                                <p>Hiển thị 1–12 trong 126 kết quả</p>
+                                <p>Trang <b>@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)</b> trong <b>@Model.PageCount</b> trang</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__right">
-                                <p>Sắp xếp theo giá:</p>
-                                <select>
-                                    <option value="">Thấp đến Cao</option>
-                                    <option value="">$0 - $55</option>
-                                    <option value="">$55 - $100</option>
-                                </select>
+
+                                <form action="~/Shop/Filter">
+                                    <p>Sắp xếp theo giá:</p>
+                                    <select id="priceSortSelect" name="priceSortSelect" onchange="submitForm()">
+                                        <option value="" @(ViewBag.Filter == "" ? "seleted" : "")>Mặc định</option>
+                                        <option value="0" @(ViewBag.Filter == "0" ? "seleted" : "")>Thấp đến Cao</option>
+                                        <option value="1" @(ViewBag.Filter == "1" ? "seleted" : "")>Cao đến thấp</option>
+                                    </select>
+                                </form>
+
+
                             </div>
                         </div>
                     </div>
@@ -191,13 +135,16 @@
                                             <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
                                         </li>
                                         <li>
-                                            <a href="#"><img src="/Assets/img/icon/cart.png" alt="" />
-                                                        <span>Add to Cart</span></a>
+                                            <a href="~/Cart/AddItem?productid=@product.ProductID&quantity=1&size=M&image=@product.ProductImage">
+                                                <img src="/Assets/img/icon/cart.png" alt="" />
+                                                <span>Add to Cart</span>
+                                            </a>
+
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    
+
                                     <a class="product-title" href="/Shop/ProductDetail?idProduct=@product.ProductID"><h6>@product.ProductName</h6></a>
 
                                     <div class="rating">
@@ -208,7 +155,10 @@
                                         <i class="fa fa-star-o"></i>
                                     </div>
                                     <h5>@String.Format("{0:0,0}", product.ProductPrice) VND</h5>
+
                                 </div>
+                                
+
                             </div>
                         </div>
                     }
@@ -218,17 +168,44 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="product__pagination">
-                            <a class="active" href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <span>...</span>
-                            <a href="#">21</a>
+                            @{ 
+                                string path = "";
+
+                                if (ViewBag.brandID != null)
+                                {
+                                    path = "/Shop?brandID=" + ViewBag.brandID + "&page=";
+                                }
+                                else if (ViewBag.categoryID != null)
+                                {
+                                    path = "/Shop?categoryID=" + ViewBag.categoryID + "&page=";
+                                }
+                                else
+                                {
+                                    path = "/Shop?page=";
+
+                                }
+                            }
+                            @for (int i = 1; i <= Model.PageCount; i++)
+                            {
+                                <a class="@(i==Model.PageNumber ? "active" : "")" href="@path@i">@i</a>
+                            }
                         </div>
                     </div>
+                   @* Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount*@
+                    @* @Html.PagedListPager(Model, page => Url.Action("Index",new { page }))*@
                 </div>
             </div>
         </div>
     </div>
 </section>
+<script>
+    function submitForm() {
+        var select = document.getElementById("priceSortSelect");
+        var form = select.closest("form");
+        form.submit();
+    }
+    
+</script>
+
 <!-- Shop Section End -->
 <!-- Footer Section Begin -->
