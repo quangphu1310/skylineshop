@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Products>
+  <Product id_product="1" product_name="Áo Phông - Áo thun Tập Luyện Nam Adidas">
+    <Brand id_brand="1" brand_name="Adidas" />
+  </Product>
+  <Product id_product="2" product_name="Áo Phông - Áo thun Chạy Nam NIKE As M Nk Df Miler">
+    <Brand id_brand="7" brand_name="Nike" />
+  </Product>
+  <Product id_product="3" product_name="Áo thun Vans Checkered Side Stripe SS Tee">
+    <Brand id_brand="10" brand_name="Vans" />
+  </Product>
+  <Product id_product="4" product_name="Áo Phông - Áo thun Chạy Nữ ADIDAS Own The Run">
+    <Brand id_brand="1" brand_name="Adidas" />
+  </Product>
+  <Product id_product="5" product_name="Men New Balance Sports Style Optiks Short Sleeve">
+    <Brand id_brand="6" brand_name="New Balance" />
+  </Product>
+  <Product id_product="6" product_name="Women New Balance Athletics Higher Learning Slim Tee">
+    <Brand id_brand="6" brand_name="New Balance" />
+  </Product>
+  <Product id_product="7" product_name="Áo thun Converse Mountain Moon Tee GRAPHICS-SS SEASONA">
+    <Brand id_brand="2" brand_name="Converse" />
+  </Product>
+  <Product id_product="8" product_name="Áo Thun Nam Dài Tay SSSTUTTER cổ tròn chất liệu cotton">
+    <Brand id_brand="8" brand_name="SSStutter" />
+  </Product>
+  <Product id_product="9" product_name="Áo croptop nữ SSSTUTTER cổ cao nhún bèo chất cotton thoáng mát Vase Top">
+    <Brand id_brand="8" brand_name="SSStutter" />
+  </Product>
+  <Product id_product="10" product_name="Áo thun Bóng Rổ Nam Nike M J Jumpman">
+    <Brand id_brand="7" brand_name="Nike" />
+  </Product>
+  <Product id_product="11" product_name="New Balance Q Speed Fuel 2 in 1 5 inch Shorts">
+    <Brand id_brand="6" brand_name="New Balance" />
+  </Product>
+  <Product id_product="12" product_name="Quần Dài Originals Nam Adidas B Trf Abs Swtpt">
+    <Brand id_brand="1" brand_name="Adidas" />
+  </Product>
+  <Product id_product="13" product_name="HADES GLOSSY WATER SHORTS">
+    <Brand id_brand="3" brand_name="Hades" />
+  </Product>
+  <Product id_product="14" product_name="Quần âu ống đúng nam SSSTUTTER đỉa quần bản to cách điệu DORE TROUSERS">
+    <Brand id_brand="8" brand_name="SSStutter" />
+  </Product>
+  <Product id_product="15" product_name="Quần âu nữ SSSTUTTER ống suông BIRDIE PANTS">
+    <Brand id_brand="8" brand_name="SSStutter" />
+  </Product>
+  <Product id_product="16" product_name="ENERGETIC PANT">
+    <Brand id_brand="3" brand_name="Hades" />
+  </Product>
+  <Product id_product="17" product_name="Men New Balance Athletics Higher Learning Fleece Shorts">
+    <Brand id_brand="6" brand_name="New Balance" />
+  </Product>
+  <Product id_product="18" product_name="Giày sneakers Vans UA Old Skool Packing Tape">
+    <Brand id_brand="10" brand_name="Vans" />
+  </Product>
+  <Product id_product="19" product_name="Giày Thể Thao Unisex ADIDAS X9000L4 ">
+    <Brand id_brand="1" brand_name="Adidas" />
+  </Product>
+  <Product id_product="20" product_name="Men New Balance 57/40 Classic Sneakers">
+    <Brand id_brand="6" brand_name="New Balance" />
+  </Product>
+  <Product id_product="21" product_name="Giày sneakers Converse Chuck Taylor All Star Renew">
+    <Brand id_brand="2" brand_name="Converse" />
+  </Product>
+  <Product id_product="22" product_name="Giày sneakers Converse Chuck Taylor All Star 1970s">
+    <Brand id_brand="2" brand_name="Converse" />
+  </Product>
+  <Product id_product="23" product_name="Giày Thể Thao Nam NIKE Air Max Dawn DM0013-101">
+    <Brand id_brand="7" brand_name="Nike" />
+  </Product>
+  <Product id_product="24" product_name="Giày Nam Nike Benassi Slp 882410-003">
+    <Brand id_brand="7" brand_name="Nike" />
+  </Product>
+  <Product id_product="25" product_name="Gọng kính cận nam nữ Lilyeyewear chất liệu kim loại thanh mảnh nhẹ nhàng">
+    <Brand id_brand="5" brand_name="Kilyeyewear" />
+  </Product>
+  <Product id_product="26" product_name="SJB Steed">
+    <Brand id_brand="6" brand_name="New Balance" />
+  </Product>
+  <Product id_product="27" product_name="Bông tai GreenLucky nam nữ bạc 925 không kích ứng">
+    <Brand id_brand="9" brand_name="Tepys Accessories" />
+  </Product>
+  <Product id_product="28" product_name="Khuyên vành tai Titan nữ tạo hình độc đáo">
+    <Brand id_brand="9" brand_name="Tepys Accessories" />
+  </Product>
+  <Product id_product="29" product_name="Túi xách nữ cao cấp Lata TX09">
+    <Brand id_brand="4" brand_name="Lata" />
+  </Product>
+  <Product id_product="30" product_name="Ví cầm tay nữ nắp gập dáng dài Lata VN71">
+    <Brand id_brand="4" brand_name="Lata" />
+  </Product>
+  <Product id_product="31" product_name="Ba lô nam nữ SSSTUTTER form cơ bản có túi chống sốc ngăn ngoài vật dụng">
+    <Brand id_brand="8" brand_name="SSStutter" />
+  </Product>
+  <Product id_product="33" product_name="New Product">
+    <Brand id_brand="6" brand_name="New Balance" />
+  </Product>
+</Products>

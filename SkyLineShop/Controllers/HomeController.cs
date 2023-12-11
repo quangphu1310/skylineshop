@@ -30,7 +30,6 @@ namespace SkyLineShop.Controllers
 
             var query2 = from p in db.Product
                          join m in db.Product_Image on p.id_product equals m.id_product
-                         where p.id_brand == 1
                          group m by p into g
                          select new ProductPro
                          {
@@ -55,8 +54,8 @@ namespace SkyLineShop.Controllers
                              IDcate = (int)g.Key.id_cate,
                              ProductImage = g.FirstOrDefault().image
                          };
-            ViewBag.Product = query.ToList();
-            ViewBag.Product2 = query2.ToList();
+            ViewBag.Product = query.Take(4).ToList();
+            ViewBag.Product2 = query2.Take(4).OrderByDescending(x=>x.ProductID).ToList();
             ViewBag.Product3 = query3.OrderBy(p => p.ProductPrice).FirstOrDefault();
             return View();
         }

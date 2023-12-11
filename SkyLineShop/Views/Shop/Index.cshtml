@@ -129,23 +129,8 @@
                                                                     <div class="product__item__pic set-bg"
                                                                          data-setbg="/Assets/img/product/@product.ProductImage">
                                                                         <ul class="product__hover">
+                                                                           
                                                                             <li>
-                                                                                <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#">
-                                                                                    <img src="/Assets/img/icon/compare.png" alt="" />
-                                                                                    <span>Compare</span>
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
-                                                                            </li>
-                                                                            <li>
-                                                                                @*<a href="~/Cart/AddItem?productid=@product.ProductID&quantity=1&size=M&image=@product.ProductImage" class="add-to-cart-button" id="addtocart">
-                                    <img src="/Assets/img/icon/cart.png" alt="" />
-                                    <span>Add to Cart</span>
-                                </a>*@
 
                                                                                 @{
                                                                                     var sizeName = "";
@@ -264,7 +249,7 @@
                             // Thực hiện các hành động sau khi thêm sản phẩm thành công
                             const Toast = Swal.mixin({
                                 toast: true,
-                                position: 'top-right',
+                                position: 'top-left',
                                 showConfirmButton: false,
                                 timer: 3000,
                                 timerProgressBar: true,

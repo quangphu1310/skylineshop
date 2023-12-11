@@ -27,6 +27,7 @@ namespace SkyLineShop.Models
         public string phone { get; set; }
         public string password { get; set; }
         public Nullable<int> id_role { get; set; }
+        public string avatar_user { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Evaluation> Evaluation { get; set; }

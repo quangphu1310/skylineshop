@@ -142,18 +142,7 @@
                         <div class="product__item__pic set-bg"
                              data-setbg="/Assets/img/product/@product1.ProductImage">
                             <ul class="product__hover">
-                                <li>
-                                    <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="/Assets/img/icon/compare.png" alt="" />
-                                        <span>Compare</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
-                                </li>
+
                                 <li>
                                     @{
                                         var sizeName = "";
@@ -200,18 +189,7 @@
                         <div class="product__item__pic set-bg"
                              data-setbg="/Assets/img/product/@product2.ProductImage">
                             <ul class="product__hover">
-                                <li>
-                                    <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img src="/Assets/img/icon/compare.png" alt="" />
-                                        <span>Compare</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="/Assets/img/icon/search.png" alt="" /></a>
-                                </li>
+
                                 <li>
                                     @{
                                         var sizeName = "";
@@ -298,7 +276,7 @@
                             <p>Giây</p>
                         </div>
                     </div>
-                    <a href="shop.html" class="primary-btn">Mua ngay</a>
+                    <a href="~/Shop/ProductDetail?idProduct=@ViewBag.Product3.ProductID" class="primary-btn">Mua ngay</a>
                 </div>
             </div>
         </div>
@@ -393,6 +371,21 @@
         </div>
     </div>
 </section>
+@if (TempData.ContainsKey("PaymentSuccess"))
+{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Đặt hàng thành công!",
+            showConfirmButton: false,
+            timer: 1500
+        });
+    </script>
+}
+
 <!-- Latest Blog Section End -->
 @section scripts{
     <head>
@@ -400,7 +393,7 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <script>
-        
+
         //dùng ajax cho giỏ hàng
         $(document).ready(function () {
             $(".add-to-cart-button").click(function (e) {
@@ -457,6 +450,7 @@
                 });
             });
         });
+
 
     </script>
 }

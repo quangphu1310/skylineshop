@@ -49,7 +49,7 @@
           <Property Name="address" Type="nvarchar(max)" />
           <Property Name="phone" Type="varchar" MaxLength="10" />
           <Property Name="email" Type="varchar" MaxLength="30" />
-          <Property Name="note" Type="text" />
+          <Property Name="note" Type="nvarchar(max)" />
           <Property Name="payment_status" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="Order_Detail">
@@ -103,8 +103,9 @@
           <Property Name="username" Type="nvarchar" MaxLength="50" />
           <Property Name="email" Type="varchar" MaxLength="40" />
           <Property Name="phone" Type="varchar" MaxLength="10" />
-          <Property Name="password" Type="char" MaxLength="30" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
           <Property Name="id_role" Type="int" />
+          <Property Name="avatar_user" Type="text" />
         </EntityType>
         <Association Name="FK__DetailSiz__id_pr__4E88ABD4">
           <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
@@ -364,7 +365,7 @@
           <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="payment_status" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="User" Relationship="Self.FK__Order__id_cust__5629CD9C" FromRole="Order" ToRole="User" />
           <NavigationProperty Name="Order_Detail" Relationship="Self.FK__Order_Det__id_or__5AEE82B9" FromRole="Order" ToRole="Order_Detail" />
@@ -432,11 +433,12 @@
           <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="id_role" Type="Int32" />
           <NavigationProperty Name="Evaluation" Relationship="Self.FK__Evaluatio__id_cu__52593CB8" FromRole="User" ToRole="Evaluation" />
           <NavigationProperty Name="Order" Relationship="Self.FK__Order__id_cust__5629CD9C" FromRole="User" ToRole="Order" />
           <NavigationProperty Name="Role" Relationship="Self.FK__User__id_role__3E52440B" FromRole="User" ToRole="Role" />
+          <Property Name="avatar_user" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK__Product__id_bran__46E78A0C">
           <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
@@ -750,6 +752,7 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="skyshopModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="avatar_user" ColumnName="avatar_user" />
                 <ScalarProperty Name="id_user" ColumnName="id_user" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="email" ColumnName="email" />

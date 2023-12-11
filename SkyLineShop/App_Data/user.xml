@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+  <User id_user="2" username="user1" email="user1@example.com" phone="0932331524" />
+  <User id_user="3" username="user2" email="user2@example.com" phone="5555555555" />
+  <User id_user="6" username="quangphuvjppro" email="trancongquangphu10@gmail.com" phone="0915558610" />
+</users>

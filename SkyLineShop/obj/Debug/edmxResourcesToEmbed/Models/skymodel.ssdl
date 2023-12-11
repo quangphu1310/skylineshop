@@ -44,7 +44,7 @@
     <Property Name="address" Type="nvarchar(max)" />
     <Property Name="phone" Type="varchar" MaxLength="10" />
     <Property Name="email" Type="varchar" MaxLength="30" />
-    <Property Name="note" Type="text" />
+    <Property Name="note" Type="nvarchar(max)" />
     <Property Name="payment_status" Type="nvarchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="Order_Detail">
@@ -98,8 +98,9 @@
     <Property Name="username" Type="nvarchar" MaxLength="50" />
     <Property Name="email" Type="varchar" MaxLength="40" />
     <Property Name="phone" Type="varchar" MaxLength="10" />
-    <Property Name="password" Type="char" MaxLength="30" />
+    <Property Name="password" Type="varchar" MaxLength="255" />
     <Property Name="id_role" Type="int" />
+    <Property Name="avatar_user" Type="text" />
   </EntityType>
   <Association Name="FK__DetailSiz__id_pr__4E88ABD4">
     <End Role="Product" Type="Self.Product" Multiplicity="0..1" />

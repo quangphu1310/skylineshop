@@ -14,6 +14,9 @@
             <!-- /.col-lg-12 -->
         </div>
         <!-- /.row -->
+        <p>
+            @Html.ActionLink("Convert to XML", "convertXML")
+        </p>
         <div class="row">
             <div class="col-lg-12">
                 <table class="table table-hover">
@@ -30,7 +33,7 @@
                         <th>
                             Số điện thoại
                         </th>
-                       
+
 
                     </tr>
 
@@ -49,7 +52,7 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.phone)
                             </td>
-                           
+
 
                         </tr>
                     }

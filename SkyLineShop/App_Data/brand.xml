@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BrandRoot>
+  <brand id_brand="1" brand_name="Adidas" />
+  <brand id_brand="2" brand_name="Converse" />
+  <brand id_brand="3" brand_name="Hades" />
+  <brand id_brand="4" brand_name="Lata" />
+  <brand id_brand="5" brand_name="Kilyeyewear" />
+  <brand id_brand="6" brand_name="New Balance" />
+  <brand id_brand="7" brand_name="Nike" />
+  <brand id_brand="8" brand_name="SSStutter" />
+  <brand id_brand="9" brand_name="Tepys Accessories" />
+  <brand id_brand="10" brand_name="Vans" />
+</BrandRoot>

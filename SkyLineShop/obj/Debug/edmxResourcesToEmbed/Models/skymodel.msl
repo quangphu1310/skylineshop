@@ -102,6 +102,7 @@
     <EntitySetMapping Name="User">
       <EntityTypeMapping TypeName="skyshopModel.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="avatar_user" ColumnName="avatar_user" />
           <ScalarProperty Name="id_user" ColumnName="id_user" />
           <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="email" ColumnName="email" />

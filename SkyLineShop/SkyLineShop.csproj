@@ -103,6 +103,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\brand.xml" />
+    <Content Include="App_Data\category.xml" />
+    <Content Include="App_Data\order.xml" />
+    <Content Include="App_Data\product.xml" />
+    <Content Include="App_Data\user.xml" />
     <Content Include="Areas\Admin\assets\css\bootstrap-social.css" />
     <Content Include="Areas\Admin\assets\css\bootstrap-theme.min.css" />
     <Content Include="Areas\Admin\assets\css\bootstrap.min.css" />
@@ -171,6 +176,11 @@
     <Content Include="Assets\img\about\team-4.jpg" />
     <Content Include="Assets\img\about\testimonial-author.jpg" />
     <Content Include="Assets\img\about\testimonial-pic.jpg" />
+    <Content Include="Assets\img\account\121.jpg" />
+    <Content Include="Assets\img\account\avatar3.jpg" />
+    <Content Include="Assets\img\account\avatar2.jpg" />
+    <Content Include="Assets\img\account\avatar1.jpg" />
+    <Content Include="Assets\img\account\quangphu.jpg" />
     <Content Include="Assets\img\banner\banner-1.jpg" />
     <Content Include="Assets\img\banner\banner-2.jpg" />
     <Content Include="Assets\img\banner\banner-3.jpg" />
@@ -201,6 +211,7 @@
     <Content Include="Assets\img\icon\cart.png" />
     <Content Include="Assets\img\icon\compare.png" />
     <Content Include="Assets\img\icon\heart.png" />
+    <Content Include="Assets\img\icon\profile.png" />
     <Content Include="Assets\img\icon\search.png" />
     <Content Include="Assets\img\instagram\instagram-1.jpg" />
     <Content Include="Assets\img\instagram\instagram-2.jpg" />
@@ -2190,6 +2201,7 @@
     <Content Include="Views\Checkout\Index.cshtml" />
     <Content Include="Views\Checkout\PaymentSuccess.cshtml" />
     <Content Include="Views\Account\register.cshtml" />
+    <Content Include="Views\Account\profile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2198,7 +2210,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>

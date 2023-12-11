@@ -21,61 +21,65 @@
                     <hr />
                     <dl class="dl-horizontal">
                         <dt>
-                            @Html.DisplayNameFor(model => model.product_name)
+                            Tên sản phẩm
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.product_name)
+                            @ViewBag.ProductInfo.Attribute("product_name").Value
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.price)
+                            Giá sản phẩm
                         </dt>
 
                         <dd>
-                            @String.Format("{0:0,0}", Model.price) VNĐ
+                            @ViewBag.ProductInfo.Attribute("price").Value
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.desc)
+                            Mô tả sản phẩm
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.desc)
+                            @ViewBag.ProductInfo.Attribute("description").Value
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.Product_Image)
+                            Ảnh
                         </dt>
 
                         <dd>
-                            @foreach (var i in Model.Product_Image)
-                            {
-                                <img src="@Url.Content("~/Assets/img/product/" + @i.image)" style="height:200px; width:200px; margin:10px;" />
+                            @*@foreach (var i in Model.Product_Image)
+        {
+            <img src="@Url.Content("~/Assets/img/product/" + @i.image)" style="height:200px; width:200px; margin:10px;" />
 
-                            }
+        }*@
+
+                            <img src="@Url.Content("~/Assets/img/product/" + @ViewBag.ProductInfo.Element("Image").Attribute("image1").Value)" style="height:200px; width:200px; margin:10px;" />
+                            <img src="@Url.Content("~/Assets/img/product/" + @ViewBag.ProductInfo.Element("Image").Attribute("image2").Value)" style="height:200px; width:200px; margin:10px;" />
+                            <img src="@Url.Content("~/Assets/img/product/" + @ViewBag.ProductInfo.Element("Image").Attribute("image3").Value)" style="height:200px; width:200px; margin:10px;" />
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.Brand.brand_name)
+                            Brand
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Brand.brand_name)
+                            @ViewBag.ProductInfo.Element("Brand").Attribute("brand_name").Value
                         </dd>
 
                         <dt>
-                            @Html.DisplayNameFor(model => model.Category.cate_name)
+                            Category
                         </dt>
 
                         <dd>
-                            @Html.DisplayFor(model => model.Category.cate_name)
+                            @ViewBag.ProductInfo.Element("Category").Attribute("category_name").Value
                         </dd>
 
                     </dl>
                 </div>
                 <p>
-                    @Html.ActionLink("Edit", "Edit", new { id = Model.id_product }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = @ViewBag.ProductInfo.Attribute("id_product").Value }) |
                     @Html.ActionLink("Back to List", "Index")
                 </p>
             </div>

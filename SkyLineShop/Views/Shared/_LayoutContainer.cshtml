@@ -37,9 +37,9 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    @*<div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div>*@
 
     <!-- Offcanvas Menu End -->
     <!-- Header Section Begin -->
@@ -64,22 +64,23 @@
                                     string path = "";
                                     if (HttpContext.Current.Session["user"] != null)
                                     {
-                                        path = "Shop";
+                                        SkyLineShop.Models.skyshopEntities db = new SkyLineShop.Models.skyshopEntities();
                                         user = HttpContext.Current.Session["user"].ToString();
+                                        var u = db.User.FirstOrDefault(x => x.username == user);
+                                        path = "/Account/profile";
                                     }
                                     else
                                     {
-
-                                        path = "Account/Login";
+                                        path = "/Account/Login";
                                         user = "Đăng Nhập";
                                     }
 
                                 }
                                 <div>
-                                    <a href="~/@path">@user </a>
+                                    <a id="formSubmit" href="@path">@user <img src="https://i.pinimg.com/originals/07/66/d1/0766d183119ff92920403eb7ae566a85.png" class="position-relative" style="width: 30px;" alt=""></a>
                                 </div>
                             </div>
-                            @if (path == "Shop")
+                            @if (HttpContext.Current.Session["user"] != null)
                             {
                                 <div class="header__top__hover">
                                     <span><a href="~/Account/Logout" class="text-decoration-none text-white">Logout</a> </span>
@@ -125,15 +126,15 @@
                         <a href="#" class="search-switch">
                             <img src="/Assets/img/icon/search.png" alt="" />
                         </a>
-                        <a href="#"><img src="/Assets/img/icon/heart.png" alt="" /></a>
+                       
                         @{
                             var cart = HttpContext.Current.Session["CartSession"];
                             var list = (List<SkyLineShop.Models.CartItem>)cart;
                         }
-                        <a href="~/Cart">
+                        <a href="~/cart">
                             <img src="/Assets/img/icon/cart.png" class="position-relative"
                                  style="width: 20px;" alt="" />
-                            <span class="quantity-item-product" id="CartCount"> 0@*@(list!= null ? list.Count() : 0)*@</span>
+                            <span class="quantity-item-product" id="CartCount">@(list!= null ? list.Count() : 0)</span>
                         </a>
 
                         @*<div class="price">$0.00</div>*@
@@ -224,8 +225,8 @@
     <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">
             <div class="search-close-switch">+</div>
-            <form class="search-model-form">
-                <input type="text" id="search-input" placeholder="Search here....." />
+            <form class="search-model-form" action="~/shop/index">
+                <input type="text" id="search-input" name="search" placeholder="Tìm kiếm nhanh sản phẩm..." />
             </form>
         </div>
     </div>
@@ -261,28 +262,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
-@*<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
-<script>
-    // Đoạn mã JavaScript ở trong file layout hoặc các trang mà bạn muốn hiển thị CartCount
-    $(document).ready(function () {
-        // Truy vấn số lượng sản phẩm trong giỏ hàng từ phía máy chủ
-        $.ajax({
-            url: '/Cart/GetCartItemCount', // Điều hướng tới action lấy số lượng sản phẩm trong giỏ hàng
-            method: 'GET',
-            success: function (response) {
-                if (response.success) {
-                    var itemCount = response.countCart;
-                    $('#CartCount').text(itemCount); // Cập nhật giá trị CartCount trên trang
-                }
-            },
-            error: function (xhr, status, error) {
-                // Xử lý khi có lỗi Ajax
-                alert("Lỗi Ajax: " + error);
-            }
-        });
-    });
 
-</script>*@

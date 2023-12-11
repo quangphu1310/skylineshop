@@ -15,7 +15,7 @@
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-12">
-                @using (Html.BeginForm())
+                @using (Html.BeginForm("Edit","Products",FormMethod.Post, new { enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
 
@@ -54,15 +54,23 @@
                 <div class="form-group">
                     <label class="control-label col-md-2">Ảnh</label>
                     <div class="col-md-10">
-                        @{ int index = 1; }
-                        @foreach (var i in Model.Product_Image)
-                        {
-                            string name = "img" + index;
-                            <img id="img-@index" src="@Url.Content("~/Assets/img/product/" + @i.image)" style="height:200px; width:200px; margin:10px;" />
-                            <input type="file" name="@name" class="form-control" onchange="updateImage(@index)" required/>
-                            index++;
-                        }
-                        
+                        @*@{ int index = 1; }
+        @foreach (var i in Model.Product_Image)
+        {
+            string name = "img" + index;
+            <img id="img-@index" src="@Url.Content("~/Assets/img/product/" + @i.image)" style="height:200px; width:200px; margin:10px;" />
+            <input type="file" name="@name" class="form-control" onchange="updateImage(@index)" required />
+            index++;
+        }*@
+                        <img id="img-1" src="@Url.Content("~/Assets/img/product/" + @ViewBag.image1)" style="height:200px; width:200px; margin:10px;" />
+                        <input type="file" name="name1" class="form-control" onchange="updateImage(this, 1)"  />
+
+                        <img id="img-2" src="@Url.Content("~/Assets/img/product/" + @ViewBag.image2)" style="height:200px; width:200px; margin:10px;" />
+                        <input type="file" name="name2" class="form-control" onchange="updateImage(this, 2)" />
+
+                        <img id="img-3" src="@Url.Content("~/Assets/img/product/" + @ViewBag.image3)" style="height:200px; width:200px; margin:10px;" />
+                        <input type="file" name="name3" class="form-control" onchange="updateImage(this, 3)"  />
+
                     </div>
                 </div>
 
@@ -97,9 +105,7 @@
     </div>
 </div>
 <script>
-    
-    function updateImage(index) {
-        var fileInput = document.querySelector("input[name='img" + index + "']");
+    function updateImage(fileInput, index) {
         var img = document.querySelector("#img-" + index);
         if (fileInput.files && fileInput.files[0]) {
             var reader = new FileReader();

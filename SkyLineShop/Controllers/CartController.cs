@@ -80,7 +80,7 @@ namespace SkyLineShop.Controllers
             return Json(result);
         }
 
-        public ActionResult UpdateCart(/*string[] idProduct, string[] quantitie, string[] sizee*/ FormCollection form)
+        public ActionResult UpdateCart(FormCollection form)
         {
             var cart = Session[CartSession] as List<CartItem>;
 
@@ -127,41 +127,83 @@ namespace SkyLineShop.Controllers
                 }
                 count = cart.Count;
             }
-            //return Json(new { success = true, message = "Giỏ hàng đã được cập nhật" , countCart = count });
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public ActionResult UpdateItem(int id_product, int newValue)
+        {
+            var cart = Session[CartSession];
+            var list = (List<CartItem>)cart;
+            var item = list.Find(e => e.Product.id_product == id_product);
+            item.Quantity = newValue;
+
+            decimal? sum = 0;
+            foreach(var items in list)
+            {
+                sum += items.Quantity * items.Product.price;
+            }
+            var price = db.Product.FirstOrDefault().price;
+            var total = newValue * price;
+            return Json(new { success = true, total = total, countCart = count, sum = sum });
+        }
+
+        [HttpPost]
+        public ActionResult UpdateSize(int id_product, string size)
+        {
+            var cart = Session[CartSession];
+            var list = (List<CartItem>)cart;
+            var item = list.Find(e => e.Product.id_product == id_product);
+            item.Size = size;
+
+            
+            return Json(new { success = true });
+        }
+
+
+        [HttpPost]
+        //public ActionResult RemoveItem(int id_product)
+        //{
+        //    var cart = Session[CartSession];
+        //    var list = (List<CartItem>)cart;
+        //    //string[] idProducts = form.GetValues("id_product");
+
+        //    if (cart != null)
+        //    {
+        //        var item = list.Find(e => e.Product.id_product == id_product);
+        //        if (item != null)
+        //        {
+        //            list.Remove(item);
+        //        }
+
+        //    }
+        //    if(list.Count() == 0)
+        //    {
+        //        Session[CartSession] = null;
+        //    }
+        //    //return Json(new { success = true, message = "Xóa" });
+        //    return RedirectToAction("Index");
+        //}
         public ActionResult RemoveItem(int id_product)
         {
             var cart = Session[CartSession];
             var list = (List<CartItem>)cart;
-            //string[] idProducts = form.GetValues("id_product");
 
-            if (cart != null)
+            var item = list.Find(e => e.Product.id_product == id_product);
+            if (item != null)
             {
-                var item = list.Find(e => e.Product.id_product == id_product);
-                if (item != null)
-                {
-                    list.Remove(item);
-                }
-
+                list.Remove(item);
             }
-            //return Json(new { success = true, message = "Xóa" });
-            return RedirectToAction("Index");
+            count = list.Count;
+
+            return Json(new { success = true, countCart = count });
+           
         }
         public ActionResult RemoveAll()
         {
             Session[CartSession] = null;
             return RedirectToAction("Index");
         }
-        //public ActionResult GetCartItemCount()
-        //{
-        //    var cart = Session[CartSession];
-        //    var list = (List<CartItem>)cart;
-
-        //    count = list.Count;
-        //    return Json(new { success = true, countCart = count });
-        //}
-
+        
     }
 }

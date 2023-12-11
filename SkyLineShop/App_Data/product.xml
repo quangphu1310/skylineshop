@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quangphu>
+  <Product id_product="1" product_name="Áo Phông - Áo thun Tập Luyện Nam Adidas" description="Kiểu dáng ôm sát mà co giãn cho phạm vi chuyển động tối đa và loại bỏ mồ hôi trên da trong khi tập luyện. Logo graphic táo bạo ở mặt trước khẳng định tinh thần tập luyện của bạn. Sản phẩm này may bằng vải công nghệ Primegreen, thuộc dòng chất liệu tái chế hiệu năng cao" price="665000">
+    <Brand id_brand="1" brand_name="Adidas" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-adidas-ao-phong-ao-thun-tap-luyen-nam-adidas-tbos-tee-hl-525897525897.jpg" image2="dosiin-adidas-ao-phong-ao-thun-tap-luyen-nam-adidas-tbos-tee-hl-525898525898.jpg" image3="dosiin-adidas-ao-phong-ao-thun-tap-luyen-nam-adidas-tbos-tee-hl-525899525899.jpg" />
+  </Product>
+  <Product id_product="2" product_name="Áo Phông - Áo thun Chạy Nam NIKE As M Nk Df Miler" description="Dáng standard fit phù hợp tiêu chuẩn. Cổ thuyền viên với cổ áo có gân. Tay áo ngắn. Hình ảnh Jordan ở phía trước" price="409500">
+    <Brand id_brand="7" brand_name="Nike" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-nike-ao-phong-ao-thun-chay-nam-nike-as-m-nk-df-rdvn-ris-fls-gx-dd-526577526577.jpg" image2="dosiin-nike-ao-phong-ao-thun-chay-nam-nike-as-m-nk-df-rdvn-ris-fls-gx-dd-526578526578.jpg" image3="dosiin-nike-ao-phong-ao-thun-chay-nam-nike-as-m-nk-df-rdvn-ris-fls-gx-dd-526580526580.jpg" />
+  </Product>
+  <Product id_product="3" product_name="Áo thun Vans Checkered Side Stripe SS Tee" description="Chất liệu Cotton cao cấp giúp vận động thoải mái, tone màu trắng đơn giản dễ phối đồ. Đặc biệt là họa tiết logo Vans được cách điệu, đồng bộ ở ngực trái và sau lưng giúp bạn có được một chiếc áo vô cùng cá tính và sành điệu." price="720000">
+    <Brand id_brand="10" brand_name="Vans" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-vans-ao-thun-vans-checkered-side-stripe-ss-tee-vn-alkz-329705329705.jpg" image2="dosiin-vans-ao-thun-vans-checkered-side-stripe-ss-tee-vn-alkz-329706329706.jpg" image3="dosiin-vans-ao-thun-vans-checkered-side-stripe-ss-tee-vn-alkz-329707329707.jpg" />
+  </Product>
+  <Product id_product="4" product_name="Áo Phông - Áo thun Chạy Nữ ADIDAS Own The Run" description="Áo Phông - Áo thun Originals Nam ADIDAS Trefoil Tee HC7118. 100% chính hãng ADIDAS Việt Nam. Bao gồm: Sản phẩm mới nguyên TAG, hóa đơn bán hàng từ SALEHUB" price="637500">
+    <Brand id_brand="1" brand_name="Adidas" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-adidas-ao-phong-ao-thun-chay-nu-adidas-own-the-run-tee-gj-207828207828.jpg" image2="dosiin-adidas-ao-phong-ao-thun-chay-nu-adidas-own-the-run-tee-gj-207829207829.jpg" image3="dosiin-adidas-ao-phong-ao-thun-chay-nu-adidas-own-the-run-tee-gj-207831207831.jpg" />
+  </Product>
+  <Product id_product="5" product_name="Men New Balance Sports Style Optiks Short Sleeve" description="Áo thun Essentials Stacked Logo dành cho nam được thiết kế vừa vặn, ôm sát ngực, eo và hông, giúp bạn điều chỉnh chuyển động mà không gây cảm giác bó sát, cồng kềnh hay gò bó. Tay áo ngắn mang đến khả năng thoáng khí đặc biệt trong những ngày ấm áp hơn, đồng thời vải cotton dệt kim jersey mềm mại và nhẹ nhàng ôm sát vào làn da của bạn." price="595000">
+    <Brand id_brand="6" brand_name="New Balance" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-new-balance-men-s-new-balance-sports-style-optiks-shortsleeve-tee-168931168931.jpg" image2="dosiin-new-balance-men-s-new-balance-sports-style-optiks-shortsleeve-tee-168932168932.jpg" image3="dosiin-new-balance-men-s-new-balance-sports-style-optiks-shortsleeve-tee-168934168934.jpg" />
+  </Product>
+  <Product id_product="6" product_name="Women New Balance Athletics Higher Learning Slim Tee" description="NB Athletics Higher Learning Slim Tee là một món đồ bắt buộc phải có để dễ dàng chuyển đổi từ mùa này sang mùa khác. Chiếc áo thun nữ này mang phong cách preppy và các chi tiết lấy cảm hứng từ trường đại học để mang đến cho bạn vẻ ngoài táo bạo và biểu cảm cho các hoạt động thường ngày, thường ngày của bạn." price="348000">
+    <Brand id_brand="6" brand_name="New Balance" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-new-balance-women-s-new-balance-athletics-higher-learning-slim-tee-390611390611.jpg" image2="dosiin-new-balance-women-s-new-balance-athletics-higher-learning-slim-tee-390612390612.jpg" image3="dosiin-new-balance-women-s-new-balance-athletics-higher-learning-slim-tee-390613390613.jpg" />
+  </Product>
+  <Product id_product="7" product_name="Áo thun Converse Mountain Moon Tee GRAPHICS-SS SEASONA" description="Thiết kế với form dáng áo thun cơ bản dễ mặc dễ mix-match. Nổi bật nhất vẫn là graphic dạng tròn với dòng chữ &quot;Converse Mountain Club&quot; siêu chất mang đến cho các tín đồ thời trang một items đậm chất street style." price="600000">
+    <Brand id_brand="2" brand_name="Converse" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-converse-ao-thun-converse-mountain-moon-tee-graphics-ss-seasonal-t-east-village-327584327584.jpg" image2="dosiin-converse-ao-thun-converse-mountain-moon-tee-graphics-ss-seasonal-t-east-village-327585327585.jpg" image3="dosiin-converse-ao-thun-converse-mountain-moon-tee-graphics-ss-seasonal-t-east-village-327586327586.jpg" />
+  </Product>
+  <Product id_product="8" product_name="Áo Thun Nam Dài Tay SSSTUTTER cổ tròn chất liệu cotton" description="Được làm từ chất liệu nỉ thấm hút mồ hôi kết hợp cùng form áo vừa vặn không quá rộng giúp cho người mặc thoải mái hoạt động, giảm thiểu tối đa tình trạng mồ hôi thấm ngược. Một chiếc áo vừa Tinh Tế lại vô cùng dễ chịu như vậy thì chắc chắn không chàng trai nào muốn bỏ lỡ đâu." price="149500">
+    <Brand id_brand="8" brand_name="SSStutter" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-ssstutter-ao-thun-nam-dai-tay-ssstutter-co-tron-chat-lieu-cotton-thoang-mat-kind-sweatshi353496.jpg" image2="dosiin-ssstutter-ao-thun-nam-dai-tay-ssstutter-co-tron-chat-lieu-cotton-thoang-mat-kind-sweatshi353491.jpg" image3="dosiin-ssstutter-ao-thun-nam-dai-tay-ssstutter-co-tron-chat-lieu-cotton-thoang-mat-kind-sweatshi353493.jpg" />
+  </Product>
+  <Product id_product="9" product_name="Áo croptop nữ SSSTUTTER cổ cao nhún bèo chất cotton thoáng mát Vase Top" description="Vase Top được SSS. lựa chọn dáng áo Croptop ngắn tay Năng Động nhưng cũng không kém phần Nữ Tính với thiết kế vạt bèo nhấn ở tay và cổ áo. Kết hợp cùng loại vải Cotton mềm mát, chắc chắn Vase Top sẽ làm siêu lòng cả các nàng khó tính nhất." price="249000">
+    <Brand id_brand="8" brand_name="SSStutter" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-ssstutter-ao-croptop-nu-ssstutter-co-cao-nhun-beo-chat-cotton-thoang-mat-vase-top-353555353555.jpg" image2="dosiin-ssstutter-ao-croptop-nu-ssstutter-co-cao-nhun-beo-chat-cotton-thoang-mat-vase-top-353556353556.jpg" image3="dosiin-ssstutter-ao-croptop-nu-ssstutter-co-cao-nhun-beo-chat-cotton-thoang-mat-vase-top-353557353557.jpg" />
+  </Product>
+  <Product id_product="10" product_name="Áo thun Bóng Rổ Nam Nike M J Jumpman" description="Dáng standard fit phù hợp tiêu chuẩn. Cổ thuyền viên với cổ áo có gân. Tay áo ngắn. Hình ảnh Jordan ở phía trước" price="573300">
+    <Brand id_brand="7" brand_name="Nike" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-nike-ao-phong-ao-thun-bong-ro-nam-nike-m-j-jumpman-air-hbr-ss-crew-cv-216583216583.jpg" image2="dosiin-nike-ao-phong-ao-thun-bong-ro-nam-nike-m-j-jumpman-air-hbr-ss-crew-cv-216584216584.jpg" image3="dosiin-nike-ao-phong-ao-thun-bong-ro-nam-nike-m-j-jumpman-air-hbr-ss-crew-cv-216585216585.jpg" />
+  </Product>
+  <Product id_product="11" product_name="New Balance Q Speed Fuel 2 in 1 5 inch Shorts" description="Để có chức năng tối ưu và thiết kế hợp thời trang, Q Speed ​​Fuel 2 in 1 5 Inch Short của chúng tôi sẽ đi được xa. Những chiếc quần short nam thoáng khí này được thiết kế dành cho người chạy bộ với các tính năng như NB Dry giúp hút ẩm và lớp lót nén tích hợp mang lại sự thoải mái nhẹ nhàng trong mỗi sải chân." price="995000">
+    <Brand id_brand="6" brand_name="New Balance" />
+    <Category id_cate="2" category_name="Quần" />
+    <Image image1="dosiin-new-balance-men-s-new-balance-q-speed-fuel-in-inch-shorts-520671520671.jpg" image2="dosiin-new-balance-men-s-new-balance-q-speed-fuel-in-inch-shorts-520672520672.jpg" image3="dosiin-new-balance-men-s-new-balance-q-speed-fuel-in-inch-shorts-520673520673.jpg" />
+  </Product>
+  <Product id_product="12" product_name="Quần Dài Originals Nam Adidas B Trf Abs Swtpt" description="Kiểu dáng quần ôm vừa với cạp chun có dây rút. Quần có các túi mở rộng rãi ở 2 bên. Sử dụng chất liệu Vải thun da cá làm từ 100% cotton" price="900000">
+    <Brand id_brand="1" brand_name="Adidas" />
+    <Category id_cate="2" category_name="Quần" />
+    <Image image1="dosiin-adidas-quan-dai-originals-nam-adidas-b-trf-abs-swtpt-ge-206722206722.jpg" image2="dosiin-adidas-quan-dai-originals-nam-adidas-b-trf-abs-swtpt-ge-206723206723.jpeg" image3="dosiin-adidas-quan-dai-originals-nam-adidas-b-trf-abs-swtpt-ge-206725206725.jpeg" />
+  </Product>
+  <Product id_product="13" product_name="HADES GLOSSY WATER SHORTS" description="Chất liệu thoáng mát, dễ vận động. Quần lưng chun có dây rút. Chữ trên quần được in kéo lụa" price="190000">
+    <Brand id_brand="3" brand_name="Hades" />
+    <Category id_cate="2" category_name="Quần" />
+    <Image image1="dosiin-hades-hades-glossy-water-shorts-362383362383.jpg" image2="dosiin-hades-hades-glossy-water-shorts-362384362384.jpg" image3="dosiin-hades-hades-glossy-water-shorts-362385362385.jpg" />
+  </Product>
+  <Product id_product="14" product_name="Quần âu ống đúng nam SSSTUTTER đỉa quần bản to cách điệu DORE TROUSERS" description=" Sản phẩm đúng với hình ảnh, thậm chí đẹp hơn trên hình, cả nam và nữ mặc lên đều phù hợp. Bao bì nylon trắng đục có thể thấy được sản phẩm bên trong, tái chế chống mưa và hạn chế các tác động vật lý" price="449000">
+    <Brand id_brand="8" brand_name="SSStutter" />
+    <Category id_cate="2" category_name="Quần" />
+    <Image image1="dosiin-ssstutter-quan-au-ong-dung-nam-ssstutter-dia-quan-ban-to-cach-dieu-dore-trousers-497735497735.jpg" image2="dosiin-ssstutter-quan-au-ong-dung-nam-ssstutter-dia-quan-ban-to-cach-dieu-dore-trousers-497737497737.jpg" image3="dosiin-ssstutter-quan-au-ong-dung-nam-ssstutter-dia-quan-ban-to-cach-dieu-dore-trousers-497738497738.jpg" />
+  </Product>
+  <Product id_product="15" product_name="Quần âu nữ SSSTUTTER ống suông BIRDIE PANTS" description="Màu: đen, xám nhạt, xám đậm. Size: 0/1/2 tương ứng với S/M/L. Chất liệu: typsi. Form dáng: cullotes ống suông" price="392000">
+    <Brand id_brand="8" brand_name="SSStutter" />
+    <Category id_cate="2" category_name="Quần" />
+    <Image image1="dosiin-ssstutter-quan-au-nu-ssstutter-ong-suong-birdie-pants-497662497662.jpg" image2="dosiin-ssstutter-quan-au-nu-ssstutter-ong-suong-birdie-pants-497663497663.jpg" image3="dosiin-ssstutter-quan-au-nu-ssstutter-ong-suong-birdie-pants-497664497664.jpg" />
+  </Product>
+  <Product id_product="16" product_name="ENERGETIC PANT" description="Chất liệu thoáng mát, dễ vận động. Quần lưng chun có dây rút." price="650000">
+    <Brand id_brand="3" brand_name="Hades" />
+    <Category id_cate="2" category_name="Quần" />
+    <Image image1="dosiin-hades-energetic-pant-533373533373.jpg" image2="dosiin-hades-energetic-pant-533375533375.jpg" image3="dosiin-hades-energetic-pant-533377533377.jpg" />
+  </Product>
+  <Product id_product="17" product_name="Men New Balance Athletics Higher Learning Fleece Shorts" description="Lấy cảm hứng từ giới học thuật, chiếc áo khoác ngắn lông cừu dành cho học tập cao hơn của môn điền kinh NB sẽ mang lại vẻ cổ điển cho tủ quần áo thông thường của bạn. Lông cừu terry Pháp ấm áp, ấm áp giúp bạn luôn thoải mái, đồng thời các túi dễ lấy giúp bạn đựng những món đồ nhỏ trong tầm tay." price="648000">
+    <Brand id_brand="6" brand_name="New Balance" />
+    <Category id_cate="2" category_name="Quần" />
+    <Image image1="dosiin-new-balance-men-s-new-balance-athletics-higher-learning-fleece-shorts-390707390707.jpg" image2="dosiin-new-balance-men-s-new-balance-athletics-higher-learning-fleece-shorts-390708390708.jpg" image3="dosiin-new-balance-men-s-new-balance-athletics-higher-learning-fleece-shorts-390710390710.jpg" />
+  </Product>
+  <Product id_product="18" product_name="Giày sneakers Vans UA Old Skool Packing Tape" description="Vans đã ứng dụng họa tiết logo chắp vá đầy cuốn hút, bao phủ lên thân giày, tạo một vẻ ngoài bắt mắt. Thân giày mang màu trắng ngà đậm chất vintage với công nghệ in màu hiện đại giúp giày không gặp phải tình trạng bạc màu hay lem màu khi sử dụng" price="710000">
+    <Brand id_brand="10" brand_name="Vans" />
+    <Category id_cate="3" category_name="Giày" />
+    <Image image1="dosiin-vans-giay-sneakers-vans-ua-old-skool-packing-tape-vn-a-u-bwn-329509329509.jpg" image2="dosiin-vans-giay-sneakers-vans-ua-old-skool-packing-tape-vn-a-u-bwn-329510329510.jpg" image3="dosiin-vans-giay-sneakers-vans-ua-old-skool-packing-tape-vn-a-u-bwn-329511329511.jpg" />
+  </Product>
+  <Product id_product="19" product_name="Giày Thể Thao Unisex ADIDAS X9000L4 " description="Giày Thể Thao Unisex ADIDAS X9000L4 U HR1727. 100% chính hãng ADIDAS Việt Nam. Bao gồm: Sản phẩm mới nguyên TAG, hóa đơn bán hàng từ SALEHUB" price="1990000">
+    <Brand id_brand="1" brand_name="Adidas" />
+    <Category id_cate="3" category_name="Giày" />
+    <Image image1="dosiin-adidas-giay-the-thao-unisex-adidas-xlu-hr-533745533745.jpg" image2="dosiin-adidas-giay-the-thao-unisex-adidas-xlu-hr-533746533746.jpg" image3="dosiin-adidas-giay-the-thao-unisex-adidas-xlu-hr-533747533747.jpg" />
+  </Product>
+  <Product id_product="20" product_name="Men New Balance 57/40 Classic Sneakers" description="Men New Balance 57/40 Classic Sneakers" price="2890000">
+    <Brand id_brand="6" brand_name="New Balance" />
+    <Category id_cate="3" category_name="Giày" />
+    <Image image1="dosiin-new-balance-men-s-new-balance-classic-sneakers-521296521296.jpg" image2="dosiin-new-balance-men-s-new-balance-classic-sneakers-521299521299.jpg" image3="dosiin-new-balance-men-s-new-balance-classic-sneakers-521301521301.jpg" />
+  </Product>
+  <Product id_product="21" product_name="Giày sneakers Converse Chuck Taylor All Star Renew" description="Cá tính và đậm chất hơn cùng cách phối màu cực cool ngầu trong phiên bản Converse Chuck Taylor All Star Renew. Được làm từ tổ hợp chất liệu tái chế nhưng vẫn thật bền bỉ và cuốn hút, BST giúp nhà Converse truyền đi thông điệp về một lối sống xanh, giảm thiểu rác thải để tương lai chúng ta được tốt đẹp hơn." price="1600000">
+    <Brand id_brand="2" brand_name="Converse" />
+    <Category id_cate="3" category_name="Giày" />
+    <Image image1="dosiin-converse-giay-sneakers-converse-chuck-taylor-all-star-renew-v-327382327382.jpg" image2="dosiin-converse-giay-sneakers-converse-chuck-taylor-all-star-renew-v-327383327383.jpg" image3="dosiin-converse-giay-sneakers-converse-chuck-taylor-all-star-renew-v-327384327384.jpg" />
+  </Product>
+  <Product id_product="22" product_name="Giày sneakers Converse Chuck Taylor All Star 1970s" description="Converse Chuck 70 Recycled RPET Canvas được “tái sinh” với chất liệu tái chế bảo vệ môi trường tối đa. Bên cạnh đó, phối màu hồng ngọt ngào sẽ giúp bạn có thêm nguồn năng lượng tích cực cho mọi outfit của mình. Với những ai trót mê Converse thì đây sẽ là “must have item” mà bạn không nên bỏ lỡ." price="2900000">
+    <Brand id_brand="2" brand_name="Converse" />
+    <Category id_cate="3" category_name="Giày" />
+    <Image image1="dosiin-converse-giay-sneakers-converse-chuck-taylor-all-star-s-recycled-rpet-canvas-c-391789391789.jpg" image2="dosiin-converse-giay-sneakers-converse-chuck-taylor-all-star-s-recycled-rpet-canvas-c-391786391786.jpg" image3="dosiin-converse-giay-sneakers-converse-chuck-taylor-all-star-s-recycled-rpet-canvas-c-391790391790.jpg" />
+  </Product>
+  <Product id_product="23" product_name="Giày Thể Thao Nam NIKE Air Max Dawn DM0013-101" description="Giày Thể Thao Nam NIKE Air Max Dawn DM0013-101. 100% chính hãng NIKE Việt Nam. Bao gồm: Sản phẩm mới nguyên TAG, hóa đơn bán hàng từ SALEHUB" price="1519000">
+    <Brand id_brand="7" brand_name="Nike" />
+    <Category id_cate="3" category_name="Giày" />
+    <Image image1="dosiin-nike-giay-the-thao-nam-nike-air-max-dawn-dm-533820533820.jpg" image2="dosiin-nike-giay-the-thao-nam-nike-air-max-dawn-dm-533821533821.jpg" image3="dosiin-nike-giay-the-thao-nam-nike-air-max-dawn-dm-533822533822.jpg" />
+  </Product>
+  <Product id_product="24" product_name="Giày Nam Nike Benassi Slp 882410-003" description="Giày Nam Nike Benassi Slp 882410-003. 100% chính hãng Nike Việt Nam. Bao gồm: Sản phẩm, hộp giày, hóa đơn bán hàng từ Salehub" price="1642600">
+    <Brand id_brand="7" brand_name="Nike" />
+    <Category id_cate="3" category_name="Giày" />
+    <Image image1="dosiin-nike-giay-nam-nike-benassi-slp-147327147327.jpeg" image2="dosiin-nike-giay-nam-nike-benassi-slp-147328147328.jpg" image3="dosiin-nike-giay-nam-nike-benassi-slp-147329147329.jpg" />
+  </Product>
+  <Product id_product="25" product_name="Gọng kính cận nam nữ Lilyeyewear chất liệu kim loại thanh mảnh nhẹ nhàng" description=" Kính mắt Lily cam kết 100% sản phẩm là ảnh thật shop tự chụp, quý khách hoàn toàn yên tâm khi mua và sử dụng sản phẩm. Kính mắt Lily nghiêm cấm mọi hành vi sao chép, vi phạm bản quyền hình ảnh." price="179000">
+    <Brand id_brand="5" brand_name="Kilyeyewear" />
+    <Category id_cate="4" category_name="Phụ kiện" />
+    <Image image1="dosiin-lilyeyewear-gong-kinh-can-nam-nu-lilyeyewear-chat-lieu-kim-loai-thanh-manh-nhe-nhang-4858485897.jpg" image2="dosiin-lilyeyewear-gong-kinh-can-nam-nu-lilyeyewear-chat-lieu-kim-loai-thanh-manh-nhe-nhang-4858485899.jpg" image3="dosiin-lilyeyewear-gong-kinh-can-nam-nu-lilyeyewear-chat-lieu-kim-loai-thanh-manh-nhe-nhang-4859485902.jpg" />
+  </Product>
+  <Product id_product="26" product_name="SJB Steed" description="Kết cấu SJB như những chiếc răng cá mập sắc nhọn lao đến, giữ chặt lấy mục tiêu, mang những tính chất của một người nhạy bén, tinh tế chứng minh qua sự hài lòng của mọi tín đồ thời trang Việt" price="210000">
+    <Brand id_brand="6" brand_name="New Balance" />
+    <Category id_cate="4" category_name="Phụ kiện" />
+    <Image image1="dosiin-vong-tay-paracord-sjb-steed-403391403391.jpg" image2="dosiin-vong-tay-paracord-sjb-steed-403391403391.jpg" image3="dosiin-vong-tay-paracord-sjb-steed-403391403391.jpg" />
+  </Product>
+  <Product id_product="27" product_name="Bông tai GreenLucky nam nữ bạc 925 không kích ứng" description="Chất liệu Mạ bạc 925. Khó phai màu. Khó rỉ sét. Để sản phẩm sáng và bóng. bạn nên đeo tránh tiếp xúc với các hoá chất tẩy rửa mạnh." price="245000">
+    <Brand id_brand="9" brand_name="Tepys Accessories" />
+    <Category id_cate="4" category_name="Phụ kiện" />
+    <Image image1="dosiin-tepys-accessories-bong-tai-greenlucky-nam-nu-bac-khong-kich-ung-509056509056.jpg" image2="dosiin-tepys-accessories-bong-tai-greenlucky-nam-nu-bac-khong-kich-ung-509057509057.jpg" image3="dosiin-tepys-accessories-bong-tai-greenlucky-nam-nu-bac-khong-kich-ung-509058509058.jpg" />
+  </Product>
+  <Product id_product="28" product_name="Khuyên vành tai Titan nữ tạo hình độc đáo" description="Chất liệu Mạ bạc 925. Khó phai màu. Khó rỉ sét. Để sản phẩm sáng và bóng. bạn nên đeo tránh tiếp xúc với các hoá chất tẩy rửa mạnh." price="187000">
+    <Brand id_brand="9" brand_name="Tepys Accessories" />
+    <Category id_cate="4" category_name="Phụ kiện" />
+    <Image image1="dosiin-tepys-accessories-khuyen-vanh-tai-titan-nu-tao-hinh-doc-dao-506037506037.jpg" image2="dosiin-tepys-accessories-khuyen-vanh-tai-titan-nu-tao-hinh-doc-dao-506038506038.jpg" image3="dosiin-tepys-accessories-khuyen-vanh-tai-titan-nu-tao-hinh-doc-dao-506039506039.jpg" />
+  </Product>
+  <Product id_product="29" product_name="Túi xách nữ cao cấp Lata TX09" description="Túi xách nữ Lata TX09 được làm từ chất liệu da tổng hợp cao cấp với thiết kế đơn giản, sang trọng. Form túi chuẩn đẹp đến từng đường kim mũi chỉ, chắc chắn sẽ làm bạn hài lòng. Kích thước túi rộng rãi, thoải mái, giúp bạn có thể đựng được nhiều đồ dùng cần thiết." price="399000">
+    <Brand id_brand="4" brand_name="Lata" />
+    <Category id_cate="4" category_name="Phụ kiện" />
+    <Image image1="dosiin-lata-tui-xach-nu-cao-cap-lata-tx-228532228532.jpg" image2="dosiin-lata-tui-xach-nu-cao-cap-lata-tx-228533228533.jpg" image3="dosiin-lata-tui-xach-nu-cao-cap-lata-tx-228534228534.jpg" />
+  </Product>
+  <Product id_product="30" product_name="Ví cầm tay nữ nắp gập dáng dài Lata VN71" description="Ví cầm tay nữ nắp gập dáng dài Lata VN71 được thiết kế kiểu nắp gập cách điệu thời trang, đường sơn thủ công tỉ mỉ, đường viền chỉ chắc chắn, logo sắc nét." price="299000">
+    <Brand id_brand="4" brand_name="Lata" />
+    <Category id_cate="4" category_name="Phụ kiện" />
+    <Image image1="dosiin-lata-vi-cam-tay-nu-nap-gap-dang-dai-lata-vn-534317534317.jpg" image2="dosiin-lata-vi-cam-tay-nu-nap-gap-dang-dai-lata-vn-534319534319.jpg" image3="dosiin-lata-vi-cam-tay-nu-nap-gap-dang-dai-lata-vn-534320534320.jpg" />
+  </Product>
+  <Product id_product="31" product_name="Ba lô nam nữ SSSTUTTER form cơ bản có túi chống sốc ngăn ngoài vật dụng" description="Ba lô nam nữ SSSTUTTER form cơ bản có túi chống sốc ngăn ngoài vật dụng BLANK BALO" price="244300">
+    <Brand id_brand="8" brand_name="SSStutter" />
+    <Category id_cate="4" category_name="Phụ kiện" />
+    <Image image1="dosiin-ssstutter-ba-lo-nam-nu-ssstutter-form-co-ban-co-tui-chong-soc-ngan-ngoai-vat-dung-blank-b500501.jpg" image2="dosiin-ssstutter-ba-lo-nam-nu-ssstutter-form-co-ban-co-tui-chong-soc-ngan-ngoai-vat-dung-blank-b500502.jpg" image3="dosiin-ssstutter-ba-lo-nam-nu-ssstutter-form-co-ban-co-tui-chong-soc-ngan-ngoai-vat-dung-blank-b500503.jpg" />
+  </Product>
+  <Product id_product="35" product_name="Áo thun nữ có túi Refined Fit SSSTUTTER phong cách pháp PARIS POCKET TEE" description="Áo thun nữ có túi Refined Fit SSSTUTTER phong cách pháp PARIS POCKET TEE. Màu: trắng, be  Size: 0/1/2 tương ứng với S/M/L  Chất liệu: cotton  Form dáng: regular  Xuất xứ: Việt Nam" price="694000">
+    <Brand id_brand="8" brand_name="SSStutter" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-ssstutter-ao-thun-nu-co-tui-refined-fit-ssstutter-phong-cach-phap-paris-pocket-tee-497647497647.jpg" image2="dosiin-ssstutter-ao-thun-nu-co-tui-refined-fit-ssstutter-phong-cach-phap-paris-pocket-tee-497648497648.jpg" image3="dosiin-ssstutter-ao-thun-nu-co-tui-refined-fit-ssstutter-phong-cach-phap-paris-pocket-tee-497649497649.jpg" />
+  </Product>
+  <Product id_product="36" product_name="Áo Khoác Originals Nữ Adidas Disney Hoodie HL9055" description="Áo Khoác Originals Nữ ADIDAS Disney Hoodie HL9055  100% chính hãng ADIDAS Việt Nam  Bao gồm: Sản phẩm mới nguyên TAG, hóa đơn bán hàng từ SALEHUB" price="2125000">
+    <Brand id_brand="1" brand_name="Adidas" />
+    <Category id_cate="1" category_name="Áo" />
+    <Image image1="dosiin-adidas-ao-khoac-originals-nu-adidas-disney-hoodie-hl-526352526352.jpg" image2="dosiin-adidas-ao-khoac-originals-nu-adidas-disney-hoodie-hl-526353526353.jpg" image3="dosiin-adidas-ao-khoac-originals-nu-adidas-disney-hoodie-hl-526354526354.jpg" />
+  </Product>
+  <Product id_product="46" product_name="Bông tai chữ titan thép không rỉ chữ C dành cho nữ, Bông tai tổ ong Tepys" description="Sản phẩm được làm từ chất liệu Titan. Không Phai Màu. Không Rỉ Sét. Không kích ứng . 1 Đổi 1 trong vòng 3 ngày nếu sản phẩm bị lỗi do nhà sản xuất.  Bảo hành 1 tháng nếu sản phẩm bị phai màu" price="197000">
+    <Brand id_brand="9" brand_name="Tepys Accessories" />
+    <Category id_cate="4" category_name="Phụ kiện" />
+    <Image image1="dosiin-tepys-accessories-bong-tai-chu-titan-thep-khong-ri-chu-c-danh-cho-nubong-tai-to-ong-tepys513179.jpg" image2="dosiin-tepys-accessories-bong-tai-chu-titan-thep-khong-ri-chu-c-danh-cho-nubong-tai-to-ong-tepys513178.jpg" image3="dosiin-tepys-accessories-bong-tai-chu-titan-thep-khong-ri-chu-c-danh-cho-nubong-tai-to-ong-tepys513177.jpg" />
+  </Product>
+</quangphu>

@@ -63,8 +63,10 @@ namespace SkyLineShop.Controllers
 
         public ActionResult ProductDetail(int idProduct)
         {
-            ViewBag.Product = db.Product.FirstOrDefault(p => p.id_product == idProduct);
+            Product pro = db.Product.FirstOrDefault(p => p.id_product == idProduct);
+            ViewBag.Product = pro;
             ViewBag.Img = db.Product_Image.Where(m => m.id_product == idProduct).ToList();
+            ViewBag.relatedProduct = db.Product.Where(x => (x.id_cate == pro.id_cate && x.id_product != pro.id_product)).Take(4).ToList();
             return View();
         }
         public ActionResult Filter(string priceSortSelect)

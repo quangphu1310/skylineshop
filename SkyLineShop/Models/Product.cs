@@ -20,7 +20,7 @@ namespace SkyLineShop.Models
             this.DetailSizePd = new HashSet<DetailSizePd>();
             this.Evaluation = new HashSet<Evaluation>();
             this.Order_Detail = new HashSet<Order_Detail>();
-            this.Product_Image = new HashSet<Product_Image>();
+            this.Product_Image = new List<Product_Image>();
         }
     
         public int id_product { get; set; }
@@ -39,6 +39,6 @@ namespace SkyLineShop.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Detail> Order_Detail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product_Image> Product_Image { get; set; }
+        public virtual List<Product_Image> Product_Image { get; set; }
     }
 }
