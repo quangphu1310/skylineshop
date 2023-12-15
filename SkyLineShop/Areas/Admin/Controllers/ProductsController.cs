@@ -21,7 +21,7 @@ namespace SkyLineShop.Areas.Admin.Controllers
         public ActionResult Index()
 
         {
-            ConvertXMl();
+            
             XDocument doc = XDocument.Load(Server.MapPath("~/App_Data/product.xml"));
             ViewBag.ProductXML = doc;
             return View();
@@ -128,33 +128,6 @@ namespace SkyLineShop.Areas.Admin.Controllers
                 string path3 = Path.Combine(Server.MapPath("~/Assets/img/product/"), filename3);
                 name3.SaveAs(path3);
 
-                var lastProduct = doc.Descendants("Product").LastOrDefault();
-                var id = int.Parse(lastProduct.Attribute("id_product").Value);
-
-                XElement newProduct = new XElement("Product",
-                    new XAttribute("id_product", id + 1),
-                    new XAttribute("product_name", product.product_name),
-                    new XAttribute("price", product.price),
-                    new XAttribute("desc", product.desc),
-
-                    new XElement("Brand",
-                    new XAttribute("id_brand", product.id_brand),
-                    new XAttribute("brand_name", db.Brand.Where(x => x.id_brand == product.id_brand).FirstOrDefault().brand_name)
-
-                ),
-                new XElement("Category",
-                    new XAttribute("id_cate", product.id_cate),
-                     new XAttribute("cate", db.Category.Where(x => x.id_cate == product.id_cate).FirstOrDefault().cate_name)
-                ),
-                new XElement("Image",
-                    new XAttribute("image1", filename1),
-                    new XAttribute("image2", filename2),
-                    new XAttribute("image3", filename3)
-                )
-                );
-                doc.Element("quangphu").Add(newProduct);
-                doc.Save(xmlFilePath);
-
                 Product_Image p1 = new Product_Image();
                 p1.id_product = product.id_product;
                 p1.image = filename1;
@@ -174,6 +147,35 @@ namespace SkyLineShop.Areas.Admin.Controllers
 
                 db.SaveChanges();
 
+                var lastProduct = doc.Descendants("Product").LastOrDefault();
+                var id = int.Parse(lastProduct.Attribute("id_product").Value);
+
+                XElement newProduct = new XElement("Product",
+                    new XAttribute("id_product", p1.id_product),
+                    new XAttribute("product_name", product.product_name),
+                    new XAttribute("price", product.price),
+                    new XAttribute("description", product.desc),
+
+                    new XElement("Brand",
+                    new XAttribute("id_brand", product.id_brand),
+                    new XAttribute("brand_name", db.Brand.Where(x => x.id_brand == product.id_brand).FirstOrDefault().brand_name)
+
+                ),
+                new XElement("Category",
+                    new XAttribute("id_cate", product.id_cate),
+                     new XAttribute("category_name", db.Category.Where(x => x.id_cate == product.id_cate).FirstOrDefault().cate_name)
+                ),
+                new XElement("Image",
+                    new XAttribute("image1", filename1),
+                    new XAttribute("image2", filename2),
+                    new XAttribute("image3", filename3)
+                )
+                );
+                doc.Element("quangphu").Add(newProduct);
+                doc.Save(xmlFilePath);
+
+
+                
                 return RedirectToAction("Index");
             }
             else
@@ -275,8 +277,8 @@ namespace SkyLineShop.Areas.Admin.Controllers
             productXElement.SetAttributeValue("description", product.desc);
             productXElement.Element("Brand").SetAttributeValue("id_brand", product.id_brand);
             productXElement.Element("Brand").SetAttributeValue("brand_name", db.Brand.Where(x => x.id_brand == product.id_brand).FirstOrDefault().brand_name);
-            productXElement.Element("Brand").SetAttributeValue("id_cate", product.id_cate);
-            productXElement.Element("Category").SetAttributeValue("cate", db.Category.Where(x => x.id_cate == product.id_cate).FirstOrDefault().cate_name);
+            productXElement.Element("Category").SetAttributeValue("id_cate", product.id_cate);
+            productXElement.Element("Category").SetAttributeValue("category_name", db.Category.Where(x => x.id_cate == product.id_cate).FirstOrDefault().cate_name);
             productXElement.Element("Image").SetAttributeValue("image1", img1);
             productXElement.Element("Image").SetAttributeValue("image2", img2);
             productXElement.Element("Image").SetAttributeValue("image3", img3);
@@ -487,6 +489,12 @@ namespace SkyLineShop.Areas.Admin.Controllers
             {
                 xmlDocCate.Save(streamWriter3);
             }
+        }
+
+        public ActionResult convert()
+        {
+            ConvertXMl();
+            return RedirectToAction("Index");
         }
     }
 }

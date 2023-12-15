@@ -58,7 +58,7 @@ namespace SkyLineShop.Controllers
                     }
                     db.SaveChanges();
                     Session["CartSession"] = null;
-                    TempData["PaymentSuccess"] = true; // Gửi biến flag để thông báo thanh toán thành công
+                    TempData["PaymentSuccess"] = "check"; // Gửi biến flag để thông báo thanh toán thành công
 
                     return RedirectToAction("Index", "Home");
                 }

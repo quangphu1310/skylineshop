@@ -25,6 +25,9 @@
                             <p>
                                 @Html.ActionLink("Create New", "Create")
                             </p>
+                            <p>
+                                @Html.ActionLink("SQL TO XML", "convert")
+                            </p>
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
 
                                 <thead>
@@ -49,45 +52,45 @@
                                             Category
                                         </th>
                                         @*<th>
-                    Image
-                </th>*@
+                        Image
+                    </th>*@
                                         <th>#</th>
                                     </tr>
                                 </thead>
 
                                 @*
-        @{int index = 0; }
-        @foreach (var item in Model)
-        {
-            index++;
-            <tr>
-                <td>
-                    @index
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.product_name)
-                </td>
-                <td>
+            @{int index = 0; }
+            @foreach (var item in Model)
+            {
+                index++;
+                <tr>
+                    <td>
+                        @index
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.product_name)
+                    </td>
+                    <td>
 
-                    @String.Format("{0:0,0}", item.price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.desc)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Brand.brand_name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category.cate_name)
-                </td>
+                        @String.Format("{0:0,0}", item.price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.desc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Brand.brand_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.cate_name)
+                    </td>
 
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id_product }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.id_product }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id_product })
-                </td>
-            </tr>
-        }
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id_product }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id_product }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id_product })
+                    </td>
+                </tr>
+            }
                                 *@
 
                                 <tbody>
@@ -96,22 +99,26 @@
                                         foreach (var product in ViewBag.ProductXML.Descendants("Product"))
                                         {
                                             index++;
-                                            <tr>
-                                                <td>@index</td>
-                                                <td>@product.Attribute("product_name").Value</td>
-                                                <td>@String.Format("{0:0,0}", decimal.Parse(product.Attribute("price").Value))</td>
-                                                <td>@product.Attribute("description").Value</td>
-                                                <td>@product.Element("Brand").Attribute("brand_name").Value</td>
-                                                <td>@product.Element("Category").Attribute("category_name").Value</td>
-                    
-                                                <!-- Các cột khác -->
-                                                <td>
-                                                    <!-- Hiển thị nút hoặc hành động cho mỗi sản phẩm -->
-                                                    @Html.ActionLink("Edit", "Edit", new { id = product.Attribute("id_product").Value }) |
-                                                    @Html.ActionLink("Details", "Details", new { id = product.Attribute("id_product").Value }) |
-                                                    @Html.ActionLink("Delete", "Delete", new { id = product.Attribute("id_product").Value })
-                                                </td>
-                                            </tr>
+                                                                        <tr>
+                                                                            @if (product != null)
+                                                                            {
+
+                                                                                <td>@index</td>
+                                                                                <td>@product.Attribute("product_name").Value</td>
+                                                                                <td>@String.Format("{0:0,0}", decimal.Parse(product.Attribute("price").Value))</td>
+                                                                                <td>@product.Attribute("description").Value</td>
+                                                                                <td>@product.Element("Brand").Attribute("brand_name").Value</td>
+                                                                                <td>@product.Element("Category").Attribute("category_name").Value</td>
+
+                                                                                <!-- Các cột khác -->
+                                                                                <td>
+                                                                                    <!-- Hiển thị nút hoặc hành động cho mỗi sản phẩm -->
+                                                                                    @Html.ActionLink("Edit", "Edit", new { id = product.Attribute("id_product").Value }) |
+                                                                                    @Html.ActionLink("Details", "Details", new { id = product.Attribute("id_product").Value }) |
+                                                                                    @Html.ActionLink("Delete", "Delete", new { id = product.Attribute("id_product").Value })
+                                                                                </td>
+                                                                            }
+                                                                        </tr>
                                         }
                                     }
                                 </tbody>

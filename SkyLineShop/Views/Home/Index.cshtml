@@ -23,7 +23,7 @@
                                 trọng. Được xây dựng có đạo đức với cam kết vững chắc về
                                 chất lượng vượt trội.
                             </p>
-                            <a href="shop.html"
+                            <a href="~/Shop"
                                class="primary-btn wow fadeInUp"
                                data-wow-delay="1.8s">
                                 Mua ngay <span class="arrow_right"></span>
@@ -55,7 +55,7 @@
                                 trọng. Được xây dựng có đạo đức với cam kết vững chắc về
                                 chất lượng vượt trội.
                             </p>
-                            <a href="shop.html"
+                            <a href="~/Shop"
                                class="primary-btn wow fadeInUp"
                                data-wow-delay="1.8s">
                                 Mua ngay <span class="arrow_right"></span>
@@ -336,7 +336,7 @@
                             2020
                         </span>
                         <h5>Hihi SkyShop</h5>
-                        <a href="blog-details.html">Đọc thêm</a>
+                        <a href="#">Đọc thêm</a>
                     </div>
                 </div>
             </div>
@@ -350,7 +350,7 @@
                             2020
                         </span>
                         <h5>Xả kho cùng Skyline team</h5>
-                        <a href="blog-details.html">Đọc thêm</a>
+                        <a href="#">Đọc thêm</a>
                     </div>
                 </div>
             </div>
@@ -364,16 +364,21 @@
                             2020
                         </span>
                         <h5>Mua rẻ hơn với Skyline Shop</h5>
-                        <a href="blog-details.html">Đọc thêm</a>
+                        <a href="#">Đọc thêm</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-@if (TempData.ContainsKey("PaymentSuccess"))
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@{
+    var check = TempData["PaymentSuccess"];
+}
+
+@if (check == "check")
 {
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
 
         Swal.fire({

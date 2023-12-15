@@ -106,7 +106,7 @@
                         <ul>
                             <li class="@(ViewBag.Title == "Home Page" ? "active" : " ")"><a href="~/Home">Trang Chủ</a></li>
                             <li class="@(ViewBag.Title == "Shop" ? "active" : " ")"><a href="~/Shop">Cửa Hàng</a></li>
-                            <li>
+                            @*<li>
                                 <a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="./about.html">Về Chúng Tôi</a></li>
@@ -115,9 +115,9 @@
                                     <li><a href="./checkout.html">Thanh Toán</a></li>
                                     <li><a href="./blog-details.html">Chi Tiết Blog</a></li>
                                 </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Liên Hệ</a></li>
+                            </li>*@
+                            <li class="@(ViewBag.Title == "Blog" ? "active" : " ")"><a href="~/Blog">Blog</a></li>
+                            <li class="@(ViewBag.Title == "Contact" ? "active" : " ")"><a href="~/Contact">Liên Hệ</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -152,7 +152,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="index.html">
+                            <a href="/Home">
                                 <img src="/Assets/img/logo-footer-sky.png" alt="" />
                             </a>
                         </div>
@@ -167,10 +167,10 @@
                     <div class="footer__widget">
                         <h6>Mua sắm</h6>
                         <ul>
-                            <li><a href="shop.html">Cửa hàng quần áo</a></li>
-                            <li><a href="shop.html">Áo xu hướng</a></li>
-                            <li><a href="shop.html">Quần siêu rẻ</a></li>
-                            <li><a href="shop.html">Sales</a></li>
+                            <li><a href="~/Shop">Cửa hàng quần áo</a></li>
+                            <li><a href="~/Shop">Áo xu hướng</a></li>
+                            <li><a href="~/Shop">Quần siêu rẻ</a></li>
+                            <li><a href="~/Shop">Sales</a></li>
                         </ul>
                     </div>
                 </div>
@@ -178,7 +178,7 @@
                     <div class="footer__widget">
                         <h6>Thông tin</h6>
                         <ul>
-                            <li><a href="contact.html">Liên hệ với chúng tôi</a></li>
+                            <li><a href="~/Contact">Liên hệ với chúng tôi</a></li>
                             <li><a href="#">Phương thức thanh toán</a></li>
                             <li><a href="#">Giao hàng</a></li>
                             <li><a href="#">Trả lại và trao đổi</a></li>

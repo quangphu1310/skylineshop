@@ -39,6 +39,19 @@
 
                     }
                 </p>
+                @if (ViewBag.od.payment_status == "Chờ xác nhận")
+                {
+                    <div class="d-grid gap-2 col-3 mx-auto">
+                        <a href="~/admin/orders/cancel?id=@ViewBag.od.id_order" type="button" class="btn btn-danger">Hủy</a>
+                        <a href="~/admin/orders/confirm?id=@ViewBag.od.id_order" type="button" class="btn btn-success">Xác nhận</a>
+                    </div>
+                }
+                @if (ViewBag.od.payment_status == "Đã xác nhận")
+                {
+                    <div class="d-grid gap-2 col-3 mx-auto">
+                        <a href="~/admin/orders/ship?id=@ViewBag.od.id_order" type="button" class="btn btn-info">Vận chuyển</a>
+                    </div>
+                }
 
                 <table class="table">
                     <tr>
@@ -55,7 +68,7 @@
                             Tổng tiền
                         </th>
 
-                      
+
                     </tr>
 
                     @foreach (var item in Model)
@@ -74,7 +87,7 @@
                                 @Html.DisplayFor(modelItem => item.total)
                             </td>
 
-                            
+
                         </tr>
                     }
 

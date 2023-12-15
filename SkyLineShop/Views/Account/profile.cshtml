@@ -38,7 +38,7 @@
                 <div class="breadcrumb__text">
                     <h4>Tài khoản của tôi</h4>
                     <div class="breadcrumb__links">
-                        <a href="./index.html">Trang Chủ</a>
+                        <a href="~/Home">Trang Chủ</a>
                         <span>Tài khoản của tôi</span>
                     </div>
                 </div>
@@ -62,12 +62,12 @@
                     <a class="list-group-item list-group-item-action @(ViewBag.status == "3" ? "active" : "")"
                        data-toggle="list"
                        href="#account-social-links">Đơn mua</a>
-                    <a class="list-group-item list-group-item-action"
+                    @*<a class="list-group-item list-group-item-action"
                        data-toggle="list"
                        href="#account-connections">Kho voucher</a>
                     <a class="list-group-item list-group-item-action"
                        data-toggle="list"
-                       href="#account-notifications">Thông báo</a>
+                       href="#account-notifications">Thông báo</a>*@
                 </div>
             </div>
             <div class="col-md-9">
@@ -284,7 +284,7 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="account-connections">
+                    @*<div class="tab-pane fade" id="account-connections">
                         <div class="p-3">
                             <h2 class="m-3 text-center bold">Kho voucher</h2>
                             <div class="input-voucher m-2 d-flex flex-row justify-content-center align-items-center gap-3 p-3">
@@ -511,7 +511,7 @@
                                 Lưu thay đổi
                             </button>
                         </div>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>

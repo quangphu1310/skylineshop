@@ -18,11 +18,11 @@ namespace SkyLineShop.Areas.Admin.Controllers
             List<Order> list = null;
             if (SelectedCategory == null || SelectedCategory == "")
             {
-                list = db.Order.ToList();
+                list = db.Order.OrderByDescending(x => x.id_order).ToList();
             }
             else
             {
-                list = db.Order.Where(x => x.payment_status.Equals(SelectedCategory)).ToList();
+                list = db.Order.Where(x => x.payment_status.Equals(SelectedCategory)).OrderByDescending(x => x.id_order).ToList();
             }
             var categories = new List<SelectListItem>
             {
