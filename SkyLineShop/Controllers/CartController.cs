@@ -12,7 +12,7 @@ namespace SkyLineShop.Controllers
     {
         // GET: Cart
         public string CartSession = "CartSession";
-        skyshopEntities db = new skyshopEntities();
+        skyshop2Entities db = new skyshop2Entities();
         public int count = 0;
         public ActionResult Index()
         {
@@ -27,7 +27,7 @@ namespace SkyLineShop.Controllers
         }
         public ActionResult AddItem(int productid, int quantity, string size, string image)
         {
-            var product = db.Product.Find(productid);
+            var product = db.Products.Find(productid);
             var img = db.Product_Image.Where(m => m.id_product == productid);
             var cart = Session[CartSession];
             if (cart != null)
@@ -131,11 +131,15 @@ namespace SkyLineShop.Controllers
         }
 
         [HttpPost]
-        public ActionResult UpdateItem(int id_product, int newValue)
+        public ActionResult UpdateItem(int id_product, int newValue, string sizeValue)
         {
             var cart = Session[CartSession];
             var list = (List<CartItem>)cart;
-            var item = list.Find(e => e.Product.id_product == id_product);
+            CartItem item = null;
+            if (sizeValue == null)
+                item = list.FirstOrDefault(e => e.Product.id_product == id_product);
+            else
+                item = list.FirstOrDefault(e => (e.Product.id_product == id_product) && (e.Size == sizeValue));
             item.Quantity = newValue;
 
             decimal? sum = 0;
@@ -143,8 +147,7 @@ namespace SkyLineShop.Controllers
             {
                 sum += items.Quantity * items.Product.price;
             }
-            var price = db.Product.FirstOrDefault().price;
-            var total = newValue * price;
+            var total = newValue * item.Product.price;
             return Json(new { success = true, total = total, countCart = count, sum = sum });
         }
 
@@ -156,34 +159,11 @@ namespace SkyLineShop.Controllers
             var item = list.Find(e => e.Product.id_product == id_product);
             item.Size = size;
 
-            
             return Json(new { success = true });
         }
 
 
-        [HttpPost]
-        //public ActionResult RemoveItem(int id_product)
-        //{
-        //    var cart = Session[CartSession];
-        //    var list = (List<CartItem>)cart;
-        //    //string[] idProducts = form.GetValues("id_product");
-
-        //    if (cart != null)
-        //    {
-        //        var item = list.Find(e => e.Product.id_product == id_product);
-        //        if (item != null)
-        //        {
-        //            list.Remove(item);
-        //        }
-
-        //    }
-        //    if(list.Count() == 0)
-        //    {
-        //        Session[CartSession] = null;
-        //    }
-        //    //return Json(new { success = true, message = "Xóa" });
-        //    return RedirectToAction("Index");
-        //}
+       
         public ActionResult RemoveItem(int id_product)
         {
             var cart = Session[CartSession];

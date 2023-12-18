@@ -12,17 +12,17 @@ namespace SkyLineShop.Areas.Admin.Controllers
     public class OrdersController : Controller
     {
         // GET: Admin/Orders
-        private skyshopEntities db = new skyshopEntities();
+        private skyshop2Entities db = new skyshop2Entities();
         public ActionResult Index(String SelectedCategory)
         {
             List<Order> list = null;
             if (SelectedCategory == null || SelectedCategory == "")
             {
-                list = db.Order.OrderByDescending(x => x.id_order).ToList();
+                list = db.Orders.OrderByDescending(x => x.id_order).ToList();
             }
             else
             {
-                list = db.Order.Where(x => x.payment_status.Equals(SelectedCategory)).OrderByDescending(x => x.id_order).ToList();
+                list = db.Orders.Where(x => x.payment_status.Equals(SelectedCategory)).OrderByDescending(x => x.id_order).ToList();
             }
             var categories = new List<SelectListItem>
             {
@@ -40,34 +40,34 @@ namespace SkyLineShop.Areas.Admin.Controllers
         public ActionResult Details(int id)
         {
             var list = db.Order_Detail.Where(e => e.id_order == id).ToList();
-            var od = db.Order.Where(e => e.id_order == id).FirstOrDefault();
+            var od = db.Orders.Where(e => e.id_order == id).FirstOrDefault();
             ViewBag.od = od;
             return View(list);
         }
         public ActionResult ship(int id)
         {
-            var order = db.Order.Where(x => x.id_order == id).FirstOrDefault();
+            var order = db.Orders.Where(x => x.id_order == id).FirstOrDefault();
             order.payment_status = "Vận chuyển";
             db.SaveChanges();
             return RedirectToAction("Index");
         }
         public ActionResult confirm(int id)
         {
-            var order = db.Order.Where(x => x.id_order == id).FirstOrDefault();
+            var order = db.Orders.Where(x => x.id_order == id).FirstOrDefault();
             order.payment_status = "Đã xác nhận";
             db.SaveChanges();
             return RedirectToAction("Index");
         }
         public ActionResult cancel(int id)
         {
-            var order = db.Order.Where(x => x.id_order == id).FirstOrDefault();
+            var order = db.Orders.Where(x => x.id_order == id).FirstOrDefault();
             order.payment_status = "Đã hủy";
             db.SaveChanges();
             return RedirectToAction("Index");
         }
         public ActionResult convertXML()
         {
-            var orders = db.Order.ToList();
+            var orders = db.Orders.ToList();
 
             // Tạo XmlDocument mới với khai báo XML version và encoding
             XmlDocument xmlDoc = new XmlDocument();

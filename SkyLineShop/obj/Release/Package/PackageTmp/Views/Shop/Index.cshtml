@@ -1,0 +1,289 @@
+﻿@*@model IEnumerable<SkyLineShop.Models.Category>
+    @model IEnumerable<SkyLineShop.Models.Product>*@
+
+@*@model IEnumerable<SkyLineShop.Models.ProductPro>*@
+@model IPagedList<SkyLineShop.Models.ProductPro>
+@using PagedList;
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/_LayoutContainer.cshtml";
+}
+
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>Cửa Hàng</h4>
+                    <div class="breadcrumb__links">
+                        <a href="~/Home">Trang Chủ</a>
+                        <span>Cửa Hàng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+<!-- Shop Section Begin -->
+<section class="shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="shop__sidebar">
+                    <div class="shop__sidebar__search">
+                        <form>
+                            <input name="search" type="text" placeholder="Tìm kiếm..." />
+                            <button type="submit">
+                                <span class="icon_search"></span>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="shop__sidebar__accordion">
+                        <div class="accordion" id="accordionExample">
+                            <div class="card wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseOne">Danh Mục</a>
+                                </div>
+                                <div id="collapseOne"
+                                     class="collapse show"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__categories">
+                                            <ul class="nice-scroll">
+
+                                                @foreach (var cate in ViewBag.Category)
+                                                {
+                                                    <li><a href="/Shop?categoryID=@cate.id_cate">@cate.cate_name</a></li>
+                                                }
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="card-heading">
+                                    <a data-toggle="collapse" data-target="#collapseTwo">Thương hiệu</a>
+                                </div>
+                                <div id="collapseTwo"
+                                     class="collapse show"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="shop__sidebar__brand">
+                                            <ul>
+                                                @foreach (var brand in ViewBag.Brand)
+                                                {
+                                                    string brandName = brand.brand_name; // Tạo biến thay thế
+                                                    <li>
+
+                                                        <a href="/Shop?brandID=@brand.id_brand">@brand.brand_name</a>
+                                                        @*@Html.ActionLink(brandName, "", new {id = brand.brand_name })*@
+
+                                                    </li>
+                                                }
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="shop__product__option">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__left">
+                                <p>Trang <b>@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)</b> trong <b>@Model.PageCount</b> trang</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="shop__product__option__right">
+
+                                <form action="~/Shop/Filter">
+                                    <p>Sắp xếp theo giá:</p>
+                                    <select id="priceSortSelect" name="priceSortSelect" onchange="submitForm()">
+                                        <option value="" @(ViewBag.Filter == "" ? "seleted" : "")>Mặc định</option>
+                                        <option value="0" @(ViewBag.Filter == "0" ? "seleted" : "")>Thấp đến Cao</option>
+                                        <option value="1" @(ViewBag.Filter == "1" ? "seleted" : "")>Cao đến thấp</option>
+                                    </select>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @* List Product *@
+                    @foreach (var product in Model)
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="product__item__pic set-bg"
+                                     data-setbg="/Assets/img/product/@product.ProductImage">
+                                    <ul class="product__hover">
+
+                                        <li>
+
+                                            @{
+                                                var sizeName = "";
+                                            }
+                                            @if (product.IDcate == 1 || product.IDcate == 2)
+                                            {
+                                                sizeName = "M";
+                                            }
+                                            else if (product.IDcate == 3)
+                                            {
+                                                sizeName = "40";
+                                            }
+                                            <a href="#" class="add-to-cart-button"
+                                               data-product-id="@product.ProductID"
+                                               data-quantity="1"
+                                               data-size="@sizeName"
+                                               data-image="@product.ProductImage">
+                                                <img src="/Assets/img/icon/cart.png" alt="" />
+                                                <span>Add to Cart</span>
+                                            </a>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+
+                                    <a class="product-title" href="/Shop/ProductDetail?idProduct=@product.ProductID"><h6>@product.ProductName</h6></a>
+
+                                    <div class="rating">
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <h5>@String.Format("{0:0,0}", product.ProductPrice) VND</h5>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    }
+
+                    @* List Product *@
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="product__pagination">
+                            @{
+                                string path = "";
+
+                                if (ViewBag.brandID != null)
+                                {
+                                    path = "/Shop?brandID=" + ViewBag.brandID + "&page=";
+                                }
+                                else if (ViewBag.categoryID != null)
+                                {
+                                    path = "/Shop?categoryID=" + ViewBag.categoryID + "&page=";
+                                }
+                                else
+                                {
+                                    path = "/Shop?page=";
+
+                                }
+                            }
+                            @for (int i = 1; i <= Model.PageCount; i++)
+                            {
+                                <a class="@(i==Model.PageNumber ? "active" : "")" href="@path@i">@i</a>
+                            }
+                        </div>
+                    </div>
+                    @* Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount*@
+                    @* @Html.PagedListPager(Model, page => Url.Action("Index",new { page }))*@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section scripts{
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <script>
+        //submitForm
+        function submitForm() {
+            var select = document.getElementById("priceSortSelect");
+            var form = select.closest("form");
+            form.submit();
+        }
+
+        //dùng ajax cho giỏ hàng
+        $(document).ready(function () {
+            $(".add-to-cart-button").click(function (e) {
+                e.preventDefault();
+
+                var productID = $(this).data("product-id");
+                var quantity = $(this).data("quantity");
+                var size = $(this).data("size");
+                var image = $(this).data("image");
+
+                $.ajax({
+                    url: '/Cart/AddItem', // Điều hướng tới action xử lý thêm sản phẩm vào giỏ hàng
+                    method: 'POST',
+                    data: {
+                        productid: productID,
+                        quantity: quantity,
+                        size: size,
+                        image: image
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            // Thực hiện các hành động sau khi thêm sản phẩm thành công
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-left',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
+
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Thêm vào giỏ hàng thành công'
+                            })
+                            var itemCount = response.countCart;
+                            $('#CartCount').text(itemCount);
+                        } else {
+                            // Xử lý khi có lỗi
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!'
+                            })
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        // Xử lý khi có lỗi Ajax
+                        alert("Lỗi Ajax: " + error);
+                    }
+                });
+            });
+        });
+
+    </script>
+}
+
+<!-- Shop Section End -->
+<!-- Footer Section Begin -->

@@ -17,8 +17,7 @@ namespace SkyLineShop.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.DetailSizePd = new HashSet<DetailSizePd>();
-            this.Evaluation = new HashSet<Evaluation>();
+            this.Evaluations = new HashSet<Evaluation>();
             this.Order_Detail = new HashSet<Order_Detail>();
             this.Product_Image = new List<Product_Image>();
         }
@@ -33,9 +32,7 @@ namespace SkyLineShop.Models
         public virtual Brand Brand { get; set; }
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetailSizePd> DetailSizePd { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Evaluation> Evaluation { get; set; }
+        public virtual ICollection<Evaluation> Evaluations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order_Detail> Order_Detail { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -14,12 +14,12 @@ namespace SkyLineShop.Areas.Admin.Controllers
 {
     public class UsersController : Controller
     {
-        private skyshopEntities db = new skyshopEntities();
+        private skyshop2Entities db = new skyshop2Entities();
 
         // GET: Admin/Users
         public ActionResult Index()
         {
-            var user = db.User.Where(x => x.id_role == 2).Include(u => u.Role);
+            var user = db.Users.Where(x => x.id_role == 2).Include(u => u.Role);
             return View(user.ToList());
         }
 
@@ -33,7 +33,7 @@ namespace SkyLineShop.Areas.Admin.Controllers
         }
         public ActionResult convertXML()
         {
-            var users = db.User.Where(x=>x.id_role == 2).ToList();
+            var users = db.Users.Where(x=>x.id_role == 2).ToList();
 
             // Tạo XmlDocument mới với khai báo XML version và encoding
             XmlDocument xmlDoc = new XmlDocument();

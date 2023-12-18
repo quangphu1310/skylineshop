@@ -10,15 +10,15 @@ namespace SkyLineShop.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
-        skyshopEntities db = new skyshopEntities();
+        skyshop2Entities db = new skyshop2Entities();
         // GET: Admin/Home
         public ActionResult Index()
         {
             if (Session["admin"] != null)
             {
-                ViewBag.product = db.Product.Count();
-                ViewBag.order = db.Order.Count();
-                ViewBag.user = db.User.Count();
+                ViewBag.product = db.Products.Count();
+                ViewBag.order = db.Orders.Count();
+                ViewBag.user = db.Users.Count();
                 return View();
             }    
                 

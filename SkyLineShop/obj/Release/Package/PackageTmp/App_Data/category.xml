@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BrandRoot>
+  <cate id_cate="1" cate_name="Áo" />
+  <cate id_cate="2" cate_name="Quần" />
+  <cate id_cate="3" cate_name="Giày" />
+  <cate id_cate="4" cate_name="Phụ kiện" />
+</BrandRoot>

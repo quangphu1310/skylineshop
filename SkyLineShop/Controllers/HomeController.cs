@@ -10,10 +10,10 @@ namespace SkyLineShop.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        skyshopEntities db = new skyshopEntities();
+        skyshop2Entities db = new skyshop2Entities();
         public ActionResult Index()
         {
-            var query = from p in db.Product
+            var query = from p in db.Products
                         join m in db.Product_Image on p.id_product equals m.id_product
                         where p.price >= 1000000
                         group m by p into g
@@ -28,7 +28,7 @@ namespace SkyLineShop.Controllers
                             ProductImage = g.FirstOrDefault().image
                         };
 
-            var query2 = from p in db.Product
+            var query2 = from p in db.Products
                          join m in db.Product_Image on p.id_product equals m.id_product
                          group m by p into g
                          select new ProductPro
@@ -41,7 +41,7 @@ namespace SkyLineShop.Controllers
                              IDcate = (int)g.Key.id_cate,
                              ProductImage = g.FirstOrDefault().image
                          };
-            var query3 = from p in db.Product
+            var query3 = from p in db.Products
                          join m in db.Product_Image on p.id_product equals m.id_product
                          group m by p into g
                          select new ProductPro

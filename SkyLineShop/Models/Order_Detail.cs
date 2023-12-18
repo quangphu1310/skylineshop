@@ -14,8 +14,9 @@ namespace SkyLineShop.Models
     
     public partial class Order_Detail
     {
-        public int id_product { get; set; }
-        public int id_order { get; set; }
+        public int id { get; set; }
+        public Nullable<int> id_product { get; set; }
+        public Nullable<int> id_order { get; set; }
         public Nullable<int> quantity { get; set; }
         public string size { get; set; }
         public Nullable<decimal> total { get; set; }

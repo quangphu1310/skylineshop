@@ -1,0 +1,94 @@
+﻿@model SkyLineShop.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Quản lý sản phẩm</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h3>BẠN CÓ CHẮC CHẮN XÓA SẢN PHẨM NÀY KHÔNG?</h3>
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Tên sản phẩm
+                        </dt>
+
+                        <dd>
+                            @ViewBag.ProductInfo.Attribute("product_name").Value
+                        </dd>
+
+                        <dt>
+                            Giá sản phẩm
+                        </dt>
+
+                        <dd>
+                            @ViewBag.ProductInfo.Attribute("price").Value
+                        </dd>
+
+                        <dt>
+                            Mô tả sản phẩm
+                        </dt>
+
+                        <dd>
+                            @ViewBag.ProductInfo.Attribute("description").Value
+                        </dd>
+
+                        <dt>
+                            Ảnh
+                        </dt>
+
+                        <dd>
+                            @*@foreach (var i in Model.Product_Image)
+            {
+                <img src="@Url.Content("~/Assets/img/product/" + @i.image)" style="height:200px; width:200px; margin:10px;" />
+
+            }*@
+
+                            <img src="@Url.Content("~/Assets/img/product/" + @ViewBag.ProductInfo.Element("Image").Attribute("image1").Value)" style="height:200px; width:200px; margin:10px;" />
+                            <img src="@Url.Content("~/Assets/img/product/" + @ViewBag.ProductInfo.Element("Image").Attribute("image2").Value)" style="height:200px; width:200px; margin:10px;" />
+                            <img src="@Url.Content("~/Assets/img/product/" + @ViewBag.ProductInfo.Element("Image").Attribute("image3").Value)" style="height:200px; width:200px; margin:10px;" />
+                        </dd>
+
+                        <dt>
+                            Brand
+                        </dt>
+
+                        <dd>
+                            @ViewBag.ProductInfo.Element("Brand").Attribute("brand_name").Value
+                        </dd>
+
+                        <dt>
+                            Category
+                        </dt>
+
+                        <dd>
+                            @ViewBag.ProductInfo.Element("Category").Attribute("category_name").Value
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Delete" class="btn btn-default" /> |
+                            @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

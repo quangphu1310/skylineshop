@@ -221,6 +221,7 @@
     <Content Include="Assets\img\instagram\instagram-6.jpg" />
     <Content Include="Assets\img\logo-footer-sky.png" />
     <Content Include="Assets\img\logo.png" />
+    <Content Include="Assets\img\logo_icon.png" />
     <Content Include="Assets\img\logo_skyline.png" />
     <Content Include="Assets\img\payment.png" />
     <Content Include="Assets\img\product-sale.png" />
@@ -2082,15 +2083,15 @@
     <Content Include="Assets\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Global.asax" />
-    <Content Include="Models\skymodel.Context.tt">
+    <Content Include="Models\SkyShopModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>skymodel.Context.cs</LastGenOutput>
-      <DependentUpon>skymodel.edmx</DependentUpon>
+      <DependentUpon>SkyShopModel.edmx</DependentUpon>
+      <LastGenOutput>SkyShopModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\skymodel.tt">
+    <Content Include="Models\SkyShopModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>skymodel.edmx</DependentUpon>
-      <LastGenOutput>skymodel.cs</LastGenOutput>
+      <DependentUpon>SkyShopModel.edmx</DependentUpon>
+      <LastGenOutput>SkyShopModel.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -2112,66 +2113,53 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Brand.cs">
-      <DependentUpon>skymodel.tt</DependentUpon>
+      <DependentUpon>SkyShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs">
-      <DependentUpon>skymodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DetailSizePd.cs">
-      <DependentUpon>skymodel.tt</DependentUpon>
+      <DependentUpon>SkyShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Evaluation.cs">
-      <DependentUpon>skymodel.tt</DependentUpon>
+      <DependentUpon>SkyShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
-      <DependentUpon>skymodel.tt</DependentUpon>
+      <DependentUpon>SkyShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order_Detail.cs">
-      <DependentUpon>skymodel.tt</DependentUpon>
+      <DependentUpon>SkyShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs">
-      <DependentUpon>skymodel.tt</DependentUpon>
+      <DependentUpon>SkyShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductPro.cs" />
     <Compile Include="Models\Product_Image.cs">
-      <DependentUpon>skymodel.tt</DependentUpon>
+      <DependentUpon>SkyShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
-      <DependentUpon>skymodel.tt</DependentUpon>
+      <DependentUpon>SkyShopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Size.cs">
-      <DependentUpon>skymodel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\skymodel.Context.cs">
+    <Compile Include="Models\SkyShopModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>skymodel.Context.tt</DependentUpon>
+      <DependentUpon>SkyShopModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\skymodel.cs">
+    <Compile Include="Models\SkyShopModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>skymodel.tt</DependentUpon>
+      <DependentUpon>SkyShopModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\skymodel.Designer.cs">
+    <Compile Include="Models\SkyShopModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>skymodel.edmx</DependentUpon>
+      <DependentUpon>SkyShopModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>skymodel.tt</DependentUpon>
+      <DependentUpon>SkyShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <EntityDeploy Include="Models\skymodel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>skymodel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\skymodel.edmx.diagram">
-      <DependentUpon>skymodel.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\assets\fonts\fontawesome-webfont.eot" />
@@ -2193,6 +2181,13 @@
     <Content Include="Areas\Admin\Views\Orders\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <EntityDeploy Include="Models\SkyShopModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SkyShopModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SkyShopModel.edmx.diagram">
+      <DependentUpon>SkyShopModel.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutContainer.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<orders>
+  <Order id_order="1" address="Lệ Thủy" username="user1" customer="Trần Công Quang Phú" status_payment="Đã xác nhận">
+    <note>áo k nhăn nha shop iu</note>
+  </Order>
+  <Order id_order="2" address="Thừa Thiên Huế" username="user2" customer="Trương Văn Lâm" status_payment="Đã xác nhận">
+    <note>shipper giao tới bỏ trước cửa giúp mình hihi &lt;3</note>
+  </Order>
+  <Order id_order="3" address="Lệ Thủy" username="quangphuvjppro" customer="Trần Công Quang Phú" status_payment="Đã hủy">
+    <note>đá riêng</note>
+  </Order>
+  <Order id_order="4" address="61 Phạm Nhữ Tăng" username="user1" customer="Lượng ngu" status_payment="Đã hoàn thành">
+    <note>note</note>
+  </Order>
+  <Order id_order="5" address="Lệ Thủy" username="quangphuvjppro" customer="Trần Công Quang Phú" status_payment="Đã hoàn thành">
+    <note>shipper để dưới chậu cây giúp em</note>
+  </Order>
+  <Order id_order="6" address="Trần Phú - TP Huế" username="quangphuvjppro" customer="Nguyễn Vân Anh" status_payment="Đã hủy">
+    <note>anh shipper để sau chậu cây giúp em</note>
+  </Order>
+  <Order id_order="7" address="Đinh Tiên Hoàng" username="user1" customer="Lê Phước Dark" status_payment="Chờ xác nhận">
+    <note>kcj</note>
+  </Order>
+  <Order id_order="9" address="Lệ Thủy" username="quangphuvjppro" customer="Trần Công Quang Phú" status_payment="Vận chuyển">
+    <note>anh shipper ném hàng vô cửa trọ màu trắng giúp em nhé hihi tymtym</note>
+  </Order>
+  <Order id_order="10" address="61/28 Phạm Nhữ Tăng" username="quangphuvjppro" customer="Quang Phú đây" status_payment="Chờ xác nhận">
+    <note>anh ship bơ ăn cơm chưa</note>
+  </Order>
+  <Order id_order="11" address="Da Nang" username="truongvanlam" customer="Truong Van Lam" status_payment="Chờ xác nhận">
+    <note>
+    </note>
+  </Order>
+  <Order id_order="12" address="Thừa Thiên Huế" username="truongvanlam" customer="truongvanlam" status_payment="Vận chuyển">
+    <note>shop bọc kín giúp em, đồ nhạy cảm</note>
+  </Order>
+  <Order id_order="13" address="Lệ Thủy" username="truongvanlam" customer="Truong Van Lam" status_payment="Đã xác nhận">
+    <note>
+    </note>
+  </Order>
+  <Order id_order="14" address="Lệ Thủy" username="truongvanlam" customer="Truong Van Lam" status_payment="Chờ xác nhận">
+    <note>
+    </note>
+  </Order>
+  <Order id_order="15" address="Lệ Thủy" username="truongvanlam" customer="Trần Công Quang Phú" status_payment="Chờ xác nhận">
+    <note>
+    </note>
+  </Order>
+  <Order id_order="16" address="61 Phạm Nhữ Tăng" username="quangphuvjppro" customer="Trần Công Quang Phú" status_payment="Chờ xác nhận">
+    <note>đá riêng nha</note>
+  </Order>
+  <Order id_order="17" address="Le Thuy" username="quangphuvjppro" customer="Thuy Hang" status_payment="Chờ xác nhận">
+    <note>bỏ vào cửa giúp em</note>
+  </Order>
+  <Order id_order="18" address="Lệ Thủy" username="quangphuvjppro" customer="Trần Công Quang Phú" status_payment="Đã hoàn thành">
+    <note>shop bọc kín giúp em, đồ nhạy cảm</note>
+  </Order>
+  <Order id_order="19" address="Lệ Thủy" username="quangphuvjppro" customer="Trần Công Quang Phú" status_payment="Chờ xác nhận">
+    <note>ngu</note>
+  </Order>
+  <Order id_order="20" address="Lệ Thủy" username="quangphuvjppro" customer="Trần Công Quang Phú" status_payment="Chờ xác nhận">
+    <note>for quang phu</note>
+  </Order>
+  <Order id_order="21" address="Nghệ An" username="tranvanluong" customer="tranvanluong" status_payment="Đã hoàn thành">
+    <note>for quang phu</note>
+  </Order>
+  <Order id_order="22" address="Thị Xã Quảng Trị" username="tranvanduc" customer="tranvanduc" status_payment="Đã hoàn thành">
+    <note>XML</note>
+  </Order>
+</orders>

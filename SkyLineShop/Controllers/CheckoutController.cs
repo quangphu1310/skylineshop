@@ -10,11 +10,11 @@ namespace SkyLineShop.Controllers
     public class CheckoutController : Controller
     {
         // GET: Checkout
-        skyshopEntities db = new skyshopEntities();
+        skyshop2Entities db = new skyshop2Entities();
         public ActionResult Index()
         {
             var username = Session["user"] as string;
-            var user = db.User.FirstOrDefault(u => u.username == username);
+            var user = db.Users.FirstOrDefault(u => u.username == username);
             if (username != null)
             {
                 ViewBag.user = user;
@@ -27,7 +27,7 @@ namespace SkyLineShop.Controllers
         {
             
             var username = Session["user"] as string;
-            var user = db.User.FirstOrDefault(u=>u.username == username);
+            var user = db.Users.FirstOrDefault(u=>u.username == username);
             var cart = Session["CartSession"];
             var list = (List<CartItem>)cart;
             var o = new Order();
@@ -44,7 +44,7 @@ namespace SkyLineShop.Controllers
                     o.note = note;
                     o.date_create = DateTime.Now;
                     o.payment_status = "Chờ xác nhận";
-                    db.Order.Add(o);
+                    db.Orders.Add(o);
                     db.SaveChanges();
                     foreach (var item in list)
                     {

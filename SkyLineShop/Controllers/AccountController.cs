@@ -13,7 +13,7 @@ namespace SkyLineShop.Controllers
 
     public class AccountController : Controller
     {
-        skyshopEntities db = new skyshopEntities();
+        skyshop2Entities db = new skyshop2Entities();
         // GET: Account
         public ActionResult Login()
         {
@@ -26,11 +26,11 @@ namespace SkyLineShop.Controllers
         public ActionResult LoginAction(string username, string password)
         {
 
-            int user = db.User.Count(u => u.username.ToLower() == username.ToLower() && u.password == password && u.id_role == 2);
-            int admin = db.User.Count(u => u.username.ToLower() == username.ToLower() && u.password == password && u.id_role == 1);
+            int user = db.Users.Count(u => u.username.ToLower() == username.ToLower() && u.password == password && u.id_role == 2);
+            int admin = db.Users.Count(u => u.username.ToLower() == username.ToLower() && u.password == password && u.id_role == 1);
             if (user == 1)
             {
-                User u = db.User.Where(us => us.username.ToLower() == username.ToLower() && us.password == password && us.id_role == 2).FirstOrDefault();
+                User u = db.Users.Where(us => us.username.ToLower() == username.ToLower() && us.password == password && us.id_role == 2).FirstOrDefault();
                 Session["user"] = username;
                 TempData["iduser"] = u;
                 return Redirect("/Shop");
@@ -44,11 +44,11 @@ namespace SkyLineShop.Controllers
             return RedirectToAction("Login");
         }
 
-        public ActionResult registerAction(string username, string email, string phone, string password, string cpassword)
+        public ActionResult registerAction(string username,string fullname, string email, string phone, string password, string cpassword)
         {
             if (ModelState.IsValid)
             {
-                var check = db.User.FirstOrDefault(u => u.username == username || u.email == email || u.phone == phone);
+                var check = db.Users.FirstOrDefault(u => u.username == username || u.email == email || u.phone == phone);
                 if (check == null)
                 {
                     if (password == cpassword)
@@ -57,12 +57,13 @@ namespace SkyLineShop.Controllers
                         {
                             User u = new User();
                             u.id_role = 2;
+                            u.fullname = fullname;
                             u.username = username;
                             u.email = email;
                             u.phone = phone;
                             u.password = password;
 
-                            db.User.Add(u);
+                            db.Users.Add(u);
                             db.SaveChanges();
 
                             Session["user"] = username;
@@ -114,7 +115,7 @@ namespace SkyLineShop.Controllers
 
             //profile
             var username = Session["user"] as string;
-            var user = db.User.FirstOrDefault(u => u.username == username);
+            var user = db.Users.FirstOrDefault(u => u.username == username);
             ViewBag.user = user;
 
             //order
@@ -122,11 +123,11 @@ namespace SkyLineShop.Controllers
             List<Order> o = new List<Order>();
             if (type == null || type == "all")
             {
-                o = db.Order.Where(x => x.id_cust == user.id_user).OrderByDescending(x => x.id_order).ToList();
+                o = db.Orders.Where(x => x.id_cust == user.id_user).OrderByDescending(x => x.id_order).ToList();
             }
             else 
             {
-                o = db.Order.Where(x => x.id_cust == user.id_user && x.payment_status == type).OrderByDescending(x=> x.id_order).ToList();
+                o = db.Orders.Where(x => x.id_cust == user.id_user && x.payment_status == type).OrderByDescending(x=> x.id_order).ToList();
             }
             if (o != null)
             {
@@ -147,7 +148,7 @@ namespace SkyLineShop.Controllers
         public ActionResult changePass(string oldpass, string newpass, string cfnewpass, string id)
         {
             int iduser = int.Parse(id);
-            var user = db.User.FirstOrDefault(x => x.id_user == iduser);
+            var user = db.Users.FirstOrDefault(x => x.id_user == iduser);
             if (oldpass == user.password)
             {
                 if (newpass == cfnewpass)
@@ -190,17 +191,18 @@ namespace SkyLineShop.Controllers
 
         //    return RedirectToAction("profile");
         //}
-        public ActionResult updateProfile(HttpPostedFileBase avatar, string email, string username, string phone, int id)
+        public ActionResult updateProfile(HttpPostedFileBase avatar, string email, string username, string phone, string fullname, int id)
         {
-            var user = db.User.FirstOrDefault(u => u.id_user == id);
+            var user = db.Users.FirstOrDefault(u => u.id_user == id);
             if (ModelState.IsValid)
             {
-                var check = db.User.FirstOrDefault(u => (u.username == username || u.email == email || u.phone == phone) && u.id_user != user.id_user);
+                var check = db.Users.FirstOrDefault(u => (u.username == username || u.email == email || u.phone == phone) && u.id_user != user.id_user);
                 if (check == null)
                 {
                     user.email = email;
                     user.phone = phone;
                     user.username = username;
+                    user.fullname = fullname;
 
                     if (avatar != null && avatar.ContentLength > 0) // Kiểm tra avatar có dữ liệu
                     {
@@ -224,7 +226,7 @@ namespace SkyLineShop.Controllers
         }
         public ActionResult cancel(int id)
         {
-            var order = db.Order.Where(x => x.id_order == id).FirstOrDefault();
+            var order = db.Orders.Where(x => x.id_order == id).FirstOrDefault();
             order.payment_status = "Đã hủy";
             db.SaveChanges();
             TempData["status"] = "3";
@@ -232,7 +234,7 @@ namespace SkyLineShop.Controllers
         }
         public ActionResult complete(int id)
         {
-            var order = db.Order.Where(x => x.id_order == id).FirstOrDefault();
+            var order = db.Orders.Where(x => x.id_order == id).FirstOrDefault();
             order.payment_status = "Đã hoàn thành";
             db.SaveChanges();
             TempData["status"] = "3";

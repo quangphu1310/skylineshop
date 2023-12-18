@@ -15,7 +15,7 @@ namespace SkyLineShop.Areas.Admin.Controllers
 {
     public class ProductsController : Controller
     {
-        private skyshopEntities db = new skyshopEntities();
+        private skyshop2Entities db = new skyshop2Entities();
 
         // GET: Admin/Products
         public ActionResult Index()
@@ -143,7 +143,7 @@ namespace SkyLineShop.Areas.Admin.Controllers
                 p3.image = filename3;
                 db.Product_Image.Add(p3);
 
-                db.Product.Add(product);
+                db.Products.Add(product);
 
                 db.SaveChanges();
 
@@ -158,12 +158,12 @@ namespace SkyLineShop.Areas.Admin.Controllers
 
                     new XElement("Brand",
                     new XAttribute("id_brand", product.id_brand),
-                    new XAttribute("brand_name", db.Brand.Where(x => x.id_brand == product.id_brand).FirstOrDefault().brand_name)
+                    new XAttribute("brand_name", db.Brands.Where(x => x.id_brand == product.id_brand).FirstOrDefault().brand_name)
 
                 ),
                 new XElement("Category",
                     new XAttribute("id_cate", product.id_cate),
-                     new XAttribute("category_name", db.Category.Where(x => x.id_cate == product.id_cate).FirstOrDefault().cate_name)
+                     new XAttribute("category_name", db.Categories.Where(x => x.id_cate == product.id_cate).FirstOrDefault().cate_name)
                 ),
                 new XElement("Image",
                     new XAttribute("image1", filename1),
@@ -276,16 +276,16 @@ namespace SkyLineShop.Areas.Admin.Controllers
             productXElement.SetAttributeValue("price", product.price);
             productXElement.SetAttributeValue("description", product.desc);
             productXElement.Element("Brand").SetAttributeValue("id_brand", product.id_brand);
-            productXElement.Element("Brand").SetAttributeValue("brand_name", db.Brand.Where(x => x.id_brand == product.id_brand).FirstOrDefault().brand_name);
+            productXElement.Element("Brand").SetAttributeValue("brand_name", db.Brands.Where(x => x.id_brand == product.id_brand).FirstOrDefault().brand_name);
             productXElement.Element("Category").SetAttributeValue("id_cate", product.id_cate);
-            productXElement.Element("Category").SetAttributeValue("category_name", db.Category.Where(x => x.id_cate == product.id_cate).FirstOrDefault().cate_name);
+            productXElement.Element("Category").SetAttributeValue("category_name", db.Categories.Where(x => x.id_cate == product.id_cate).FirstOrDefault().cate_name);
             productXElement.Element("Image").SetAttributeValue("image1", img1);
             productXElement.Element("Image").SetAttributeValue("image2", img2);
             productXElement.Element("Image").SetAttributeValue("image3", img3);
 
             doc.Save(xmlFilePath);
 
-            var productDB = db.Product.FirstOrDefault(x => x.id_product == product.id_product);
+            var productDB = db.Products.FirstOrDefault(x => x.id_product == product.id_product);
             productDB.product_name = product.product_name;
             productDB.price = product.price;
             productDB.desc = product.desc;
@@ -294,7 +294,7 @@ namespace SkyLineShop.Areas.Admin.Controllers
             db.SaveChanges();
 
             var p1 = db.Product_Image.Where(x => x.id_product == product.id_product).ToList();
-            if (p1.Count >= 3)
+            if (p1.Count() >= 3)
             {
                 p1[0].image = img1;
                 p1[1].image = img2;
@@ -354,8 +354,8 @@ namespace SkyLineShop.Areas.Admin.Controllers
             doc.Save(xmlFilePath);
 
 
-            Product product = db.Product.Find(id);
-            db.Product.Remove(product);
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -372,16 +372,15 @@ namespace SkyLineShop.Areas.Admin.Controllers
 
         public void ConvertXMl()
         {
-            var products = db.Product
+            var products = db.Products
                 .Include(p => p.Brand)
                 .Include(p => p.Category)
                 .Include(p => p.Product_Image)
-                .Include(p => p.Evaluation)
+                .Include(p => p.Evaluations)
                 .Include(p => p.Order_Detail)
-                .Include(p => p.DetailSizePd)
                 .ToList();
-            var brands = db.Brand.ToList();
-            var cates = db.Category.ToList();
+            var brands = db.Brands.ToList();
+            var cates = db.Categories.ToList();
 
             // Tạo XmlDocument mới với khai báo XML version và encoding
             XmlDocument xmlDoc = new XmlDocument();

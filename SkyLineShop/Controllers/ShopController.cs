@@ -11,7 +11,7 @@ namespace SkyLineShop.Controllers
 {
     public class ShopController : Controller
     {
-        skyshopEntities db = new skyshopEntities();
+        skyshop2Entities db = new skyshop2Entities();
         // GET: Shop
         public ActionResult Index(int? categoryID, int? brandID, string search, int? page, int? pageSize)
         {
@@ -23,11 +23,11 @@ namespace SkyLineShop.Controllers
             string filter = TempData["filter"] as string;
             ViewBag.brandID = brandID;
             ViewBag.categoryID = categoryID;
-            ViewBag.Category = db.Category.ToList();
-            ViewBag.Brand = db.Brand.ToList();
-            var query = from p in db.Product
+            ViewBag.Category = db.Categories.ToList();
+            ViewBag.Brand = db.Brands.ToList();
+            var query = from p in db.Products
                         join m in db.Product_Image on p.id_product equals m.id_product
-                        join b in db.Brand on p.id_brand equals b.id_brand
+                        join b in db.Brands on p.id_brand equals b.id_brand
                         where (categoryID == null || p.id_cate == categoryID)
                         && (brandID == null || p.id_brand == brandID)
                         && (p.product_name.ToLower().Contains(search.ToLower()) || search == null)
@@ -63,10 +63,10 @@ namespace SkyLineShop.Controllers
 
         public ActionResult ProductDetail(int idProduct)
         {
-            Product pro = db.Product.FirstOrDefault(p => p.id_product == idProduct);
+            Product pro = db.Products.FirstOrDefault(p => p.id_product == idProduct);
             ViewBag.Product = pro;
             ViewBag.Img = db.Product_Image.Where(m => m.id_product == idProduct).ToList();
-            ViewBag.relatedProduct = db.Product.Where(x => (x.id_cate == pro.id_cate && x.id_product != pro.id_product)).Take(4).ToList();
+            ViewBag.relatedProduct = db.Products.Where(x => (x.id_cate == pro.id_cate && x.id_product != pro.id_product)).Take(4).ToList();
             return View();
         }
         public ActionResult Filter(string priceSortSelect)

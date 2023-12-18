@@ -17,22 +17,23 @@ namespace SkyLineShop.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Evaluation = new HashSet<Evaluation>();
-            this.Order = new HashSet<Order>();
+            this.Evaluations = new HashSet<Evaluation>();
+            this.Orders = new HashSet<Order>();
         }
     
         public int id_user { get; set; }
         public string username { get; set; }
+        public string fullname { get; set; }
         public string email { get; set; }
         public string phone { get; set; }
         public string password { get; set; }
-        public Nullable<int> id_role { get; set; }
         public string avatar_user { get; set; }
+        public Nullable<int> id_role { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Evaluation> Evaluation { get; set; }
+        public virtual ICollection<Evaluation> Evaluations { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
         public virtual Role Role { get; set; }
     }
 }

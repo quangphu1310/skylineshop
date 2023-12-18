@@ -2,12 +2,12 @@
 <html lang="zxx">
 <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Male_Fashion Template" />
-    <meta name="keywords" content="Male_Fashion, unica, creative, html" />
+    <meta name="description" content="SkyLineShop - Male Your Fashion" />
+    <meta name="keywords" content="SkyLineShop, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>@ViewBag.Title</title>
-
+    <link rel="shortcut icon" type="image/x-icon" href="~/Assets/img/logo_icon.png" />
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
           rel="stylesheet" />
@@ -64,9 +64,9 @@
                                     string path = "";
                                     if (HttpContext.Current.Session["user"] != null)
                                     {
-                                        SkyLineShop.Models.skyshopEntities db = new SkyLineShop.Models.skyshopEntities();
+                                        SkyLineShop.Models.skyshop2Entities db = new SkyLineShop.Models.skyshop2Entities();
                                         user = HttpContext.Current.Session["user"].ToString();
-                                        var u = db.User.FirstOrDefault(x => x.username == user);
+                                        var u = db.Users.FirstOrDefault(x => x.username == user);
                                         path = "/Account/profile";
                                     }
                                     else
