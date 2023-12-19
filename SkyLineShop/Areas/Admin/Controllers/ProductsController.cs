@@ -255,20 +255,26 @@ namespace SkyLineShop.Areas.Admin.Controllers
             string img2 = productXElement.Element("Image").Attribute("image2").Value;
             string img3 = productXElement.Element("Image").Attribute("image3").Value;
 
-            if (name1 != null && name2 != null && name3 != null)
+            
+            if (name1 != null) 
             {
                 string filename1 = Path.GetFileName(name1.FileName);
                 string path1 = Path.Combine(Server.MapPath("~/Assets/img/product/"), filename1);
                 name1.SaveAs(path1);
+                img1 = filename1;
+            }
+            if (name2 != null)
+            {
                 string filename2 = Path.GetFileName(name2.FileName);
                 string path2 = Path.Combine(Server.MapPath("~/Assets/img/product/"), filename2);
                 name2.SaveAs(path2);
+                img2 = filename2;
+            }
+            if (name3 != null)
+            {
                 string filename3 = Path.GetFileName(name3.FileName);
                 string path3 = Path.Combine(Server.MapPath("~/Assets/img/product/"), filename3);
                 name3.SaveAs(path3);
-
-                img1 = filename1;
-                img2 = filename2;
                 img3 = filename3;
             }
 

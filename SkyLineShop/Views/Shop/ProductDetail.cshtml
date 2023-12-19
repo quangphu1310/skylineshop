@@ -31,9 +31,9 @@
                         @foreach (var a in ViewBag.Img)
                         {
                             imageUrls[index] = a.image;
-                            <li class="nav-item quangla">
-                                <a class="nav-link active"
-                                   data-toggle="tab-@i"
+                            <li class="nav-item">
+                                <a class="nav-link@(i==1 ? " active": "")"
+                                   data-toggle="tab"
                                    href="#tabs-@i"
                                    role="tab">
                                     <div class="product__thumb__pic set-bg"
@@ -50,7 +50,7 @@
                     <div class="tab-content">
                         @foreach (var a in ViewBag.Img)
                         {
-                            <div class="tab-pane quangphu @(j==1 ? "active": "")" id="tabs-@j" role="tabpanel">
+                            <div class="tab-pane@(j==1 ? " active": "")" id="tabs-@j" role="tabpanel" >
                                 <div class="product__details__pic__item">
                                     <img src="/Assets/img/product/@a.image" alt="" />
                                 </div>
@@ -297,8 +297,25 @@
                             @*<span class="label">New</span>*@
                             <ul class="product__hover">
                                 <li>
-                                    <a href="#"><img src="/Assets/img/icon/cart.png" alt="" /></a>
-                                    <span>Add To Cart</span>
+                                    @{
+                                        var sizeName = "";
+                                    }
+                                    @if (item.id_cate == 1 || item.id_cate == 2)
+                                    {
+                                        sizeName = "M";
+                                    }
+                                    else if (item.id_cate == 3)
+                                    {
+                                        sizeName = "40";
+                                    }
+                                    <a href="#" class="add-to-cart-button-2"
+                                       data-product-id="@item.id_product"
+                                       data-quantity="1"
+                                       data-size="@sizeName"
+                                       data-image="@productImage.image">
+                                        <img src="/Assets/img/icon/cart.png" alt="" />
+                                        <span>Add to Cart</span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
@@ -340,6 +357,64 @@
                 var productID = $(this).data("product-id");
                 var quantity = $("#quantity_detial").val();
                 var size = $("input[name='size-radio']:checked").val();
+                var image = $(this).data("image");
+
+                $.ajax({
+                    url: '/Cart/AddItem', // Điều hướng tới action xử lý thêm sản phẩm vào giỏ hàng
+                    method: 'POST',
+                    data: {
+                        productid: productID,
+                        quantity: quantity,
+                        size: size,
+                        image: image
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            // Thực hiện các hành động sau khi thêm sản phẩm thành công
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-right',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                timerProgressBar: true,
+                                didOpen: (toast) => {
+                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                }
+                            })
+
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Thêm vào giỏ hàng thành công'
+                            })
+                            var itemCount = response.countCart;
+                            $('#CartCount').text(itemCount);
+                        } else {
+                            // Xử lý khi có lỗi
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'Something went wrong!'
+                            })
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        // Xử lý khi có lỗi Ajax
+                        alert("Lỗi Ajax: " + error);
+                    }
+                });
+            });
+        });
+
+
+        //dùng ajax cho giỏ hàng
+        $(document).ready(function () {
+            $(".add-to-cart-button-2").click(function (e) {
+                e.preventDefault();
+
+                var productID = $(this).data("product-id");
+                var quantity = $(this).data("quantity");
+                var size = $(this).data("size");
                 var image = $(this).data("image");
 
                 $.ajax({

@@ -109,9 +109,9 @@
                                 <form action="~/Shop/Filter">
                                     <p>Sắp xếp theo giá:</p>
                                     <select id="priceSortSelect" name="priceSortSelect" onchange="submitForm()">
-                                        <option value="" @(ViewBag.Filter == "" ? "seleted" : "")>Mặc định</option>
-                                        <option value="0" @(ViewBag.Filter == "0" ? "seleted" : "")>Thấp đến Cao</option>
-                                        <option value="1" @(ViewBag.Filter == "1" ? "seleted" : "")>Cao đến thấp</option>
+                                        <option value="" @(ViewBag.Filter == "" ? "selected" : "")>Mặc định</option>
+                                        <option value="0" @(ViewBag.Filter == "0" ? "selected" : "")>Thấp đến Cao</option>
+                                        <option value="1" @(ViewBag.Filter == "1" ? "selected" : "")>Cao đến thấp</option>
                                     </select>
                                 </form>
 

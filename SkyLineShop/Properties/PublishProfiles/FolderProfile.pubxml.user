@@ -4,22 +4,22 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>E:\SkylinedotNet\Publish\ver1</_PublishTargetUrl>
-    <History>True|2023-12-16T16:50:30.0892186Z;</History>
+    <_PublishTargetUrl>E:\SkylinedotNet\Publish\ver2</_PublishTargetUrl>
+    <History>True|2023-12-19T15:31:28.6080864Z;True|2023-12-19T22:30:15.2800291+07:00;True|2023-12-16T23:50:30.0892186+07:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/brand.xml">
-      <publishTime>12/16/2023 17:52:59</publishTime>
+      <publishTime>12/19/2023 20:59:29</publishTime>
     </File>
     <File Include="App_Data/category.xml">
-      <publishTime>12/16/2023 17:52:59</publishTime>
+      <publishTime>12/19/2023 20:59:29</publishTime>
     </File>
     <File Include="App_Data/order.xml">
       <publishTime>12/16/2023 17:52:59</publishTime>
     </File>
     <File Include="App_Data/product.xml">
-      <publishTime>12/16/2023 18:14:05</publishTime>
+      <publishTime>12/19/2023 21:05:39</publishTime>
     </File>
     <File Include="App_Data/user.xml">
       <publishTime>12/16/2023 17:52:59</publishTime>
@@ -181,7 +181,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/16/2023 17:52:59</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Products/Create.cshtml">
-      <publishTime>12/16/2023 17:52:59</publishTime>
+      <publishTime>12/19/2023 20:58:28</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Products/Delete.cshtml">
       <publishTime>12/16/2023 17:52:59</publishTime>
@@ -190,7 +190,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/16/2023 17:52:59</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Products/Edit.cshtml">
-      <publishTime>12/16/2023 17:52:59</publishTime>
+      <publishTime>12/19/2023 20:56:55</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Products/Index.cshtml">
       <publishTime>12/16/2023 17:52:59</publishTime>
@@ -425,6 +425,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Assets/img/logo.png">
       <publishTime>12/16/2023 17:52:59</publishTime>
+    </File>
+    <File Include="Assets/img/logo_icon.png">
+      <publishTime>12/18/2023 09:07:20</publishTime>
     </File>
     <File Include="Assets/img/logo_skyline.png">
       <publishTime>12/16/2023 17:52:59</publishTime>
@@ -6169,10 +6172,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/16/2023 17:53:01</publishTime>
     </File>
     <File Include="bin/SkyLineShop.dll">
-      <publishTime>12/16/2023 23:50:18</publishTime>
+      <publishTime>12/19/2023 22:31:22</publishTime>
     </File>
     <File Include="bin/SkyLineShop.pdb">
-      <publishTime>12/16/2023 23:50:18</publishTime>
+      <publishTime>12/19/2023 22:31:22</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>12/16/2023 17:53:00</publishTime>
@@ -6214,7 +6217,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/16/2023 17:53:00</publishTime>
     </File>
     <File Include="Views/Cart/Index.cshtml">
-      <publishTime>12/16/2023 23:10:18</publishTime>
+      <publishTime>12/19/2023 22:06:42</publishTime>
     </File>
     <File Include="Views/Checkout/Index.cshtml">
       <publishTime>12/16/2023 21:40:25</publishTime>
@@ -6226,19 +6229,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/16/2023 17:53:00</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutContainer.cshtml">
-      <publishTime>12/16/2023 21:29:19</publishTime>
+      <publishTime>12/19/2023 21:26:45</publishTime>
     </File>
     <File Include="Views/Shop/Index.cshtml">
-      <publishTime>12/16/2023 17:53:00</publishTime>
+      <publishTime>12/19/2023 19:58:26</publishTime>
     </File>
     <File Include="Views/Shop/ProductDetail.cshtml">
-      <publishTime>12/16/2023 17:53:00</publishTime>
+      <publishTime>12/19/2023 22:16:23</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>12/16/2023 17:53:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/16/2023 23:50:21</publishTime>
+      <publishTime>12/19/2023 22:30:14</publishTime>
     </File>
   </ItemGroup>
 </Project>

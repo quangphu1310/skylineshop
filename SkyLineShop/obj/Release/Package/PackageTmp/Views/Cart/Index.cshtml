@@ -74,7 +74,7 @@
                                             <td class="cart__price size">
                                                 @if (item.Product.id_cate == 1 || item.Product.id_cate == 2)
                                                 {
-                                                    <select name="sizeSelect">
+                                                    <select name="sizeSelect" data-previous-size="@item.Size">
                                                         <option value="M" @(item.Size == "M" ? "selected" : "")>M</option>
                                                         <option value="L" @(item.Size == "L" ? "selected" : "")>L</option>
                                                         <option value="XL" @(item.Size == "XL" ? "selected" : "")>XL</option>
@@ -83,7 +83,7 @@
                                                 }
                                                 else if (item.Product.id_cate == 3)
                                                 {
-                                                    <select name="sizeSelect">
+                                                    <select name="sizeSelect" data-previous-size="@item.Size">
                                                         <option value="39" @(item.Size == "39" ? "selected" : "")>39</option>
                                                         <option value="40" @(item.Size == "40" ? "selected" : "")>40</option>
                                                         <option value="41" @(item.Size == "41" ? "selected" : "")>41</option>
@@ -93,7 +93,7 @@
 
                                             </td>
                                             @{ string classPrice = @item.Product.id_product + "_" + @item.Size;}
-                                            <td class="cart__price total_item_@classPrice">@String.Format("{0:0,0}", (item.Product.price * item.Quantity))</td>
+                                            <td class="cart__price size-custom_@classPrice total_item_@classPrice">@String.Format("{0:0,0}", (item.Product.price * item.Quantity))</td>
                                             
                                             <td class="cart__close remove_product" data-product-id="@item.Product.id_product">
                                                 <a href="#">
@@ -244,6 +244,8 @@
 
                             // Cập nhật số lượng sản phẩm trong giỏ hàng
                             $('#CartCount').text(response.countCart);
+
+
                         }
                     },
                     error: function () {
@@ -256,6 +258,7 @@
 
         $(document).ready(function () {
             $(".cart__price").on("change", "select[name='sizeSelect']", function () {
+                var previousSizeValue = $(this).data("previous-size");
                 var sizeValue = $(this).val();
                 var productID = $(this).closest("tr").find(".remove_product").data("product-id");
 
@@ -273,6 +276,17 @@
 
                             // Thiết lập giá trị mới cho dropdown
                             $(dropdownId).val(sizeValue);
+
+                            var classfinal = '.size-custom_' + productID + "_" + previousSizeValue;
+
+                            var newClass = 'total_item_' + productID + "_" + sizeValue;
+
+                            // Kiểm tra xem lớp mới đã tồn tại trong phần tử hay chưa
+                            if (!$(classfinal).hasClass(newClass)) {
+                                $(classfinal).removeClass('total_item_' + productID + "_" + previousSizeValue)
+                                    .addClass(newClass);
+                            }
+                    
                         }
                     },
                     error: function () {

@@ -19,8 +19,9 @@ namespace SkyLineShop.Controllers
             {
                 page = 1;
             }
-            pageSize = 9; 
+            pageSize = 9;
             string filter = TempData["filter"] as string;
+            //string filter = priceSortSelect;
             ViewBag.brandID = brandID;
             ViewBag.categoryID = categoryID;
             ViewBag.Category = db.Categories.ToList();
